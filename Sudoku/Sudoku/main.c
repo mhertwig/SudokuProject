@@ -9,11 +9,7 @@ Compiler: 			VS12
 #define _CRT_SECURE_NO_WARNINGS
 
 // Include
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
-#include <ctype.h>
+#include "include.h"
 //#include "sqlite3.h"
 
 
