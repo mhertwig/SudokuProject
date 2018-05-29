@@ -118,23 +118,7 @@ int register_user(void)
 
 int main(void)
 {
-	int imenu;
-	int ilogin;
-
-	imenu = menu();
-	if (imenu == 1)
-	{
-		// Starte login
-		ilogin = login();
-
-		// Gebe Loginreturn aus
-		//printf("Return = %i\n", ilogin);
-		printf("\nSpielername oder Passwort stimmen nicht ueberein!\n\n");
-	}
-	else
-	{
-		register_user();
-	}
+	
 
 
 	system("Pause");
