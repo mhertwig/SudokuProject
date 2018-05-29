@@ -27,10 +27,10 @@ Variablen
 ================================================
 */
 
-		char spielername[MAX];
-		char passwort[MAX];
-		char nachname[MAX];
-		char vorname[MAX];
+		char spielername[20];
+		char passwort[10];
+		char nachname[20];
+		char vorname[20];
 /*
 ================================================
 Funktion register_user
