@@ -29,5 +29,11 @@
     <ClInclude Include="menu.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="include.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="openRules.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

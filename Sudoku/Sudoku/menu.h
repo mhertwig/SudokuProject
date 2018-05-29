@@ -37,7 +37,7 @@ void menu(void)
 	{
 	case 1:
 		// Schnellstart
-		
+
 		break;
 
 	case 2:
@@ -66,8 +66,9 @@ void menu(void)
 		// Beenden
 		exit(0);
 
-	default: 
+	default:
 		menu();
 	}
-	
 
+
+}
