@@ -5,8 +5,10 @@
 #include <ctype.h>
 #include <windows.h>
 
-#include "sqlite3.h"
 
+
+
+#include "sqlite3.h"
 #include "menu.h"
 #include "openRules.h"
 

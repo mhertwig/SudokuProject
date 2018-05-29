@@ -9,6 +9,7 @@ int menu()
 
 	do
 	{
+		system("cls");
 		printf("(1) Schnellstart\n\n");
 		printf("(2) Neues Spiel starten\n\n");
 		printf("(3) Login\n");
@@ -57,10 +58,16 @@ void funk(void)
 
 	case 6:
 		// Regeln anzeigen
+		openFile();
+		menu();
 		break;
 
 	case 7:
 		// Beenden
 		exit(0);
+
+	default: 
+		menu();
 	}
+	
 
