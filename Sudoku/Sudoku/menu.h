@@ -52,7 +52,7 @@ void menu(void)
 		case 4:
 			// Benutzer anlegen
 			printf("\t\033[4mRegistrierung\n\n");
-			register_user(spielername, passwort, nachname, vorname);
+			register_user(sUser, sPasswort, sNachname, sVorname);
 			
 			schleife = 0;
 			break;

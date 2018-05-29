@@ -70,7 +70,7 @@ int register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname)
 	}
 }
 
-void scan(char *spielername, char *sPasswort, char *sNachname, char *sVorname) {
+void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 
 	printf("\tUsername: ");
 	scanf("%s", sUser);
