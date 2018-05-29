@@ -4,12 +4,13 @@ void sudoku_header(void)
 {
 	char sName[26] = "Christian";
 
+	/*if(sUser != NULL)
 	for (int i = 0; i<25; i++) {
 		if (sName[i] == NULL)
 		{
 			sName[i] = ' ';
 		}
-	}
+	}*/
 
 	char cObenRechtEcke = 201;		// ╔
 	char cUntenRechtEcke = 200;		// ╚
@@ -39,7 +40,10 @@ void sudoku_header(void)
 		cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch,
 		cHoch, cHoch, cHoch, cHoch, cHoch);
 
-	printf("\t  %c\t\tBenutzer: %s%c\n",cHoch, sName, cHoch);
+	
+		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sName, cHoch);
+	
+	
 
 	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
 		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n\n\n", cUntenRechtEcke,
