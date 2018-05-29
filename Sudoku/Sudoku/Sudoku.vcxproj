@@ -114,6 +114,8 @@
     <ClCompile Include="sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Desktop\login.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\registrierung.h" />
     <ClInclude Include="include.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="openRules.h" />
