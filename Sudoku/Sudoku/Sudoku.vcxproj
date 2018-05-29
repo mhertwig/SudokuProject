@@ -114,11 +114,11 @@
     <ClCompile Include="sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\login.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\registrierung.h" />
     <ClInclude Include="include.h" />
+    <ClInclude Include="login.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="openRules.h" />
+    <ClInclude Include="registrierung.h" />
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="Sudoku_header.h" />
   </ItemGroup>

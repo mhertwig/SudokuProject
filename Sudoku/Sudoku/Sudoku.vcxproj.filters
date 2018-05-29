@@ -38,10 +38,10 @@
     <ClInclude Include="Sudoku_header.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\login.h">
+    <ClInclude Include="login.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\registrierung.h">
+    <ClInclude Include="registrierung.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
