@@ -10,13 +10,23 @@ int menuAusgabe()
 	do
 	{
 		system("cls");
-		printf("(1) Schnellstart\n\n");
-		printf("(2) Neues Spiel starten\n\n");
-		printf("(3) Login\n");
-		printf("(4) Benutzer anlegen\n\n");
-		printf("(5) Bestenliste\n\n");
-		printf("(6) Regeln anzeigen\n\n");
-		printf("(7) Beenden\n\n");
+		printf("\n\n");
+		printf("\t   ___           _       _			\n"
+			"\t  / __|         | |     | |         \n"
+			"\t | (_  _   _  _| | __ | | _   _ \n"
+			"\t  \\___ \\| | | |/ _` |/ _ \\| |/ / | | |\n"
+			"\t  _) | || | (| | () |   <| |_| |\n"
+			"\t |__/ \\,|\\_,|\\__/||\\_\\\\_,|\n");
+
+
+
+		printf("\t(1) Schnellstart\n\n");
+		printf("\t(2) Neues Spiel starten\n\n");
+		printf("\t(3) Login\n");
+		printf("\t(4) Benutzer anlegen\n\n");
+		printf("\t(5) Bestenliste\n\n");
+		printf("\t(6) Regeln anzeigen\n\n");
+		printf("\t(7) Beenden\n\n");
 		fflush(stdin);
 		iError = scanf("%i", &imenu);
 	} while (iError == 0 || imenu < 1 || imenu > 7);
@@ -70,5 +80,5 @@ void menu(void)
 		menu();
 	}
 
-
 }
+
