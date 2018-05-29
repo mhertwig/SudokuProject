@@ -7,7 +7,11 @@
 
 
 
+
 #include "sqlite3.h"
+
+#include "registrierung.h"
+#include "login.h"
 #include "Sudoku_header.h"
 #include "openRules.h"
 #include "menu.h"

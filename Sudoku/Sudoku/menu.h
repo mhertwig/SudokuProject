@@ -44,13 +44,13 @@ void menu(void)
 
 		case 3:
 			// Login
-			//login_user();
+			login_user();
 			schleife = 0;
 			break;
 
 		case 4:
 			// Benutzer anlegen
-			//register_user();
+			register_user(spielername, passwort, nachname, vorname);
 			schleife = 0;
 			break;
 
