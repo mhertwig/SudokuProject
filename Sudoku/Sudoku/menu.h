@@ -2,7 +2,7 @@
 
 
 
-int menu()
+int menuAusgabe()
 {
 	int imenu;
 	int iError = 0;
@@ -28,10 +28,10 @@ int menu()
 	return imenu;
 }
 
-void funk(void)
+void menu(void)
 {
 	int imenu;
-	imenu = menu();
+	imenu = menuAusgabe();
 
 	switch (imenu)
 	{
