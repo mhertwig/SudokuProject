@@ -44,14 +44,14 @@ void menu(void)
 
 		case 3:
 			// Login
-			printf("\t\033[4mLogin\n\n");
+			printf("\t\033[4mLogin\033[\n\n");
 			login_user();
 			schleife = 0;
 			break;
 
 		case 4:
 			// Benutzer anlegen
-			printf("\t\033[4mRegistrierung\n\n");
+			printf("\t\033[4mRegistrierung\033[\n\n");
 			register_user(sUser, sPasswort, sNachname, sVorname);
 			
 			schleife = 0;
