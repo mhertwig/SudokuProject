@@ -1,84 +1,77 @@
-//menu.h
+﻿//menu.h
 
 
 
-int menuAusgabe()
+void menu(void)
 {
 	int imenu;
 	int iError = 0;
+	int schleife = 1;
+
+
+
 
 	do
 	{
 		system("cls");
 		printf("\n\n");
-		printf("\t   ___           _       _			\n"
-			"\t  / __|         | |     | |         \n"
-			"\t | (_  _   _  _| | __ | | _   _ \n"
-			"\t  \\___ \\| | | |/ _` |/ _ \\| |/ / | | |\n"
-			"\t  _) | || | (| | () |   <| |_| |\n"
-			"\t |__/ \\,|\\_,|\\__/||\\_\\\\_,|\n");
+		sudoku_header();
 
+		printf("\t\t(1) Schnellstart\n\n");
+		printf("\t\t(2) Neues Spiel starten\n\n");
+		printf("\t\t(3) Login\n\n");
+		printf("\t\t(4) Benutzer anlegen\n\n");
+		printf("\t\t(5) Bestenliste\n\n");
+		printf("\t\t(6) Regeln anzeigen\n\n");
+		printf("\t\t(7) Beenden\n\n\n");
 
-
-		printf("\t(1) Schnellstart\n\n");
-		printf("\t(2) Neues Spiel starten\n\n");
-		printf("\t(3) Login\n");
-		printf("\t(4) Benutzer anlegen\n\n");
-		printf("\t(5) Bestenliste\n\n");
-		printf("\t(6) Regeln anzeigen\n\n");
-		printf("\t(7) Beenden\n\n");
+		printf("\tEingabe: ");
 		fflush(stdin);
-		iError = scanf("%i", &imenu);
-	} while (iError == 0 || imenu < 1 || imenu > 7);
+		iError = scanf_s("%i", &imenu);
 
-	printf("\n");
+		switch (imenu)
+		{
+		case 1:
+			// Schnellstart
 
-	system("Pause");
+			schleife = 0;
+			break;
 
-	return imenu;
+		case 2:
+			// Neues Spiel starten
+			schleife = 0;
+			break;
+
+		case 3:
+			// Login
+			schleife = 0;
+			break;
+
+		case 4:
+			// Benutzer anlegen
+			schleife = 0;
+			break;
+
+		case 5:
+			// Bestenliste
+			schleife = 0;
+			break;
+
+		case 6:
+			// Regeln anzeigen
+			openFile();
+			break;
+
+		case 7:
+			// Beenden
+			exit(0);
+
+		default:
+			break;
+		}
+	} while (schleife == 1);
+	
 }
 
-void menu(void)
-{
-	int imenu;
-	imenu = menuAusgabe();
 
-	switch (imenu)
-	{
-	case 1:
-		// Schnellstart
-
-		break;
-
-	case 2:
-		// Neues Spiel starten
-		break;
-
-	case 3:
-		// Login
-		break;
-
-	case 4:
-		// Benutzer anlegen
-		break;
-
-	case 5:
-		// Bestenliste
-		break;
-
-	case 6:
-		// Regeln anzeigen
-		openFile();
-		menu();
-		break;
-
-	case 7:
-		// Beenden
-		exit(0);
-
-	default:
-		menu();
-	}
-
-}
 

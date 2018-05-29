@@ -8,6 +8,7 @@
 
 
 #include "sqlite3.h"
+#include "Sudoku_header.h"
 #include "openRules.h"
 #include "menu.h"
 

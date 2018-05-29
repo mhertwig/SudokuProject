@@ -19,6 +19,7 @@ int main(void)
 
 
 	system("Pause");
+	return 0;
 }
 
 

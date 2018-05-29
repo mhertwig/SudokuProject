@@ -35,5 +35,8 @@
     <ClInclude Include="openRules.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Sudoku_header.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

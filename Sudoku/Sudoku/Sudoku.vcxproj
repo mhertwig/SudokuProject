@@ -118,6 +118,7 @@
     <ClInclude Include="menu.h" />
     <ClInclude Include="openRules.h" />
     <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="Sudoku_header.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
