@@ -36,6 +36,7 @@ void funk(void)
 	{
 	case 1:
 		// Schnellstart
+		
 		break;
 
 	case 2:
