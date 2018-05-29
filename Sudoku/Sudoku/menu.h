@@ -50,7 +50,7 @@ void menu(void)
 
 		case 4:
 			// Benutzer anlegen
-			register_user(spielername, passwort, nachname, vorname);
+			register_user(sUser, sPasswort, sNachname, sVorname);
 			schleife = 0;
 			break;
 

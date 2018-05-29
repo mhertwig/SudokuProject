@@ -25,8 +25,8 @@ Funktion login_user
 */
 
 int login_user() {
-	char spielername[MAX];
-	char passwort[MAX];
+	char sUser[26];
+	char sPasswort[20];
 
 	char *sql;
 	char *zErrMsg;
@@ -39,13 +39,13 @@ int login_user() {
 	int flag = 0;
 	do {
 		flag = 0;
-		printf("Spielername:");
+		printf("\tSpielername: ");
 		fflush(stdin);
-		scanf("%s", spielername);
+		scanf("%s", sUser);
 
-		printf("Passwort:");
+		printf("\tPasswort: ");
 		fflush(stdin);
-		scanf("%s", passwort);
+		scanf("%s", sPasswort);
 
 		/*
 		================================================
@@ -53,15 +53,15 @@ int login_user() {
 		================================================
 		*/
 		char keyToEncrypt = 's';
-		int pwLaenge = strlen(passwort);
+		int pwLaenge = strlen(sPasswort);
 
 		for (int temp = 0; temp < pwLaenge; temp++) {
-			passwort[temp] ^= keyToEncrypt;
+			sPasswort[temp] ^= keyToEncrypt;
 		}
 
 
 
-		sql = sqlite3_mprintf("SELECT spielername FROM benutzer WHERE spielername = '%s'", spielername);
+		sql = sqlite3_mprintf("SELECT user FROM benutzer WHERE user = '%s'", sUser);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
@@ -74,7 +74,7 @@ int login_user() {
 			sqlite3_close(db_handle);
 		}
 
-		sql = sqlite3_mprintf("SELECT passwort FROM benutzer WHERE spielername = '%s' AND passwort = '%s'", spielername, passwort);
+		sql = sqlite3_mprintf("SELECT sPasswort FROM benutzer WHERE sUser = '%s' AND sPasswort = '%s'", sUser, sPasswort);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
@@ -88,7 +88,7 @@ int login_user() {
 		}
 
 		if (flag == 0) {
-			sql = sqlite3_mprintf("SELECT user_id,spielername FROM benutzer WHERE spielername = '%s'", spielername);
+			sql = sqlite3_mprintf("SELECT user_id, user FROM benutzer WHERE user = '%s'", sUser);
 
 			rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
@@ -103,15 +103,15 @@ int login_user() {
 		}
 		if (flag < 0) {
 			if (flag == -1) {
-				printf("Falscher Benutzername!\n");
+				printf("\tFalscher Benutzername!\n");
 			}
 			if (flag == -2) {
-				printf("Falsches Passwort!\n");
+				printf("\tFalsches Passwort!\n");
 			}
 
 		}
 
 	} while (flag < 0);
-	printf("Erfolgreich eingeloggt!\n");
+	printf("\tErfolgreich eingeloggt!\n");
 	return flag;
 }

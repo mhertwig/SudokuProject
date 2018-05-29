@@ -18,8 +18,8 @@ Praeprozessoranweisungen
 Funktionsprototypen
 ================================================
 */
-int register_user(char *spielername, char *passwort, char *nachname, char *vorname);
-void scan(char *spielername, char *passwort, char *nachname, char *vorname);
+int register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
+void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 
 /*
 ================================================
@@ -27,29 +27,29 @@ Variablen
 ================================================
 */
 
-		char spielername[20];
-		char passwort[10];
-		char nachname[20];
-		char vorname[20];
+		char sUser[20];
+		char sPasswort[10];
+		char sNachname[20];
+		char sVorname[20];
 /*
 ================================================
 Funktion register_user
 ================================================
 */
 
-int register_user(char *spielername, char *passwort, char *nachname, char *vorname) {
+int register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 
 	char *sql;
 	char *zErrMsg;
 	sqlite3 *db_handle;
 	int rc;
 
-	scan(spielername, passwort, nachname, vorname);
+	scan(sUser, sPasswort, sNachname, sVorname);
 
 	rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 	sql = sqlite3_mprintf("INSERT INTO benutzer VALUES (NULL, %Q, %Q, %Q, %Q, \
-				date('now'));", spielername, passwort, nachname, vorname);
+				date('now'));", sUser, sPasswort, sNachname, sVorname);
 
 	if (rc == SQLITE_OK)
 	{
@@ -57,7 +57,7 @@ int register_user(char *spielername, char *passwort, char *nachname, char *vorna
 		if (rc == SQLITE_OK)
 		{
 			sqlite3_close(db_handle);
-			printf("User erfolgreich erstellt!\n\n\n\n\n");
+			printf("\tUser erfolgreich erstellt!\n\n\n\n\n");
 			return 0;
 		}
 		else {
@@ -70,13 +70,13 @@ int register_user(char *spielername, char *passwort, char *nachname, char *vorna
 	}
 }
 
-void scan(char *spielername, char *passwort, char *nachname, char *vorname) {
+void scan(char *spielername, char *sPasswort, char *sNachname, char *sVorname) {
 
-	printf("Spielername:");
-	scanf("%s", spielername);
+	printf("\tUsername: ");
+	scanf("%s", sUser);
 
-	printf("Passwort:");
-	scanf("%s", passwort);
+	printf("\tPasswort: ");
+	scanf("%s", sPasswort);
 
 	/*
 	================================================
@@ -84,17 +84,17 @@ void scan(char *spielername, char *passwort, char *nachname, char *vorname) {
 	================================================
 	*/
 	char keyToEncrypt = 's';
-	int pwLaenge = strlen(passwort);
+	int pwLaenge = strlen(sPasswort);
 
 	for (int temp = 0; temp < pwLaenge; temp++) {
-		passwort[temp] ^= keyToEncrypt;
+		sPasswort[temp] ^= keyToEncrypt;
 	}
 
 
 
-	printf("Nachname:");
-	scanf("%s", nachname);
+	printf("\tNachname: ");
+	scanf("%s", sNachname);
 
-	printf("Vorname:");
-	scanf("%s", vorname);
+	printf("\tVorname: ");
+	scanf("%s", sVorname);
 }
