@@ -28,7 +28,7 @@ void menu(void)
 		printf("\tEingabe: ");
 		fflush(stdin);
 		iError = scanf_s("%i", &imenu);
-
+		printf("\n");
 		switch (imenu)
 		{
 		case 1:
@@ -44,13 +44,16 @@ void menu(void)
 
 		case 3:
 			// Login
+			printf("\t\033[4mLogin\n\n");
 			login_user();
 			schleife = 0;
 			break;
 
 		case 4:
 			// Benutzer anlegen
-			register_user(sUser, sPasswort, sNachname, sVorname);
+			printf("\t\033[4mRegistrierung\n\n");
+			register_user(spielername, passwort, nachname, vorname);
+			
 			schleife = 0;
 			break;
 
