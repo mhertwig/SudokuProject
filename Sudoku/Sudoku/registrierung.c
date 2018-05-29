@@ -3,23 +3,15 @@
 Praeprozessoranweisungen
 ================================================
 */
-
 #define _CRT_SECURE_NO_DEPRECATE 1
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX 100
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "sqlite3.h"
-#define DATABASE_FILE "spiele.sqlite3"
+#include "include.h"
 /*
 ================================================
 Funktionsprototypen
 ================================================
 */
-int register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
-void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
+
 
 /*
 ================================================
@@ -27,17 +19,17 @@ Variablen
 ================================================
 */
 
-		char sUser[20];
-		char sPasswort[10];
-		char sNachname[20];
-		char sVorname[20];
+char sUser[20];
+char sPasswort[20];
+char sNachname[20];
+char sVorname[20];
 /*
 ================================================
 Funktion register_user
 ================================================
 */
 
-int register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
+void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 
 	char *sql;
 	char *zErrMsg;
@@ -64,8 +56,9 @@ int register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname)
 			printf("SQL Fehler: %s\n", zErrMsg);
 			sqlite3_free(zErrMsg);
 			sqlite3_close(db_handle);
-			system("Pause");
-			exit(-1);
+			menu();
+			/*system("Pause");
+			exit(-1);*/
 		}
 	}
 }

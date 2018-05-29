@@ -1,13 +1,16 @@
-﻿//menu.h
+//menu.h
 
-
+#include "include.h"
 
 void menu(void)
 {
 	int imenu;
 	int iError = 0;
 	int schleife = 1;
-
+	char sUser[20];
+	char sPasswort[20];
+	char sNachname[20];
+	char sVorname[20];
 
 
 
@@ -44,16 +47,17 @@ void menu(void)
 
 		case 3:
 			// Login
-			printf("\t\033[4mLogin\033[\n\n");
+			printf("\t\033[4mLogin\033[0m\n\n");
 			login_user();
 			schleife = 0;
 			break;
 
 		case 4:
 			// Benutzer anlegen
-			printf("\t\033[4mRegistrierung\033[\n\n");
+			printf("\t\033[4mRegistrierung\033[0m\n\n");
+
 			register_user(sUser, sPasswort, sNachname, sVorname);
-			
+
 			schleife = 0;
 			break;
 
@@ -64,7 +68,7 @@ void menu(void)
 
 		case 6:
 			// Regeln anzeigen
-			openFile();
+			ShellExecute(NULL, NULL, "sudoku - anleitung.pdf", NULL, NULL, SW_SHOW);
 			break;
 
 		case 7:
@@ -75,7 +79,7 @@ void menu(void)
 			break;
 		}
 	} while (schleife == 1);
-	
+
 }
 
 

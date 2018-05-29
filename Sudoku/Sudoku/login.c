@@ -6,17 +6,16 @@ Praeprozessoranweisungen
 
 #define _CRT_SECURE_NO_DEPRECATE 1
 #define _CRT_SECURE_NO_WARNINGS
-#define MAX 100
+#include "include.h"
 
 
-#define DATABASE_FILE "spiele.sqlite3"
 /*
 ================================================
 Funktionsprototypen
 ================================================
 */
 
-int login_user();
+
 
 /*
 ================================================
@@ -24,7 +23,7 @@ Funktion login_user
 ================================================
 */
 
-int login_user() {
+void login_user(void) {
 	char sUser[26];
 	char sPasswort[20];
 
@@ -113,5 +112,7 @@ int login_user() {
 
 	} while (flag < 0);
 	printf("\tErfolgreich eingeloggt!\n");
-	return flag;
+
+	//menu();
+	//return flag;
 }

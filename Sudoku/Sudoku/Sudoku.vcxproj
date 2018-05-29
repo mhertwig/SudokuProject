@@ -110,17 +110,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="header.c" />
+    <ClCompile Include="login.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="menu.c" />
+    <ClCompile Include="registrierung.c" />
     <ClCompile Include="sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include.h" />
-    <ClInclude Include="login.h" />
-    <ClInclude Include="menu.h" />
-    <ClInclude Include="openRules.h" />
-    <ClInclude Include="registrierung.h" />
     <ClInclude Include="sqlite3.h" />
-    <ClInclude Include="Sudoku_header.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="spiele.sqlite3" />
+    <None Include="sudoku-anleitung.pdf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

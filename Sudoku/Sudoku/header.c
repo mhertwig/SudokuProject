@@ -1,4 +1,4 @@
-﻿// Sudoku_ Header
+﻿#include "include.h"
 
 void sudoku_header(void)
 {
@@ -6,10 +6,10 @@ void sudoku_header(void)
 
 	/*if(sUser != NULL)
 	for (int i = 0; i<25; i++) {
-		if (sName[i] == NULL)
-		{
-			sName[i] = ' ';
-		}
+	if (sName[i] == NULL)
+	{
+	sName[i] = ' ';
+	}
 	}*/
 
 	char cObenRechtEcke = 201;		// ╔
@@ -23,11 +23,11 @@ void sudoku_header(void)
 		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n", cObenRechtEcke,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
-		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, 
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
-		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, 
+		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
+		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cObenLinksEcke);
 
 	printf("\t  %c\t  _____           _       _\t\t   %c\n"
@@ -40,10 +40,10 @@ void sudoku_header(void)
 		cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch,
 		cHoch, cHoch, cHoch, cHoch, cHoch);
 
-	
-		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sName, cHoch);
-	
-	
+
+	printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sName, cHoch);
+
+
 
 	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
 		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n\n\n", cUntenRechtEcke,
