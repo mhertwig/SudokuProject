@@ -44,11 +44,13 @@ void menu(void)
 
 		case 3:
 			// Login
+			//login_user();
 			schleife = 0;
 			break;
 
 		case 4:
 			// Benutzer anlegen
+			//register_user();
 			schleife = 0;
 			break;
 
