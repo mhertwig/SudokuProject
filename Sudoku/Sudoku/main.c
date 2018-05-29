@@ -9,11 +9,7 @@ Compiler: 			VS12
 #define _CRT_SECURE_NO_WARNINGS
 
 // Include
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
-#include <ctype.h>
+#include "include.h"
 //#include "sqlite3.h"
 
 
@@ -21,22 +17,7 @@ Compiler: 			VS12
 #define DATABASE_FILE "spiele.sqlite3"
 #define MAX 50
 
-int menu()
-{
-	int imenu;
-	int iError = 0;
 
-	do
-	{
-		printf("(1)Login\n");
-		printf("(2)Benutzer anlegen\n\n");
-		fflush(stdin);
-		iError = scanf("%i", &imenu);
-	} while (iError == 0 || imenu < 1 || imenu > 2);
-
-	printf("\n");
-	return imenu;
-}
 
 static int callback(void *data, int argc, char **argv, char **colName)
 {
@@ -73,64 +54,9 @@ int login()
 	scanf("%s", passwort);
 
 
-	// Open
-	//rc = sqlite3_open(DATABASE_FILE, &db_handle);
-
-	/* SQL Statement erstellen */
-	//sql = sqlite3_mprintf("SELECT spielername,passwort from benutzer WHERE spielername = '%s' AND passwort = '%s'", spielername, passwort);
-
-	/* SQL Statement ausf�hren */
-	//rc = sqlite3_exec(db_handle, sql, NULL, NULL, &zErrMsg);
-
-	/* Returncode pr�fen */
-	/*if (rc != SQLITE_OK) {
-	printf("SQL Fehler: %s\n", zErrMsg);
-	sqlite3_free(zErrMsg);
-	sqlite3_close(db_handle);
-	return -3;
-	}
-	else {
-
-	// SQL String vorbereiten und Speicher reservieren
-	sql = sqlite3_mprintf("SELECT user_id, spielername, passwort FROM benutzer WHERE spielername= '%s'; ", spielername);
-
-	// SQL Statement und Struktur erzeugen
-	rc = sqlite3_prepare_v2(db_handle,sql,strlen(sql), &stmt, NULL);
-
-	// Anzahl der Spalten in der Ergebnismenge ermitteln
-	cols = sqlite3_column_count(stmt);
-
-	if(sqlite3_step(stmt) == SQLITE_ROW)
-	{
-
-	data = (const char*)sqlite3_column_text(stmt, 2);
-
-	if(strcmp(data,passwort) == 0)
-	{
-	user = sqlite3_column_int(stmt, 0);
-	sqlite3_free(sql);
-	sqlite3_finalize(stmt);
-	return user;
-	}
-	else
-	{
-	sqlite3_free(sql);
-	sqlite3_finalize(stmt);
-	return -2;
-	}
-
-	}
-	sqlite3_free(sql);
-	sqlite3_finalize(stmt);
-	return -1;
+	
 
 
-	// callback
-	//const char* data = sqlite3_mprintf("SELECT user_id FROM benutzer WHERE spielername = '%s' AND passwort = '%s'", spielername, passwort);
-	//rc = sqlite3_exec(db_handle, sql, callback, (void*)data, &zErrMsg);
-	}*/
-
-}
 
 int register_user(void)
 {

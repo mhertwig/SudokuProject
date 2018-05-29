@@ -1,6 +1,8 @@
 //menu.h
 
-void menu(void)
+#include "include.h"
+
+int menu()
 {
 	int imenu;
 	int iError = 0;
@@ -20,23 +22,45 @@ void menu(void)
 
 	printf("\n");
 
-	switch (imenu)
-	{
-	case constant1:
-		statements
-			break;
-
-	case constant2:
-		statements
-			break;
-
-	case constant3:
-		statements
-			break;
-
-
-
 	system("Pause");
 
+	return imenu;
 }
+
+void funk(void)
+{
+	int imenu;
+	imenu = menu();
+
+	switch (imenu)
+	{
+	case 1:
+		// Schnellstart
+		
+		break;
+
+	case 2:
+		// Neues Spiel starten
+		break;
+
+	case 3:
+		// Login
+		break;
+
+	case 4:
+		// Benutzer anlegen
+		break;
+
+	case 5:
+		// Bestenliste
+		break;
+
+	case 6:
+		// Regeln anzeigen
+		break;
+
+	case 7:
+		// Beenden
+		exit(0);
+	}
 
