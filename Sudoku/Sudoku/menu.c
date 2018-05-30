@@ -16,17 +16,7 @@ void menu(void)
 
 	do
 	{
-		system("cls");
-		printf("\n\n");
-		sudoku_header();
-
-		printf("\t\t(1) Schnellstart\n\n");
-		printf("\t\t(2) Neues Spiel starten\n\n");
-		printf("\t\t(3) Login\n\n");
-		printf("\t\t(4) Benutzer anlegen\n\n");
-		printf("\t\t(5) Bestenliste\n\n");
-		printf("\t\t(6) Regeln anzeigen\n\n");
-		printf("\t\t(X) Beenden\n\n\n");
+		menuAnzeige();
 
 		printf("\tEingabe: ");
 		fflush(stdin);
@@ -50,7 +40,7 @@ void menu(void)
 			// Login
 			printf("\t\033[4mLogin\033[0m\n\n");
 			login_user();
-			system("Pause");
+			system("\n\tPause");
 			break;
 
 		case '4':
@@ -58,7 +48,7 @@ void menu(void)
 			printf("\t\033[4mRegistrierung\033[0m\n\n");
 
 			register_user(sUser, sPasswort, sNachname, sVorname);
-			system("Pause");
+			system("\n\tPause");
 			break;
 
 		case '5':

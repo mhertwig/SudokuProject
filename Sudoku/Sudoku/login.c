@@ -34,10 +34,18 @@ char login_user() {
 		printf("\tSpielername: ");
 		fflush(stdin);
 		scanf("%s", sUser);
+		if (*sUser == 'x')
+		{
+			return 0;
+		}
 
 		printf("\tPasswort: ");
 		fflush(stdin);
 		scanf("%s", sPasswort);
+		if (*sPasswort == 'x')
+		{
+			return 0;
+		}
 
 		/*
 		================================================
@@ -96,11 +104,15 @@ char login_user() {
 		if (flag < 0) {
 			if (flag == -1) {
 				printf("\tFalscher Benutzername!\n\n");
+				
 			}
 			if (flag == -2) {
 				printf("\tFalsches Passwort!\n\n");
 			}
+			
+			menuAnzeige();
 
+			
 		}
 
 	} while (flag < 0);

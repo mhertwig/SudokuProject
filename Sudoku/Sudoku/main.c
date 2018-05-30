@@ -14,7 +14,7 @@ int main(void)
 {
 
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
-	MoveWindow(hwnd, 350, 30, 600, 600, TRUE);
+	MoveWindow(hwnd, 350, 10, 800, 700, TRUE);
 
 	menu();
 
