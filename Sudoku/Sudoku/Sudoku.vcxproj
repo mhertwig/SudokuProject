@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClCompile Include="design.c" />
     <ClCompile Include="login.c" />
+    <ClCompile Include="logout.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
     <ClCompile Include="registrierung.c" />

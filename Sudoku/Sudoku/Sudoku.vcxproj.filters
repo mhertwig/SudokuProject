@@ -33,6 +33,9 @@
     <ClCompile Include="design.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="logout.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sqlite3.h">
