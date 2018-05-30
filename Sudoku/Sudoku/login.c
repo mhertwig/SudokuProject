@@ -11,21 +11,14 @@ Praeprozessoranweisungen
 
 /*
 ================================================
-Funktionsprototypen
-================================================
-*/
-
-
-
-/*
-================================================
 Funktion login_user
 ================================================
 */
 
-void login_user() {
+char login_user() {
 	char sUser[26];
 	char sPasswort[20];
+	char sName[26];
 
 	char *sql;
 	char *zErrMsg;
@@ -112,5 +105,18 @@ void login_user() {
 
 	} while (flag < 0);
 	printf("\tErfolgreich eingeloggt!\n\n");
-	return flag;
+
+
+		/*for (int i = 0; i<25; i++) {
+			if (sUser[i] == NULL)
+			{
+				sName[i] = ' ';
+		}
+			else
+			{
+
+				sName[i] = sUser[i];
+			}			
+		}*/
+	return sUser;
 }
