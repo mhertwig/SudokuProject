@@ -72,7 +72,7 @@ void menuAnzeige(void)
 	printf("\t\t(1) Schnellstart\n\n");
 	printf("\t\t(2) Neues Spiel starten\n\n");
 	printf("\t\t(3) Login\n\n");
-	if (iLoginChange = 0)
+	if (iLoginChange == 0)
 	{
 		printf("\t\t(4) Benutzer anlegen\n\n");
 	}
