@@ -18,7 +18,7 @@ Funktion login_user
 char login_user() {
 	char sUser[26];
 	char sPasswort[20];
-	char sName[26];
+	extern char sName[26];
 
 	char *sql;
 	char *zErrMsg;
@@ -27,6 +27,8 @@ char login_user() {
 	sqlite3_stmt *stmt;
 	int col;
 	int *data;
+
+	extern int iLoginChange;
 
 	int flag = 0;
 	do {
@@ -119,7 +121,7 @@ char login_user() {
 	printf("\tErfolgreich eingeloggt!\n\n");
 
 
-		/*for (int i = 0; i<25; i++) {
+		for (int i = 0; i<25; i++) {
 			if (sUser[i] == NULL)
 			{
 				sName[i] = ' ';
@@ -129,6 +131,7 @@ char login_user() {
 
 				sName[i] = sUser[i];
 			}			
-		}*/
-	return sUser;
+		}
+		iLoginChange = 1;
+	return sName;
 }

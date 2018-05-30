@@ -16,6 +16,9 @@ int main(void)
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
 	MoveWindow(hwnd, 350, 10, 800, 700, TRUE);
 
+	extern int iLoginChange;
+	iLoginChange = 0;
+
 	menu();
 
 

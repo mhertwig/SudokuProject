@@ -2,15 +2,12 @@
 
 void sudoku_header(void)
 {
-	char sName[26] = "1234567890123456789012345";
+	extern int iLoginChange;
+	char sNameLeer[26] = "                         ";
+	extern char sName[26];
+	
 
-	if(sName != NULL)
-	for (int i = 0; i<25; i++) {
-	if (sName[i] == NULL)
-	{
-	sName[i] = ' ';
-	}
-	}
+	
 
 	char cObenRechtEcke = 201;		// ╔
 	char cUntenRechtEcke = 200;		// ╚
@@ -40,8 +37,15 @@ void sudoku_header(void)
 		cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch,
 		cHoch, cHoch, cHoch, cHoch, cHoch);
 
-
-	printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sName, cHoch);
+	if (iLoginChange == 0)
+	{
+		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sNameLeer, cHoch);
+	}
+	else
+	{
+		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sName, cHoch);
+	}
+	//
 
 
 
