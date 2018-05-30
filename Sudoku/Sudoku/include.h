@@ -4,14 +4,14 @@
 #include <string.h>
 #include <ctype.h>
 #include <windows.h>
-#include<string.h>
+#include <string.h>
 
 
 #include "sqlite3.h"
 
 
 // Globale Variablen
-char sName[26];
+extern char sName[26];
 
 
 
@@ -20,7 +20,7 @@ char sName[26];
 
 //Funktions Prototypen
 void sudoku_header(void);
-void login_user(void);
+char login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void menu(void);
