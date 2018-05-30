@@ -4,7 +4,6 @@ void sudoku_header(void)
 {
 	extern int iLoginChange;
 	char sNameLeer[26] = "                         ";
-	//extern char sName[26];
 	
 
 	
@@ -15,7 +14,6 @@ void sudoku_header(void)
 	char cUntenLinksEcke = 188;		// ╝
 	char cGerade = 205;				// ═
 	char cHoch = 186;				// ║
-	char cKrone = 9819;
 
 	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
 		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n", cObenRechtEcke,
@@ -80,7 +78,7 @@ void menuAnzeige(void)
 	{
 		printf("\t\t(4) Log Out\n\n");
 	}
-	printf("\t\t(5) Hall of Fame %c\n\n", 9818);
+	printf("\t\t(5) Hall of Fame\n\n");
 	printf("\t\t(6) Regeln anzeigen\n\n");
 	printf("\t\t(X) Beenden\n\n\n");
 }
