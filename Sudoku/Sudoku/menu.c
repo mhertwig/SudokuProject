@@ -35,25 +35,25 @@ void menu(void)
 		printf("\n");
 		switch (cMenu)
 		{
-		case 1:
+		case '1':
 			// Schnellstart
 
 			//schleife = 0;
 			break;
 
-		case 2:
+		case '2':
 			// Neues Spiel starten
 			//schleife = 0;
 			break;
 
-		case 3:
+		case '3':
 			// Login
 			printf("\t\033[4mLogin\033[0m\n\n");
 			login_user();
 			system("Pause");
 			break;
 
-		case 4:
+		case '4':
 			// Benutzer anlegen
 			printf("\t\033[4mRegistrierung\033[0m\n\n");
 
@@ -61,11 +61,11 @@ void menu(void)
 			system("Pause");
 			break;
 
-		case 5:
+		case '5':
 			// Bestenliste
 			break;
 
-		case 6:
+		case '6':
 			// Regeln anzeigen
 			ShellExecute(NULL, NULL, "sudoku - anleitung.pdf", NULL, NULL, SW_SHOW);
 			break;
@@ -73,10 +73,7 @@ void menu(void)
 		case 'x':
 			// Beenden
 
-			if (cMenu == 'x')
-			{
 				schleife = 0;
-			}
 		}
 	} while (schleife == 1);
 
