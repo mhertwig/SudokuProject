@@ -4,10 +4,10 @@
 
 void menu(void)
 {
-	int imenu;
+	char cMenu;
 	int iError = 0;
 	int schleife = 1;
-	char sUser[20];
+	char sUser[26];
 	char sPasswort[20];
 	char sNachname[20];
 	char sVorname[20];
@@ -26,30 +26,31 @@ void menu(void)
 		printf("\t\t(4) Benutzer anlegen\n\n");
 		printf("\t\t(5) Bestenliste\n\n");
 		printf("\t\t(6) Regeln anzeigen\n\n");
-		printf("\t\t(7) Beenden\n\n\n");
+		printf("\t\t(X) Beenden\n\n\n");
 
 		printf("\tEingabe: ");
 		fflush(stdin);
-		iError = scanf_s("%i", &imenu);
+		iError = scanf_s("%c", &cMenu);
+		//if(cMenu)
 		printf("\n");
-		switch (imenu)
+		switch (cMenu)
 		{
 		case 1:
 			// Schnellstart
 
-			schleife = 0;
+			//schleife = 0;
 			break;
 
 		case 2:
 			// Neues Spiel starten
-			schleife = 0;
+			//schleife = 0;
 			break;
 
 		case 3:
 			// Login
 			printf("\t\033[4mLogin\033[0m\n\n");
 			login_user();
-			schleife = 0;
+			system("Pause");
 			break;
 
 		case 4:
@@ -57,13 +58,11 @@ void menu(void)
 			printf("\t\033[4mRegistrierung\033[0m\n\n");
 
 			register_user(sUser, sPasswort, sNachname, sVorname);
-
-			schleife = 0;
+			system("Pause");
 			break;
 
 		case 5:
 			// Bestenliste
-			schleife = 0;
 			break;
 
 		case 6:
@@ -71,12 +70,13 @@ void menu(void)
 			ShellExecute(NULL, NULL, "sudoku - anleitung.pdf", NULL, NULL, SW_SHOW);
 			break;
 
-		case 7:
+		case 'x':
 			// Beenden
-			exit(0);
 
-		default:
-			break;
+			if (cMenu == 'x')
+			{
+				schleife = 0;
+			}
 		}
 	} while (schleife == 1);
 

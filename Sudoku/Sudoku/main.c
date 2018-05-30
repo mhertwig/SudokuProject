@@ -10,13 +10,16 @@ Compiler: 			VS12
 #include "include.h"
 
 
-
 int main(void)
 {
+
+	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
+	MoveWindow(hwnd, 350, 30, 600, 600, TRUE);
+
 	menu();
 
 
-	system("Pause");
+	//system("Pause");
 	return 0;
 }
 

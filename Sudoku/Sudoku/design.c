@@ -1,10 +1,10 @@
 ﻿#include "include.h"
 
-void sudoku_header(void)
+void sudoku_header()
 {
-	char sName[26] = "Christian";
+	//sName = {C ,h ,r ,i ,s};
 
-	/*if(sUser != NULL)
+	/*if(sName != NULL)
 	for (int i = 0; i<25; i++) {
 	if (sName[i] == NULL)
 	{

@@ -4,10 +4,14 @@
 #include <string.h>
 #include <ctype.h>
 #include <windows.h>
+#include<string.h>
+
 
 #include "sqlite3.h"
-//#include "Sudoku_header.h"
 
+
+// Globale Variablen
+char sName[26];
 
 
 
