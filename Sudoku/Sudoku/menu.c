@@ -7,7 +7,7 @@ void menu(void)
 	int imenu;
 	int iError = 0;
 	int schleife = 1;
-	char sUser[20];
+	char sUser[26];
 	char sPasswort[20];
 	char sNachname[20];
 	char sVorname[20];
@@ -58,7 +58,6 @@ void menu(void)
 
 			register_user(sUser, sPasswort, sNachname, sVorname);
 
-			schleife = 0;
 			break;
 
 		case 5:
