@@ -23,7 +23,7 @@ Funktion login_user
 ================================================
 */
 
-void login_user(void) {
+void login_user() {
 	char sUser[26];
 	char sPasswort[20];
 
@@ -73,7 +73,7 @@ void login_user(void) {
 			sqlite3_close(db_handle);
 		}
 
-		sql = sqlite3_mprintf("SELECT sPasswort FROM benutzer WHERE sUser = '%s' AND sPasswort = '%s'", sUser, sPasswort);
+		sql = sqlite3_mprintf("SELECT passwort FROM benutzer WHERE user = '%s' AND passwort = '%s'", sUser, sPasswort);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
@@ -102,17 +102,15 @@ void login_user(void) {
 		}
 		if (flag < 0) {
 			if (flag == -1) {
-				printf("\tFalscher Benutzername!\n");
+				printf("\tFalscher Benutzername!\n\n");
 			}
 			if (flag == -2) {
-				printf("\tFalsches Passwort!\n");
+				printf("\tFalsches Passwort!\n\n");
 			}
 
 		}
 
 	} while (flag < 0);
-	printf("\tErfolgreich eingeloggt!\n");
-
-	//menu();
-	//return flag;
+	printf("\tErfolgreich eingeloggt!\n\n");
+	return flag;
 }
