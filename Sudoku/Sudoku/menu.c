@@ -37,19 +37,19 @@ void menu(void)
 		case 1:
 			// Schnellstart
 
-			schleife = 0;
+			//schleife = 0;
 			break;
 
 		case 2:
 			// Neues Spiel starten
-			schleife = 0;
+			//schleife = 0;
 			break;
 
 		case 3:
 			// Login
 			printf("\t\033[4mLogin\033[0m\n\n");
 			login_user();
-			schleife = 0;
+			system("Pause");
 			break;
 
 		case 4:
@@ -57,12 +57,11 @@ void menu(void)
 			printf("\t\033[4mRegistrierung\033[0m\n\n");
 
 			register_user(sUser, sPasswort, sNachname, sVorname);
-
+			system("Pause");
 			break;
 
 		case 5:
 			// Bestenliste
-			schleife = 0;
 			break;
 
 		case 6:
@@ -72,7 +71,7 @@ void menu(void)
 
 		case 7:
 			// Beenden
-			exit(0);
+			schleife = 0;
 
 		default:
 			break;

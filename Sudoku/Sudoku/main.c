@@ -18,7 +18,7 @@ int main(void)
 	menu();
 
 
-	system("Pause");
+	//system("Pause");
 	return 0;
 }
 
