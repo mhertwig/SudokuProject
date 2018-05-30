@@ -13,8 +13,6 @@ void menu(void)
 	char sVorname[20];
 	char file[100] = "sudoku-anleitung.pdf";
 
-
-
 	do
 	{
 		menuAnzeige();
@@ -24,63 +22,80 @@ void menu(void)
 		iError = scanf_s("%c", &cMenu);
 		//if(cMenu)
 		printf("\n");
-		switch (cMenu)
+
+		//Ohne Login
+		if (iLoginChange == 0)
 		{
-		case '1':
-			// Schnellstart
-
-			//schleife = 0;
-			break;
-
-		case '2':
-			// Neues Spiel starten
-			//schleife = 0;
-			break;
-
-		case '3':
-			// Login
-			printf("\t\033[4mLogin\033[0m\n\n");
-			login_user();
-			printf("\n\t");
-			system("Pause");
-			break;
-
-		case '4':
-			
-			if (iLoginChange = 0)
+			switch (cMenu)
 			{
+			case '1':
+				// Schnellstart
+				//schleife = 0;
+				break;
+
+			case '2':
+				// Login
+				printf("\t\033[4mLogin\033[0m\n\n");
+				login_user();
+				printf("\n\t");
+				system("Pause");
+				break;
+
+			case '3':
 				// Benutzer anlegen
 				printf("\t\033[4mRegistrierung\033[0m\n\n");
-
 				register_user(sUser, sPasswort, sNachname, sVorname);
 				printf("\n\t");
 				system("Pause");
 				break;
+
+			case '4':
+				// Bestenliste
+				break;
+
+			case '5':
+				// Regeln anzeigen
+				ShellExecute(NULL, NULL, file, NULL, NULL, SW_SHOW);
+				break;
+
+			case 'x':
+				// Beenden
+				schleife = 0;
 			}
-			else
+		}
+		else {
+		//Eingeloggt
+			switch (cMenu)
 			{
+			case '1':
+				// Neues Spiel starten
+				//schleife = 0;
+				break;
+
+			case '2':
+				// Logout
+				printf("\t\033[4mLogout\033[0m\n\n");
 				logout_user();
-				printf("\tBenutzer wurde ausgeloggt\n\n");
 				printf("\n\t");
 				system("Pause");
 				break;
-			}
-			
 
-		case '5':
-			// Bestenliste
-			break;
+			case '3':
+				// Bestenliste
+				break;
 
-		case '6':
-			// Regeln anzeigen
-			
-			ShellExecute(NULL, NULL, file, NULL, NULL, SW_SHOW);
-			break;
+			case '4':
+				// Regeln anzeigen
+				ShellExecute(NULL, NULL, file, NULL, NULL, SW_SHOW);
+				break;
 
-		case 'x':
-			// Beenden
-
+			case 'x':
+				// Beenden
 				schleife = 0;
+			}
+
+
+
 		}
 	} while (schleife == 1);
 

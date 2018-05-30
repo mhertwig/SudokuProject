@@ -67,20 +67,22 @@ void menuAnzeige(void)
 	printf("\n\n");
 	sudoku_header();
 
-	printf("\t\t(1) Schnellstart\n\n");
-	printf("\t\t(2) Neues Spiel starten\n\n");
-	printf("\t\t(3) Login\n\n");
-	if (iLoginChange == 0)
-	{
-		printf("\t\t(4) Benutzer anlegen\n\n");
+	//Ohne Login
+	if (iLoginChange == 0) {
+		printf("\t\t(1) Schnellstart\n\n");
+		printf("\t\t(2) Login\n\n");
+		printf("\t\t(3) Benutzer anlegen\n\n");
+		printf("\t\t(4) Hall of Fame\n\n");
+		printf("\t\t(5) Regeln anzeigen\n\n");
+		printf("\t\t(X) Beenden\n\n\n");
 	}
-	else
-	{
-		printf("\t\t(4) Log Out\n\n");
+	else {
+		printf("\t\t(1) Neues Spiel starten\n\n");
+		printf("\t\t(2) Log Out\n\n");		
+		printf("\t\t(3) Hall of Fame\n\n");
+		printf("\t\t(4) Regeln anzeigen\n\n");
+		printf("\t\t(X) Beenden\n\n\n");
 	}
-	printf("\t\t(5) Hall of Fame\n\n");
-	printf("\t\t(6) Regeln anzeigen\n\n");
-	printf("\t\t(X) Beenden\n\n\n");
 }
 
 void Layout(void)
