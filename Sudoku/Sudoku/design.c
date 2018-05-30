@@ -68,7 +68,7 @@ void menuAnzeige(void)
 	printf("\t\t(2) Neues Spiel starten\n\n");
 	printf("\t\t(3) Login\n\n");
 	printf("\t\t(4) Benutzer anlegen\n\n");
-	printf("\t\t(5) Bestenliste\n\n");
+	printf("\t\t(5) Hall of Fame\n\n");
 	printf("\t\t(6) Regeln anzeigen\n\n");
 	printf("\t\t(X) Beenden\n\n\n");
 }

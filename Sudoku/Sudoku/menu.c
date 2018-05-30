@@ -40,7 +40,8 @@ void menu(void)
 			// Login
 			printf("\t\033[4mLogin\033[0m\n\n");
 			login_user();
-			system("\n\tPause");
+			printf("\n\t");
+			system("Pause");
 			break;
 
 		case '4':
@@ -48,11 +49,12 @@ void menu(void)
 			printf("\t\033[4mRegistrierung\033[0m\n\n");
 
 			register_user(sUser, sPasswort, sNachname, sVorname);
-			system("\n\tPause");
+			printf("\n\t");
+			system("Pause");
 			break;
 
 		case '5':
-			// Bestenliste
+			// Hall of Fame
 			break;
 
 		case '6':
