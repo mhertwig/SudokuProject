@@ -118,7 +118,7 @@ void Layout(void)
 	// Zeile 2
 	printf("\t1 %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", cHoch, iGrid[1][1], cHochinnen, iGrid[1][2], cHochinnen, iGrid[1][3], cHoch, iGrid[1][4], cHochinnen, iGrid[1][5], cHochinnen, iGrid[1][6], cHoch, iGrid[1][7], cHochinnen, iGrid[1][8], cHochinnen, iGrid[1][9], cHoch);
 	// Zeile 3
-	printf("\t2 %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", cHoch, iGrid[2][1], cHochinnen, iGrid[2][2], cHochinnen, iGrid[2][3], cHoch, iGrid[2][4], cHochinnen, iGrid[2][5], cHochinnen, iGrid[2]6], cHoch, iGrid[2][7], cHochinnen, iGrid[2][8], cHochinnen, iGrid[2][9], cHoch);
+	printf("\t2 %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", cHoch, iGrid[2][1], cHochinnen, iGrid[2][2], cHochinnen, iGrid[2][3], cHoch, iGrid[2][4], cHochinnen, iGrid[2][5], cHochinnen, iGrid[2][6], cHoch, iGrid[2][7], cHochinnen, iGrid[2][8], cHochinnen, iGrid[2][9], cHoch);
 	// Zeile 4
 	printf("\t3 %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", cHoch, iGrid[3][1], cHochinnen, iGrid[3][2], cHochinnen, iGrid[3][3], cHoch, iGrid[3][4], cHochinnen, iGrid[3][5], cHochinnen, iGrid[3][6], cHoch, iGrid[3][7], cHochinnen, iGrid[3][8], cHochinnen, iGrid[3][9], cHoch);
 	// Zeile 5
