@@ -15,6 +15,7 @@ void sudoku_header(void)
 	char cUntenLinksEcke = 188;		// ╝
 	char cGerade = 205;				// ═
 	char cHoch = 186;				// ║
+	char cKrone = 9819;
 
 	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
 		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n", cObenRechtEcke,
@@ -71,8 +72,15 @@ void menuAnzeige(void)
 	printf("\t\t(1) Schnellstart\n\n");
 	printf("\t\t(2) Neues Spiel starten\n\n");
 	printf("\t\t(3) Login\n\n");
-	printf("\t\t(4) Benutzer anlegen\n\n");
-	printf("\t\t(5) Hall of Fame\n\n");
+	if (iLoginChange = 0)
+	{
+		printf("\t\t(4) Benutzer anlegen\n\n");
+	}
+	else
+	{
+		printf("\t\t(4) Log Out\n\n");
+	}
+	printf("\t\t(5) Hall of Fame %c\n\n", 9818);
 	printf("\t\t(6) Regeln anzeigen\n\n");
 	printf("\t\t(X) Beenden\n\n\n");
 }

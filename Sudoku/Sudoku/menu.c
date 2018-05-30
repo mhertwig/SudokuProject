@@ -11,6 +11,7 @@ void menu(void)
 	char sPasswort[20];
 	char sNachname[20];
 	char sVorname[20];
+	
 
 
 
@@ -45,16 +46,29 @@ void menu(void)
 			break;
 
 		case '4':
-			// Benutzer anlegen
-			printf("\t\033[4mRegistrierung\033[0m\n\n");
+			
+			if (iLoginChange = 0)
+			{
+				// Benutzer anlegen
+				printf("\t\033[4mRegistrierung\033[0m\n\n");
 
-			register_user(sUser, sPasswort, sNachname, sVorname);
-			printf("\n\t");
-			system("Pause");
-			break;
+				register_user(sUser, sPasswort, sNachname, sVorname);
+				printf("\n\t");
+				system("Pause");
+				break;
+			}
+			else
+			{
+				logout_user();
+				printf("\tBenutzer wurde ausgeloggt\n\n");
+				printf("\n\t");
+				system("Pause");
+				break;
+			}
+			
 
 		case '5':
-			// Hall of Fame
+			// Bestenliste
 			break;
 
 		case '6':
