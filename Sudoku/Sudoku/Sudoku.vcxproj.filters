@@ -21,13 +21,29 @@
     <ClCompile Include="sqlite3.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="menu.c">
+      <Filter>Headerdateien</Filter>
+    </ClCompile>
+    <ClCompile Include="registrierung.c">
+      <Filter>Headerdateien</Filter>
+    </ClCompile>
+    <ClCompile Include="login.c">
+      <Filter>Headerdateien</Filter>
+    </ClCompile>
+    <ClCompile Include="design.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sqlite3.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
+    <ClInclude Include="include.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="spiele.sqlite3" />
+    <None Include="sudoku-anleitung.pdf" />
   </ItemGroup>
 </Project>
