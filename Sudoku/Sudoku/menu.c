@@ -4,7 +4,7 @@
 
 void menu(void)
 {
-	int imenu;
+	char cMenu;
 	int iError = 0;
 	int schleife = 1;
 	char sUser[26];
@@ -26,13 +26,14 @@ void menu(void)
 		printf("\t\t(4) Benutzer anlegen\n\n");
 		printf("\t\t(5) Bestenliste\n\n");
 		printf("\t\t(6) Regeln anzeigen\n\n");
-		printf("\t\t(7) Beenden\n\n\n");
+		printf("\t\t(X) Beenden\n\n\n");
 
 		printf("\tEingabe: ");
 		fflush(stdin);
-		iError = scanf_s("%i", &imenu);
+		iError = scanf_s("%c", &cMenu);
+		//if(cMenu)
 		printf("\n");
-		switch (imenu)
+		switch (cMenu)
 		{
 		case 1:
 			// Schnellstart
@@ -69,12 +70,13 @@ void menu(void)
 			ShellExecute(NULL, NULL, "sudoku - anleitung.pdf", NULL, NULL, SW_SHOW);
 			break;
 
-		case 7:
+		case 'x':
 			// Beenden
-			schleife = 0;
 
-		default:
-			break;
+			if (cMenu == 'x')
+			{
+				schleife = 0;
+			}
 		}
 	} while (schleife == 1);
 

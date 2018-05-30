@@ -13,6 +13,9 @@ Compiler: 			VS12
 int main(void)
 {
 
+	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
+	MoveWindow(hwnd, 350, 30, 600, 600, TRUE);
+
 	menu();
 
 
