@@ -110,7 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="header.c" />
+    <ClCompile Include="design.c" />
     <ClCompile Include="login.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />

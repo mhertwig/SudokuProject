@@ -30,7 +30,7 @@
     <ClCompile Include="login.c">
       <Filter>Headerdateien</Filter>
     </ClCompile>
-    <ClCompile Include="header.c">
+    <ClCompile Include="design.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

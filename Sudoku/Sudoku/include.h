@@ -8,6 +8,8 @@
 #include "sqlite3.h"
 //#include "Sudoku_header.h"
 
+// Globale Variablen
+char sName[26];
 
 
 
