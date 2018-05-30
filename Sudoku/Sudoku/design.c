@@ -2,15 +2,15 @@
 
 void sudoku_header()
 {
-	//sName = {C ,h ,r ,i ,s};
+	char sName[26] = "1234567890123456789012345";
 
-	/*if(sName != NULL)
+	if(sName != NULL)
 	for (int i = 0; i<25; i++) {
 	if (sName[i] == NULL)
 	{
 	sName[i] = ' ';
 	}
-	}*/
+	}
 
 	char cObenRechtEcke = 201;		// ╔
 	char cUntenRechtEcke = 200;		// ╚
