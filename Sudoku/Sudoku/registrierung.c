@@ -19,7 +19,7 @@ Variablen
 ================================================
 */
 
-char sUser[20];
+char sUser[26];
 char sPasswort[20];
 char sNachname[20];
 char sVorname[20];

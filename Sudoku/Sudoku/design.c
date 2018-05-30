@@ -4,7 +4,7 @@ void sudoku_header(void)
 {
 	extern int iLoginChange;
 	char sNameLeer[26] = "                         ";
-	extern char sName[26];
+	//extern char sName[26];
 	
 
 	
@@ -43,7 +43,7 @@ void sudoku_header(void)
 	}
 	else
 	{
-		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sName, cHoch);
+		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sUser, cHoch);
 	}
 	//
 

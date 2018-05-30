@@ -11,7 +11,7 @@
 
 
 // Globale Variablen
-char sName[26];
+char sUser[26];
 int iLoginChange;
 
 

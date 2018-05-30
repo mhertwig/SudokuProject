@@ -16,9 +16,9 @@ Funktion login_user
 */
 
 char login_user() {
-	char sUser[26];
+	extern char sUser[26];
 	char sPasswort[20];
-	extern char sName[26];
+	//extern char sName[26];
 
 	char *sql;
 	char *zErrMsg;
@@ -29,7 +29,8 @@ char login_user() {
 	int *data;
 
 	extern int iLoginChange;
-
+	iLoginChange = 0;
+	
 	int flag = 0;
 	do {
 		flag = 0;
@@ -120,9 +121,8 @@ char login_user() {
 	} while (flag < 0);
 	printf("\tErfolgreich eingeloggt!\n\n");
 
-
-		for (int i = 0; i<25; i++) {
-			if (sUser[i] == NULL)
+		/*for (int i = 0; i<25; i++) {
+			if (sUser[i] == ' ' || sUser[i] == NULL)
 			{
 				sName[i] = ' ';
 		}
@@ -131,7 +131,16 @@ char login_user() {
 
 				sName[i] = sUser[i];
 			}			
+		}*/
+	for (int i = 0; i < 25; i++)
+	{
+		if (sUser[i] == NULL)
+		{
+			sUser[i] = ' ';
 		}
+	}
+
+
 		iLoginChange = 1;
-	return sName;
+	return sUser;
 }
