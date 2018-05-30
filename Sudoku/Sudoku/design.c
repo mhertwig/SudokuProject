@@ -1,6 +1,6 @@
 ﻿#include "include.h"
 
-void sudoku_header()
+void sudoku_header(void)
 {
 	char sName[26] = "1234567890123456789012345";
 
@@ -56,5 +56,20 @@ void sudoku_header()
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cUntenLinksEcke);
 
+}
+
+void menuAnzeige(void)
+{
+	system("cls");
+	printf("\n\n");
+	sudoku_header();
+
+	printf("\t\t(1) Schnellstart\n\n");
+	printf("\t\t(2) Neues Spiel starten\n\n");
+	printf("\t\t(3) Login\n\n");
+	printf("\t\t(4) Benutzer anlegen\n\n");
+	printf("\t\t(5) Bestenliste\n\n");
+	printf("\t\t(6) Regeln anzeigen\n\n");
+	printf("\t\t(X) Beenden\n\n\n");
 }
 
