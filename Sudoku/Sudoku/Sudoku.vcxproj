@@ -111,6 +111,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="design.c" />
+    <ClCompile Include="hallOfFame.c" />
     <ClCompile Include="login.c" />
     <ClCompile Include="logout.c" />
     <ClCompile Include="main.c" />
@@ -123,7 +124,7 @@
     <ClInclude Include="sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="spiele.sqlite3" />
+    <None Include="sudoku.sqlite3" />
     <None Include="sudoku-anleitung.pdf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

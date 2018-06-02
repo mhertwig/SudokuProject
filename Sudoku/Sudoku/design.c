@@ -85,6 +85,18 @@ void menuAnzeige(void)
 	}
 }
 
+void hallOfFameAnzeige(void)
+{
+	system("cls");
+	printf("\n\n");
+	sudoku_header();
+
+	printf("\t\t(1) Leicht\n\n");
+	printf("\t\t(2) Mittel\n\n");
+	printf("\t\t(3) Schwer\n\n");
+	printf("\t\t(X) Beenden\n\n\n");
+}
+
 void Layout(void)
 {
 

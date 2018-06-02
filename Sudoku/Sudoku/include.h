@@ -16,7 +16,7 @@ int iLoginChange;
 
 
 
-#define DATABASE_FILE "spiele.sqlite3"
+#define DATABASE_FILE "sudoku.sqlite3"
 
 
 //Funktions Prototypen

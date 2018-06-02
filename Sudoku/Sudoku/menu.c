@@ -51,6 +51,7 @@ void menu(void)
 
 			case '4':
 				// Bestenliste
+				hallOfFame_menu();
 				break;
 
 			case '5':
@@ -82,6 +83,7 @@ void menu(void)
 
 			case '3':
 				// Bestenliste
+				hallOfFame_menu();
 				break;
 
 			case '4':
@@ -100,6 +102,3 @@ void menu(void)
 	} while (schleife == 1);
 
 }
-
-
-

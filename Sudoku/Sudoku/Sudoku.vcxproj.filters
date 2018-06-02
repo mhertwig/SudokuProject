@@ -36,6 +36,9 @@
     <ClCompile Include="logout.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="hallOfFame.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sqlite3.h">
@@ -46,7 +49,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="spiele.sqlite3" />
     <None Include="sudoku-anleitung.pdf" />
+    <None Include="sudoku.sqlite3" />
   </ItemGroup>
 </Project>
