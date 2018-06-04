@@ -9,10 +9,10 @@ int iError = 0;
 
 char sUser[26];
 
-char testUser[26] = "Marwin";
-int anzahlHilfe = 3;
-int zeit = 20;
-char schwierigkeit[7] = "leicht";
+char testUser[] = "Marwin";
+int anzahlHilfe = 13;
+int zeit = 1;
+char schwierigkeit[] = "Mittel";
 
 /*
 ================================================
@@ -81,8 +81,43 @@ void schreibe_hallOfFame(char testUser, char schwierigkeit, int anzahlHilfe, int
 
 	if (flag == 0)
 	{
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"TESt\", \"Schwer\", %i, %i)"), anzahlHilfe, zeit;
 
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"Marwin\", \"Leicht\", 3, 25)");
+		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+
+		if (rc == SQLITE_OK)
+		{
+			rc = sqlite3_exec(db_handle, sql, NULL, NULL, &zErrMsg);
+			if (rc == SQLITE_OK)
+			{
+				sqlite3_close(db_handle);
+				printf("\tUser %s erfolgreich in die Hall of Fame eingetragen!\n\n", sUser);
+				return 0;
+			}
+			else {
+				printf("\tSQL Fehler: %s\n\n", zErrMsg);
+				sqlite3_free(zErrMsg);
+				sqlite3_close(db_handle);
+				system("\tPause");
+				menu();
+
+			}
+		}
+	}
+}
+
+
+void show_hallOfFame(char testUser, char schwierigkeit, int anzahlHilfe, int zeit) {
+	int flag = 0;
+	char *sql;
+	char *zErrMsg;
+	sqlite3 *db_handle;
+	int rc;
+
+	if (flag == 0)
+	{
+
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, %S, %S, %i, %i)"),schwierigkeit, anzahlHilfe, zeit;
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
