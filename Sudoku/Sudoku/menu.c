@@ -5,7 +5,7 @@
 void menu(void)
 {
 	char cMenu;
-	int iError = 0;
+	//int iError = 0;
 	int schleife = 1;
 	char sUser[26];
 	char sPasswort[20];
@@ -19,7 +19,7 @@ void menu(void)
 
 		printf("\tEingabe: ");
 		fflush(stdin);
-		iError = scanf_s("%c", &cMenu);
+		scanf_s("%c", &cMenu);
 		//if(cMenu)
 		printf("\n");
 
@@ -30,9 +30,10 @@ void menu(void)
 			{
 			case '1':
 				// Schnellstart
-				spiel();
-				//schleife = 0;
-				spiel();
+
+				// Generieren und Ausgeben
+				sudokuGenShift();
+				spielFeldAusgabe();
 				break;
 
 			case '2':
