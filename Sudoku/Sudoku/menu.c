@@ -74,7 +74,6 @@ void menu(void)
 			case '1':
 				// Neues Spiel starten
 				//schleife = 0;
-				spiel();
 				break;
 
 			case '2':
