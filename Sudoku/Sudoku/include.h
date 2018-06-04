@@ -9,10 +9,11 @@
 
 #include "sqlite3.h"
 
-
 // Globale Variablen
-char sUser[26];
-int iLoginChange;
+extern int iLoginChange;
+extern char sUser[26];
+
+extern int iGrid[9][9]; // main array 
 
 
 
@@ -21,12 +22,15 @@ int iLoginChange;
 
 //Funktions Prototypen
 
-void spiel(void);
 void sudoku_header(void);
 char login_user(void);
+char logout_user();
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void spiel(void);
+void sudokuGenerator(void);
+int checkRows(int *pGrid[9][9], int *pTmpVal);
+int randomNum(void);
 void menu(void);
 int main(void);
 void schreibe_hallOfFame(char *sUser, int anzahlHilfe, double zeit, char schwierigkeit);
