@@ -1,4 +1,4 @@
-include "include.h"
+#include "include.h"
 
 // Generates random number
 int randomNumGen(void)
@@ -6,7 +6,7 @@ int randomNumGen(void)
 	unsigned int iNum = rand() % 10;
 	if (iNum == 0)
 	{
-		randomNum();
+		randomNumGen();
 	}
 	else
 	{
@@ -15,9 +15,9 @@ int randomNumGen(void)
 }
 
 
-int sudokuGenShift(void)
+void sudokuGenShift(void)
 {
-	int iGrid[9][9]; // main array 
+
 	int iGridCopy[9][9]; // copy of generated grid - needed to comparison and solving the puzzle
 
 	int iIndexH = 0; // Horizontal lines / rows of the grid
@@ -77,28 +77,28 @@ int sudokuGenShift(void)
 	/*
 	Sudoku board is generated with the following logic:
 	first row is filled with random unique numbers from 1 to 9
-	2nd row - first row is shifted left by 3 steps 
+	2nd row - first row is shifted left by 3 steps
 	3rd row - second row is shifted by 3 steps
-	4th row - third row is shifted by 1 step 
+	4th row - third row is shifted by 1 step
 	5rd row - fourth row is shifted by 3 steps
 	6rd row - fifth row is shifted by 3 steps
 	7th row - sixth row is shifted by 1 step
 	8rd row - seventh row is shifted by 3 steps
 	9rd row - eightht row is shifted by 3 steps
 	*/
-	
+
 	for (iIndexV = 1; iIndexV < 9; iIndexV++)
 	{
 		int iStep = 3; // steps to shift
 		int iRowIndex;
 
 		//fourth and seventh row are shifted by one step
-		if (iIndexV == 3 || iIndexV == 6) 
+		if (iIndexV == 3 || iIndexV == 6)
 		{
 			iStep = 1;
 		}
 
-	
+
 		for (iRowIndex = 0; iRowIndex < 9; iRowIndex++)
 		{
 			// if the row is shifted by 3 steps, the values of last three element 
@@ -122,17 +122,19 @@ int sudokuGenShift(void)
 	}
 
 
+	//Array Ausgabe zum testen
 
-	printf("\n");
+	//printf("\n");
 
-	for (iIndexV = 0; iIndexV < 9; iIndexV++)
-	{
-		for (iIndexH = 0; iIndexH < 9; iIndexH++)
-		{
-			printf("%d . ", iGrid[iIndexV][iIndexH]);
-		}
-		printf("\n");
-	}
-	printf("\n");
+	//for (iIndexV = 0; iIndexV < 9; iIndexV++)
+	//{
+	//	for (iIndexH = 0; iIndexH < 9; iIndexH++)
+	//	{
+	//		printf("%d . ", iGrid[iIndexV][iIndexH]);
+	//	}
+	//	printf("\n");
+	//}
+	//printf("\n");
+
 }
 
