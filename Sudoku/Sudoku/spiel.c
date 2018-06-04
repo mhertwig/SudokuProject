@@ -4,7 +4,7 @@
 
 void spiel(void) {
 
-	sudokuGenerator();
+	sudokuGenShift();
 
 	system("cls");
 
