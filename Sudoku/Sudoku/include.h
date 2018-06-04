@@ -19,7 +19,7 @@ extern int iGrid[9][9]; // main array
 
 #define DATABASE_FILE "sudoku.sqlite3"
 
-
+//test
 //Funktions Prototypen
 
 void sudoku_header(void);
