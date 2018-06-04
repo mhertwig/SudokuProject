@@ -21,7 +21,8 @@ int iLoginChange;
 
 //Funktions Prototypen
 
-void spiel(void);
+
+void schreibe_hallOfFame(char testUser, char schwierigkeit, int anzahlHilfe, int zeit);
 void sudoku_header(void);
 char login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
@@ -29,4 +30,4 @@ void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void spiel(void);
 void menu(void);
 int main(void);
-void schreibe_hallOfFame(char *sUser, int anzahlHilfe, double zeit, char schwierigkeit);
+void schreibe_hallOfFame(char testUser, char schwierigkeit, int anzahlHilfe, int zeit);

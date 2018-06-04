@@ -3,11 +3,13 @@
 #include "include.h"
 
 
-char sUser[26];
 int cMenu = 0;
-int iError = 0;
 int schleife = 1;
+int iError = 0;
 
+char sUser[26];
+
+char testUser[26] = "Marwin";
 int anzahlHilfe = 3;
 int zeit = 20;
 char schwierigkeit[7] = "leicht";
@@ -34,7 +36,7 @@ void hallOfFame_menu(void) {
 				//Leicht
 				printf("\t\033[4mLeicht\033[0m\n\n");
 				//anzeige HallofFame Leicht
-				schreibe_hallOfFame(*sUser, anzahlHilfe, zeit, schwierigkeit);
+				schreibe_hallOfFame(testUser, schwierigkeit, anzahlHilfe, zeit);
 				printf("\n\t");
 				system("Pause");
 				break;
@@ -70,7 +72,7 @@ Funktion schreibe_hallOfFame
 ================================================
 */
 
-void schreibe_hallOfFame(char *sUser, char *schwierigkeit, int *anzahlHilfe, int *zeit) {
+void schreibe_hallOfFame(char testUser, char schwierigkeit, int anzahlHilfe, int zeit) {
 	int flag = 0;
 	char *sql;
 	char *zErrMsg;
@@ -80,10 +82,9 @@ void schreibe_hallOfFame(char *sUser, char *schwierigkeit, int *anzahlHilfe, int
 	if (flag == 0)
 	{
 
-		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"Marwin\", \"Leicht\", 3, 25)");
 
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, %Q, %Q, %i, %i);",
-			sUser, schwierigkeit, anzahlHilfe, zeit);
+		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 		if (rc == SQLITE_OK)
 		{
