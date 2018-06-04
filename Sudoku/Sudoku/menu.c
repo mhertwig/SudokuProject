@@ -1,4 +1,4 @@
-//menu.h
+//menu.c
 
 #include "include.h"
 
@@ -32,11 +32,12 @@ void menu(void)
 				// Schnellstart
 				spiel();
 				//schleife = 0;
+				spiel();
 				break;
 
 			case '2':
 				// Login
-				printf("\t\033[4mLogin\033[0m\n\n");
+				
 				login_user();
 				printf("\n\t");
 				system("Pause");
@@ -44,7 +45,7 @@ void menu(void)
 
 			case '3':
 				// Benutzer anlegen
-				printf("\t\033[4mRegistrierung\033[0m\n\n");
+
 				register_user(sUser, sPasswort, sNachname, sVorname);
 				printf("\n\t");
 				system("Pause");
@@ -72,6 +73,7 @@ void menu(void)
 			case '1':
 				// Neues Spiel starten
 				//schleife = 0;
+				spiel();
 				break;
 
 			case '2':
