@@ -26,9 +26,9 @@ int checkRows(int *pGrid[9][9], int *pTmpVal) {
 	}
 }
 
-int sudokuGenerator(void)
+void sudokuGenerator(void)
 {
-	int iGrid[9][9]; // main array 
+	
 
 	int iIndexH = 0; // Horizontal lines / rows of the grid
 	int iIndexV = 0; // Vertical lines / columns of the grid
@@ -157,5 +157,6 @@ int sudokuGenerator(void)
 		printf("\n");
 	}
 	printf("\n");
+
 }
 

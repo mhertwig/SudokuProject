@@ -16,9 +16,8 @@ Funktion login_user
 */
 
 char login_user() {
-	extern char sUser[26];
+
 	char sPasswort[20];
-	//extern char sName[26];
 
 	char *sql;
 	char *zErrMsg;
@@ -28,7 +27,6 @@ char login_user() {
 	int col;
 	int *data;
 
-	extern int iLoginChange;
 	iLoginChange = 0;
 	
 	int flag = 0;
@@ -146,4 +144,10 @@ char login_user() {
 
 		iLoginChange = 1;
 	return sUser;
+}
+
+char logout_user() {
+
+	sUser[26] = "                          ";
+	iLoginChange = 0;
 }
