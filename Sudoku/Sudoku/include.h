@@ -13,12 +13,11 @@
 // Globale Variablen
 char sUser[26];
 int iLoginChange;
-
+extern int iGrid[9][9]; // main array
 
 
 #define DATABASE_FILE "sudoku.sqlite3"
 
-//test
 //Funktions Prototypen
 
 

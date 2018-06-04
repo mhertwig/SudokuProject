@@ -1,3 +1,5 @@
+#include "include.h"
+
 // Generates random number
 int randomNum(void)
 {
