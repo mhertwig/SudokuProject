@@ -21,6 +21,7 @@ int iLoginChange;
 
 //Funktions Prototypen
 
+void spiel(void);
 void sudoku_header(void);
 char login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
