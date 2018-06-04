@@ -70,6 +70,8 @@ void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname
 
 void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 
+	printf("\t\033[4mRegistrierung\033[0m\n\n");
+
 	printf("\tUsername: ");
 	scanf("%s", sUser);
 	if (*sUser == 'x')
@@ -102,7 +104,17 @@ void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 
 	printf("\tNachname: ");
 	scanf("%s", sNachname);
+	//if (*sNachname == 'x')
+	//{
+	//	flag = 1;
+	//	return 0;
+	//}
 
 	printf("\tVorname: ");
 	scanf("%s", sVorname);
+	//if (*sVorname == 'x')
+	//{
+	//	flag = 1;
+	//	return 0;
+	//}
 }

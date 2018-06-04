@@ -33,6 +33,9 @@ char login_user() {
 	
 	int flag = 0;
 	do {
+
+		printf("\t\033[4mLogin\033[0m\n\n");
+
 		flag = 0;
 		printf("\tSpielername: ");
 		fflush(stdin);

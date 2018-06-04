@@ -35,7 +35,7 @@ void menu(void)
 
 			case '2':
 				// Login
-				printf("\t\033[4mLogin\033[0m\n\n");
+				
 				login_user();
 				printf("\n\t");
 				system("Pause");
@@ -43,7 +43,7 @@ void menu(void)
 
 			case '3':
 				// Benutzer anlegen
-				printf("\t\033[4mRegistrierung\033[0m\n\n");
+
 				register_user(sUser, sPasswort, sNachname, sVorname);
 				printf("\n\t");
 				system("Pause");

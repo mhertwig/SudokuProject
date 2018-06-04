@@ -30,6 +30,10 @@ void hallOfFame_menu(void) {
 			{
 			case '1':
 				//Leicht
+
+				system("cls");
+				printf("\n\n");
+				sudoku_header();
 				printf("\t\033[4mLeicht\033[0m\n\n");
 				//anzeige HallofFame Leicht
 				printf("\n\t");
@@ -38,6 +42,10 @@ void hallOfFame_menu(void) {
 
 			case '2':
 				// Mittel
+
+				system("cls");
+				printf("\n\n");
+				sudoku_header();
 				printf("\t\033[4mMittel\033[0m\n\n");
 				//anzeige HallofFame Mittel
 				printf("\n\t");
@@ -46,6 +54,10 @@ void hallOfFame_menu(void) {
 
 			case '3':
 				//Schwer
+
+				system("cls");
+				printf("\n\n");
+				sudoku_header();
 				printf("\t\033[4mSchwer\033[0m\n\n");
 				//anzeige HallofFame Schwer
 				printf("\n\t");

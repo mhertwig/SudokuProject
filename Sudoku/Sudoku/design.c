@@ -109,7 +109,7 @@ void Layout(void)
 	char cUntenMitte = 202;			// ╩
 	char cAlleMitte = 206;			// ╬
 	char cRechtsMitte = 204;		// ╠
-	char cLinksMitte = 185;		// ╣
+	char cLinksMitte = 185;			// ╣
 	char cGerade = 205;				// ═
 	char cHoch = 186;				// ║
 	char cHochinnen = 179;			// |
