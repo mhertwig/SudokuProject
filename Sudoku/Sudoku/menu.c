@@ -31,8 +31,6 @@ void menu(void)
 			case '1':
 				// Schnellstart
 				spiel();
-				//schleife = 0;
-				spiel();
 				break;
 
 			case '2':
