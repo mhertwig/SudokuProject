@@ -4,8 +4,8 @@
 
 void spiel(void)
 {
+
 	sudoku_header();
 	layout();
-
 
 }
