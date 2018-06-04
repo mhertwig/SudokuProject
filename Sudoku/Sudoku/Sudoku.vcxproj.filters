@@ -33,13 +33,13 @@
     <ClCompile Include="design.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="logout.c">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="hallOfFame.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="spiel.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="sudokuGenerator.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
