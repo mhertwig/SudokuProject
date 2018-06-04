@@ -20,12 +20,13 @@ extern int iGrid[9][9]; // main array
 
 //Funktions Prototypen
 
-
+void sudokuGenShift(void);
 void schreibe_hallOfFame(char testUser, char schwierigkeit, int anzahlHilfe, int zeit);
 void sudoku_header(void);
 char login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
-void spiel(void);
+void spielFeldAusgabe(void);
 void menu(void);
 int main(void);
+int randomNumGen(void);
