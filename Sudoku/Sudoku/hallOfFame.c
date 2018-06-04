@@ -6,8 +6,11 @@
 char sUser[26];
 int cMenu = 0;
 int iError = 0;
-int anzahlHilfe = 0;
 int schleife = 1;
+
+int anzahlHilfe = 3;
+int zeit = 20;
+char schwierigkeit[7] = "leicht";
 
 /*
 ================================================
@@ -22,7 +25,6 @@ void hallOfFame_menu(void) {
 		printf("\tEingabe: ");
 		fflush(stdin);
 		iError = scanf_s("%c", &cMenu);
-		//if(cMenu)
 		printf("\n");
 
 		{
@@ -32,12 +34,13 @@ void hallOfFame_menu(void) {
 				//Leicht
 				printf("\t\033[4mLeicht\033[0m\n\n");
 				//anzeige HallofFame Leicht
+				schreibe_hallOfFame(*sUser, anzahlHilfe, zeit, schwierigkeit);
 				printf("\n\t");
 				system("Pause");
 				break;
 
 			case '2':
-				// Mittel
+				//Mittel
 				printf("\t\033[4mMittel\033[0m\n\n");
 				//anzeige HallofFame Mittel
 				printf("\n\t");
@@ -61,28 +64,26 @@ void hallOfFame_menu(void) {
 	} while (schleife == 1);
 }
 
-
 /*
 ================================================
 Funktion schreibe_hallOfFame
 ================================================
+*/
 
-
-void schreibe_hallOfFame(char *sUser) {
-
+void schreibe_hallOfFame(char *sUser, char *schwierigkeit, int *anzahlHilfe, int *zeit) {
+	int flag = 0;
 	char *sql;
 	char *zErrMsg;
 	sqlite3 *db_handle;
 	int rc;
 
-	scan(sUser, sPasswort, sNachname, sVorname);
 	if (flag == 0)
 	{
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
-		sql = sqlite3_mprintf("INSERT INTO benutzer VALUES (NULL, %Q, %Q, %Q, %Q, \
-				date('now'));", sUser, sPasswort, sNachname, sVorname);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, %Q, %Q, %i, %i);",
+			sUser, schwierigkeit, anzahlHilfe, zeit);
 
 		if (rc == SQLITE_OK)
 		{
@@ -90,7 +91,7 @@ void schreibe_hallOfFame(char *sUser) {
 			if (rc == SQLITE_OK)
 			{
 				sqlite3_close(db_handle);
-				printf("\tUser %s erfolgreich erstellt!\n\n", sUser);
+				printf("\tUser %s erfolgreich in die Hall of Fame eingetragen!\n\n", sUser);
 				return 0;
 			}
 			else {
@@ -104,16 +105,3 @@ void schreibe_hallOfFame(char *sUser) {
 		}
 	}
 }
-
-void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
-
-	printf("\tUsername: ");
-	scanf("%s", sUser);
-	if (*sUser == 'x')
-	{
-		flag = 1;
-		return 0;
-	}
-
-}
-*/

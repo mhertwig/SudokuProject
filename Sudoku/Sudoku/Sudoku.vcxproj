@@ -117,6 +117,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
     <ClCompile Include="registrierung.c" />
+    <ClCompile Include="spiel.c" />
     <ClCompile Include="sqlite3.c" />
   </ItemGroup>
   <ItemGroup>

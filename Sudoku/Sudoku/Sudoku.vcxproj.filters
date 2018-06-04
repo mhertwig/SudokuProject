@@ -39,6 +39,9 @@
     <ClCompile Include="hallOfFame.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="spiel.c">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sqlite3.h">
