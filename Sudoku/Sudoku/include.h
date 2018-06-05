@@ -30,7 +30,7 @@ void sudoku_header(void);
 char login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
-void spielFeldAusgabe(void);
+int spielFeldAusgabe(void);
 void menu(void);
 int main(void);
 int randomNumGen(void);
