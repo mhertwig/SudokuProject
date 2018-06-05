@@ -73,6 +73,8 @@ char login_user() {
 
 		col = sqlite3_column_count(stmt);
 
+
+
 		if (sqlite3_step(stmt) != SQLITE_ROW) {
 			flag = -1;
 			sqlite3_close(db_handle);
@@ -100,6 +102,9 @@ char login_user() {
 
 			col = sqlite3_column_count(stmt);
 
+
+
+
 			while (sqlite3_step(stmt) == SQLITE_ROW) {
 				int data = sqlite3_column_int(stmt, 0);
 				int flag = data;
@@ -108,31 +113,15 @@ char login_user() {
 		if (flag < 0) {
 			if (flag == -1) {
 				printf("\tFalscher Benutzername!\n\n");
-				
 			}
 			if (flag == -2) {
 				printf("\tFalsches Passwort!\n\n");
 			}
-			
-			menuAnzeige();
-
-			
+			menuAnzeige();		
 		}
-
 	} while (flag < 0);
 	printf("\tErfolgreich eingeloggt!\n\n");
 
-		/*for (int i = 0; i<25; i++) {
-			if (sUser[i] == ' ' || sUser[i] == NULL)
-			{
-				sName[i] = ' ';
-		}
-			else
-			{
-
-				sName[i] = sUser[i];
-			}			
-		}*/
 	for (int i = 0; i < 25; i++)
 	{
 		if (sUser[i] == NULL)
@@ -140,8 +129,6 @@ char login_user() {
 			sUser[i] = ' ';
 		}
 	}
-
-
 		iLoginChange = 1;
 	return sUser;
 }
