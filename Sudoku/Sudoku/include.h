@@ -22,8 +22,10 @@ extern int iGridCopy[9][9]; // lösungs array
 //Funktions Prototypen
 
 void sudokuGenShift(void);
-void schreibe_hallOfFame(char testUser, char schwierigkeit, int anzahlHilfe, int zeit);
-void show_hallOfFame(void);
+void schreibe_hallOfFame(); 
+void show_hallOfFameL(void);
+void show_hallOfFameM(void);
+void show_hallOfFameS(void);
 void sudoku_header(void);
 char login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);

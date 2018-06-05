@@ -6,13 +6,8 @@
 int cMenu = 0;
 int schleife = 1;
 int iError = 0;
-
-char sUser[26];
-
-char testUser[] = "Marwin";
 int anzahlHilfe = 1;
 int zeit = 20;
-char sSchwierigkeit[] = "Mittel";
 
 /*
 ================================================
@@ -36,7 +31,8 @@ void hallOfFame_menu(void) {
 				//Leicht
 				printf("\t\033[4mLeicht\033[0m\n\n");
 				//anzeige HallofFame Leicht
-				schreibe_hallOfFame(testUser, sSchwierigkeit, anzahlHilfe, zeit);
+				//show_hallOfFameL();
+				schreibe_hallOfFame(sUser);
 				printf("\n\t");
 				system("Pause");
 				break;
@@ -45,7 +41,7 @@ void hallOfFame_menu(void) {
 				//Mittel
 				printf("\t\033[4mMittel\033[0m\n\n");
 				//anzeige HallofFame Mittel
-				show_hallOfFame();
+				show_hallOfFameM();
 				printf("\n\t");
 				system("Pause");
 				break;
@@ -54,6 +50,7 @@ void hallOfFame_menu(void) {
 				//Schwer
 				printf("\t\033[4mSchwer\033[0m\n\n");
 				//anzeige HallofFame Schwer
+				show_hallOfFameS();
 				printf("\n\t");
 				system("Pause");
 				break;
@@ -73,7 +70,7 @@ Funktion schreibe_hallOfFame
 ================================================
 */
 
-void schreibe_hallOfFame(char testUser, char sSchwierigkeit, int anzahlHilfe, int zeit) {
+void schreibe_hallOfFame() {
 	int flag = 0;
 	char *sql;
 	char *zErrMsg;
@@ -82,7 +79,7 @@ void schreibe_hallOfFame(char testUser, char sSchwierigkeit, int anzahlHilfe, in
 
 	if (flag == 0)
 	{
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"TESt\", \"Leicht\", %i, %i)", anzahlHilfe, zeit);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, %s, \"Leicht\", %i, %i)",sUser, anzahlHilfe, zeit);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
@@ -107,12 +104,68 @@ void schreibe_hallOfFame(char testUser, char sSchwierigkeit, int anzahlHilfe, in
 	}
 }
 
+/*
+================================================
+Funktion show_hallOfFameL()
+================================================
+*/
 
-void show_hallOfFame(void) {
+void show_hallOfFameL(void) {
 	int flag = 0;
 	char *sql;
-	sqlite3_stmt *stmt;
+	char sSchwierigkeit[] = "Leicht";
 
+	sqlite3_stmt *stmt;
+	char *zErrMsg;
+	sqlite3 *db_handle;
+	int rc;
+	int cols;
+	int col;
+
+	if (flag == 0)
+	{
+		system("cls");
+		sudoku_header();
+		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+		
+		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
+
+		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
+
+		cols = sqlite3_column_count(stmt);
+		printf("\t");
+		for (col = 0; col < cols; col++) {
+			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+		}
+		printf("\n");
+		const char *data;
+
+		while (sqlite3_step(stmt) == SQLITE_ROW) {
+			for (col = 0; col < cols; col++) {
+				data = (const char*)sqlite3_column_text(stmt, col);
+				printf("\t");
+				printf("%s\t", data ? data : "NULL");
+			}
+			printf("\n");
+		}
+
+		sqlite3_free(sql);
+		sqlite3_finalize(stmt);
+	}
+}
+
+/*
+================================================
+Funktion show_hallOfFameM()
+================================================
+*/
+
+void show_hallOfFameM(void) {
+	int flag = 0;
+	char *sql;
+	char sSchwierigkeit[] = "Mittel";
+
+	sqlite3_stmt *stmt;
 	char *zErrMsg;
 	sqlite3 *db_handle;
 	int rc;
@@ -150,3 +203,54 @@ void show_hallOfFame(void) {
 		sqlite3_finalize(stmt);
 	}
 }
+
+/*
+================================================
+Funktion show_hallOfFameS()
+================================================
+*/
+
+void show_hallOfFameS(void) {
+	int flag = 0;
+	char *sql;
+	char sSchwierigkeit[] = "Schwer";
+
+	sqlite3_stmt *stmt;
+	char *zErrMsg;
+	sqlite3 *db_handle;
+	int rc;
+	int cols;
+	int col;
+
+	if (flag == 0)
+	{
+		system("cls");
+		sudoku_header();
+		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+
+		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
+
+		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
+
+		cols = sqlite3_column_count(stmt);
+		printf("\t");
+		for (col = 0; col < cols; col++) {
+			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+		}
+		printf("\n");
+		const char *data;
+
+		while (sqlite3_step(stmt) == SQLITE_ROW) {
+			for (col = 0; col < cols; col++) {
+				data = (const char*)sqlite3_column_text(stmt, col);
+				printf("\t");
+				printf("%s\t", data ? data : "NULL");
+			}
+			printf("\n");
+		}
+
+		sqlite3_free(sql);
+		sqlite3_finalize(stmt);
+	}
+}
+
