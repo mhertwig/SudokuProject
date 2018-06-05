@@ -29,17 +29,15 @@ void hallOfFame_menu(void) {
 			{
 			case '1':
 				//Leicht
-				printf("\t\033[4mLeicht\033[0m\n\n");
 				//anzeige HallofFame Leicht
-				//show_hallOfFameL();
-				schreibe_hallOfFame(sUser);
+				show_hallOfFameL();
+				//schreibe_hallOfFame(sUser);
 				printf("\n\t");
 				system("Pause");
 				break;
 
 			case '2':
 				//Mittel
-				printf("\t\033[4mMittel\033[0m\n\n");
 				//anzeige HallofFame Mittel
 				show_hallOfFameM();
 				printf("\n\t");
@@ -48,7 +46,6 @@ void hallOfFame_menu(void) {
 
 			case '3':
 				//Schwer
-				printf("\t\033[4mSchwer\033[0m\n\n");
 				//anzeige HallofFame Schwer
 				show_hallOfFameS();
 				printf("\n\t");
@@ -71,17 +68,23 @@ Funktion schreibe_hallOfFame
 */
 
 void schreibe_hallOfFame() {
+
 	int flag = 0;
 	char *sql;
 	char *zErrMsg;
 	sqlite3 *db_handle;
 	int rc;
+	sqlite3_stmt *stmt;
+
 
 	if (flag == 0)
 	{
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"Leicht\", %i, %i)",sUser, anzahlHilfe, zeit);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"Leicht\",%i, %i)"
+								, sUser, anzahlHilfe, zeit);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+
+		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
 		if (rc == SQLITE_OK)
 		{
@@ -126,6 +129,7 @@ void show_hallOfFameL(void) {
 	{
 		system("cls");
 		sudoku_header();
+
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 		
 		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
