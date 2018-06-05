@@ -14,16 +14,21 @@ char sUser[26];
 int iLoginChange;
 int iGrid[9][9];
 int iGridCopy[9][9];
+int iGridmuster1[9][9];
+int iGridmuster2[9][9];
+int iGridmuster3[9][9];
+
 
 int main(void)
 {
-
+	// Setze Fenseter Koordinaten, Länge und Breite
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
 	MoveWindow(hwnd, 350, 10, 700, 700, TRUE);
 
-	
+	// Setze Login auf 0 (Ausgeloggt)
 	iLoginChange = 0;
 
+	// Zeige Menü an
 	menu();
 
 	return 0;

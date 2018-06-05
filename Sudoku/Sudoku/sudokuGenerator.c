@@ -173,17 +173,17 @@ void sudokuGenShift(void)
 	}
 
 
-	printf("iGridCopy start \n");
+	//printf("iGridCopy start \n");
 
-	for (iIndexV = 0; iIndexV < 9; iIndexV++)
-	{
-		for (iIndexH = 0; iIndexH < 9; iIndexH++)
-		{
-			printf("%d . ", iGridCopy[iIndexV][iIndexH]);
-		}
-		printf("\n");
-	}
-	printf("iGridCopy  end \n");
+	//for (iIndexV = 0; iIndexV < 9; iIndexV++)
+	//{
+	//	for (iIndexH = 0; iIndexH < 9; iIndexH++)
+	//	{
+	//		printf("%d . ", iGridCopy[iIndexV][iIndexH]);
+	//	}
+	//	printf("\n");
+	//}
+	//printf("iGridCopy  end \n");
 
 
 	//Array Ausgabe zum testen
@@ -200,5 +200,24 @@ void sudokuGenShift(void)
 	//}
 	//printf("\n");
 
+
+	loescheZahlen();
+
+}
+
+//Zahlen werden nach dem Schema iGridmuster1 gelöscht
+void loescheZahlen(void)
+{
+	int iGridmuster1[9][9] = { 1,0,0,1,1,0,0,1,1,1,0,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,0,1,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,0,1,0,1,0,1,1,1,1,0,1,1,0,0,1,1,0 };
+	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
+	{
+		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
+		{
+			if (iGridmuster1[iIndexV][iIndexH] == 0)
+			{
+				iGrid[iIndexV][iIndexH] = NULL;
+			}
+		}
+	}
 }
 

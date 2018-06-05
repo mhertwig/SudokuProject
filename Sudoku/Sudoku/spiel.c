@@ -2,13 +2,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
-void menuImSpiel(void)
-{
-
-}
-
-
-int spielFeldAusgabe(void) {
+void spielFeldAusgabe(void) {
 
 	// Definition
 	char cZeile = 0;
@@ -32,10 +26,12 @@ int spielFeldAusgabe(void) {
 
 		do
 		{
+			// Eingabe der Zeile
 			printf("\tZeile: ");
 			fflush(stdin);
 			while (getchar() != '\n');
 			iError = scanf("%c", &cZeile);
+			// Abfragemenu
 			if (cZeile == 'x')
 			{
 				menu();
@@ -54,15 +50,15 @@ int spielFeldAusgabe(void) {
 			}
 			if (iError != 0)
 			{
+				// Wandel char in int um
 				iZeile = cZeile - '0';
 			}
 		} while (iError == 0 || iZeile == -38);
-		fflush(stdin);
+
+
+		// Aus der Endlosschleife rauspringen
 		if (iEndlos != 1)
 		{
-
-
-
 
 			do
 			{
@@ -72,23 +68,29 @@ int spielFeldAusgabe(void) {
 				if (cSpalte == 'x')
 				{
 					menu();
+					iEndlos = 1;
 				}
 				if (cSpalte == 'n')
 				{
 					sudokuGenShift();
 					spielFeldAusgabe();
+					iEndlos = 1;
 				}
 				if (cSpalte == 'l')
 				{
 					lösungAnzeigen();
+					iEndlos = 1;
 				}
 				if (iError != 0)
 				{
+					// Wandel char in int um
 					iSpalte = cSpalte - '0';
 				}
 			} while (iError == 0 || iSpalte == -38);
-			fflush(stdin);
+
 		}
+
+		// Aus der Endlosschleife rauspringen
 		if (iEndlos != 1)
 		{
 			 
@@ -101,24 +103,28 @@ int spielFeldAusgabe(void) {
 				if (cZahl == 'x')
 				{
 					menu();
+					iEndlos = 1;
 				}
 				if (cZahl == 'n')
 				{
 					sudokuGenShift();
 					spielFeldAusgabe();
+					iEndlos = 1;
 				}
 				if (cZahl == 'l')
 				{
 					lösungAnzeigen();
+					iEndlos = 1;
 				}
 				if (iError != 0)
 				{
+					// Wandel char in int um
 					iZahl = cZahl - '0';
 				}
 			} while (iError == 0 || iZahl == -38);
 			fflush(stdin);
 
-
+			// Setze Zahl in das Sudokufeld
 			iGrid[iZeile - 1][iSpalte - 1] = iZahl;
 		}
 
@@ -128,7 +134,7 @@ int spielFeldAusgabe(void) {
 
 void lösungAnzeigen(void)
 {
-	// coping the board into iGridCopy
+	// Schreibe Lösungen in 
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
 	{
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
@@ -136,11 +142,13 @@ void lösungAnzeigen(void)
 			iGrid[iIndexV][iIndexH] = iGridCopy[iIndexV][iIndexH];
 		}
 	}
+
 	//Layout
 	system("cls");
 	sudoku_header();
 	layout();
-	printf("\tSPIEL VORBEI! \n\tLoesung wurde angezeigt");
+	printf("\tSPIEL VORBEI! \n\tLoesung wurde angezeigt\n\t");
+	system("Pause");
 }
 
 int sudokuAbfrage(void)

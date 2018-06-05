@@ -4,8 +4,8 @@
 
 void menu(void)
 {
+	// Definiton
 	char cMenu;
-	//int iError = 0;
 	int schleife = 1;
 	char sUser[26];
 	char sPasswort[20];
@@ -15,30 +15,28 @@ void menu(void)
 
 	do
 	{
+		// Anzeige des Menu's
 		menuAnzeige();
 
+		// Abfrage der Eingabe
 		printf("\tEingabe: ");
 		fflush(stdin);
 		scanf_s("%c", &cMenu);
-		//if(cMenu)
 		printf("\n");
 
-		//Ohne Login
+		// Ohne Login
 		if (iLoginChange == 0)
 		{
 			switch (cMenu)
 			{
 			case '1':
 				// Schnellstart
-
-				// Generieren und Ausgeben
 				sudokuGenShift();
 				spielFeldAusgabe();
 				break;
 
 			case '2':
 				// Login
-				
 				login_user();
 				printf("\n\t");
 				system("Pause");
@@ -46,7 +44,6 @@ void menu(void)
 
 			case '3':
 				// Benutzer anlegen
-
 				register_user(sUser, sPasswort, sNachname, sVorname);
 				printf("\n\t");
 				system("Pause");
@@ -68,12 +65,11 @@ void menu(void)
 			}
 		}
 		else {
-		//Eingeloggt
+		// Eingeloggt
 			switch (cMenu)
 			{
 			case '1':
 				// Neues Spiel starten
-				//schleife = 0;
 				sudokuGenShift();
 				spielFeldAusgabe();
 				break;

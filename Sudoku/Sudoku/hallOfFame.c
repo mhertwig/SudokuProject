@@ -79,7 +79,7 @@ void schreibe_hallOfFame() {
 
 	if (flag == 0)
 	{
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, %s, \"Leicht\", %i, %i)",sUser, anzahlHilfe, zeit);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"Leicht\", %i, %i)",sUser, anzahlHilfe, zeit);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
