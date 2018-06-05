@@ -6,10 +6,6 @@
 int cMenu = 0;
 int schleife = 1;
 int iError = 0;
-
-char sUser[26];
-
-char testUser[] = "Marwin";
 int anzahlHilfe = 1;
 int zeit = 20;
 
@@ -35,7 +31,8 @@ void hallOfFame_menu(void) {
 				//Leicht
 				printf("\t\033[4mLeicht\033[0m\n\n");
 				//anzeige HallofFame Leicht
-				show_hallOfFameL();
+				//show_hallOfFameL();
+				schreibe_hallOfFame(sUser);
 				printf("\n\t");
 				system("Pause");
 				break;
@@ -73,7 +70,7 @@ Funktion schreibe_hallOfFame
 ================================================
 */
 
-void schreibe_hallOfFame(char testUser, char sSchwierigkeit, int anzahlHilfe, int zeit) {
+void schreibe_hallOfFame() {
 	int flag = 0;
 	char *sql;
 	char *zErrMsg;
@@ -82,7 +79,7 @@ void schreibe_hallOfFame(char testUser, char sSchwierigkeit, int anzahlHilfe, in
 
 	if (flag == 0)
 	{
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"TESt\", \"Leicht\", %i, %i)", anzahlHilfe, zeit);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, %s, \"Leicht\", %i, %i)",sUser, anzahlHilfe, zeit);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
@@ -106,6 +103,12 @@ void schreibe_hallOfFame(char testUser, char sSchwierigkeit, int anzahlHilfe, in
 		}
 	}
 }
+
+/*
+================================================
+Funktion show_hallOfFameL()
+================================================
+*/
 
 void show_hallOfFameL(void) {
 	int flag = 0;
@@ -151,6 +154,12 @@ void show_hallOfFameL(void) {
 	}
 }
 
+/*
+================================================
+Funktion show_hallOfFameM()
+================================================
+*/
+
 void show_hallOfFameM(void) {
 	int flag = 0;
 	char *sql;
@@ -194,6 +203,12 @@ void show_hallOfFameM(void) {
 		sqlite3_finalize(stmt);
 	}
 }
+
+/*
+================================================
+Funktion show_hallOfFameS()
+================================================
+*/
 
 void show_hallOfFameS(void) {
 	int flag = 0;
