@@ -19,7 +19,7 @@ int main(void)
 {
 
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
-	MoveWindow(hwnd, 350, 10, 650, 700, TRUE);
+	MoveWindow(hwnd, 350, 10, 700, 700, TRUE);
 
 	
 	iLoginChange = 0;
@@ -27,6 +27,5 @@ int main(void)
 	menu();
 
 
-	//system("Pause");
 	return 0;
 }
