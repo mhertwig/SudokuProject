@@ -2,7 +2,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
+void menuImSpiel(void)
+{
 
+}
 
 
 void spielFeldAusgabe(void) {
@@ -42,12 +45,22 @@ void spielFeldAusgabe(void) {
 		{
 			menu();
 		}
+		if (cZeile == 'n')
+		{
+			sudokuGenShift();
+			spielFeldAusgabe();
+		}
+		if (cZeile == 'l')
+		{
+			
+		}
 		if (iError != 0)
 		{
 			iZeile = cZeile - '0';
 		}
-	} while (iError == 0);// || iZeile < 1 && iZeile > 9);
+	} while (iError == 0 || iZeile == -38);
 	
+
 
 	do
 	{
@@ -63,11 +76,20 @@ void spielFeldAusgabe(void) {
 		{
 			menu();
 		}
+		if (cSpalte == 'n')
+		{
+			sudokuGenShift();
+			spielFeldAusgabe();
+		}
+		if (cSpalte == 'l')
+		{
+
+		}
 		if (iError != 0)
 		{
 			iSpalte = cSpalte - '0';
 		}
-	} while (iError == 0);// || iSpalte < 1 && iSpalte > 9);
+	} while (iError == 0 || iSpalte == -38);
 	
 
 	do
@@ -84,11 +106,20 @@ void spielFeldAusgabe(void) {
 		{
 			menu();
 		}
+		if (cZahl == 'n')
+		{
+			sudokuGenShift();
+			spielFeldAusgabe();
+		}
+		if (cZahl == 'l')
+		{
+
+		}
 		if (iError != 0)
 		{
 			iZahl = cZahl - '0';
 		}
-	} while (iError == 0);// || iZahl < 1 || iZahl > 9);
+	} while (iError == 0 || iZahl == -38);
 
 
 	iGrid[iZeile - 1][iSpalte - 1] = iZahl;
