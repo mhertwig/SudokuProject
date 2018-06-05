@@ -201,7 +201,7 @@ void sudokuGenShift(void)
 	//printf("\n");
 
 
-	loescheZahlen();
+	//loescheZahlen();
 
 }
 
@@ -216,6 +216,10 @@ void loescheZahlen(void)
 			if (iGridmuster1[iIndexV][iIndexH] == 0)
 			{
 				iGrid[iIndexV][iIndexH] = NULL;
+			}
+			else
+			{
+				iGrid[iIndexV][iIndexH] = iGridCopy[iIndexV][iIndexH];
 			}
 		}
 	}

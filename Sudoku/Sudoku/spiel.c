@@ -2,7 +2,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
-void spielFeldAusgabe(void) {
+int spielFeldAusgabe(void) {
 
 	// Definition
 	char cZeile = 0;
@@ -35,18 +35,18 @@ void spielFeldAusgabe(void) {
 			if (cZeile == 'x')
 			{
 				menu();
-				iEndlos = 1;
+				return 0;
 			}
 			if (cZeile == 'n')
 			{
 				sudokuGenShift();
 				spielFeldAusgabe();
-				iEndlos = 1;
+				return 0;
 			}
 			if (cZeile == 'l')
 			{
 				lösungAnzeigen();
-				iEndlos = 1;
+				return 0;
 			}
 			if (iError != 0)
 			{
@@ -68,18 +68,18 @@ void spielFeldAusgabe(void) {
 				if (cSpalte == 'x')
 				{
 					menu();
-					iEndlos = 1;
+					return 0;
 				}
 				if (cSpalte == 'n')
 				{
 					sudokuGenShift();
 					spielFeldAusgabe();
-					iEndlos = 1;
+					return 0;
 				}
 				if (cSpalte == 'l')
 				{
 					lösungAnzeigen();
-					iEndlos = 1;
+					return 0;
 				}
 				if (iError != 0)
 				{
@@ -103,18 +103,18 @@ void spielFeldAusgabe(void) {
 				if (cZahl == 'x')
 				{
 					menu();
-					iEndlos = 1;
+					return 0;
 				}
 				if (cZahl == 'n')
 				{
 					sudokuGenShift();
 					spielFeldAusgabe();
-					iEndlos = 1;
+					return 0;
 				}
 				if (cZahl == 'l')
 				{
 					lösungAnzeigen();
-					iEndlos = 1;
+					return 0;
 				}
 				if (iError != 0)
 				{
@@ -128,13 +128,20 @@ void spielFeldAusgabe(void) {
 			iGrid[iZeile - 1][iSpalte - 1] = iZahl;
 		}
 
+		if (sudokuAbfrage() == 1)
+		{
+			// Schreibe in Die bestenliste falls Eingeloggt
+			// -----------------------
+			printf("\tSudoku wurde geloesst\n");
+			return 1;
+		}
+
 	}while(iEndlos == 0);
-	return 0;
 }
 
 void lösungAnzeigen(void)
 {
-	// Schreibe Lösungen in 
+	// Schreibe Lösungen in das Sudokuarray
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
 	{
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
@@ -143,7 +150,7 @@ void lösungAnzeigen(void)
 		}
 	}
 
-	//Layout
+	//Layout und Spielende Ausgabe
 	system("cls");
 	sudoku_header();
 	layout();
@@ -153,6 +160,7 @@ void lösungAnzeigen(void)
 
 int sudokuAbfrage(void)
 {
+	// Frage ab ob das Sudoku Fertig ist
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
 	{
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)

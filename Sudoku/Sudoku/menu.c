@@ -70,6 +70,7 @@ void menu(void)
 			{
 			case '1':
 				// Neues Spiel starten
+
 				sudokuGenShift();
 				spielFeldAusgabe();
 				break;
