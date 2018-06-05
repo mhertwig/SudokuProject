@@ -15,6 +15,15 @@ int randomNumGen(void)
 }
 
 
+
+// generates random coordinates (00 - 88) of displayed cells as an integer 
+// integer is split as 2 digits later
+int PuzzleRandomPicker(void)
+{
+	unsigned int iNum = rand() % (88 + 0 - 1) + 0;
+	return iNum;
+}
+
 void sudokuGenShift(void)
 {
 
@@ -98,7 +107,6 @@ void sudokuGenShift(void)
 			iStep = 1;
 		}
 
-
 		for (iRowIndex = 0; iRowIndex < 9; iRowIndex++)
 		{
 			// if the row is shifted by 3 steps, the values of last three element 
@@ -120,6 +128,62 @@ void sudokuGenShift(void)
 			}
 		}
 	}
+
+
+	// coping the board into iGridCopy
+	for (iIndexV = 0; iIndexV < 9; iIndexV++)
+	{
+		for (iIndexH = 0; iIndexH < 9; iIndexH++)
+		{
+			iGridCopy[iIndexV][iIndexH] = iGrid[iIndexV][iIndexH];
+		}
+	}
+
+
+
+	int iRow;
+	int iCol;
+	int iCellCount = 0;
+	int iLevel36[37];
+	int iIndexPicked;
+	int iTmpHolder;
+	int iChecking;
+	int iDuplicated = 0;
+
+	// 36 Numbers
+	while (iCellCount < 36)
+	{
+		iTmpHolder = PuzzleRandomPicker();
+		iDuplicated = 0;
+		for (iIndexPicked = 1; iIndexPicked <= 36; iIndexPicked++)
+		{
+			if (iLevel36[iIndexPicked] == iTmpHolder)
+			{
+				iDuplicated = 1;
+			}
+		}
+
+		// if there are no duplicated values, assigns the generated number to an array 
+		//and increments index for next iteration
+		if (iDuplicated == 0)
+		{
+			iLevel36[iCellCount] = iTmpHolder;
+			iCellCount++;
+		}
+	}
+
+
+	printf("iGridCopy start \n");
+
+	for (iIndexV = 0; iIndexV < 9; iIndexV++)
+	{
+		for (iIndexH = 0; iIndexH < 9; iIndexH++)
+		{
+			printf("%d . ", iGridCopy[iIndexV][iIndexH]);
+		}
+		printf("\n");
+	}
+	printf("iGridCopy  end \n");
 
 
 	//Array Ausgabe zum testen
