@@ -149,7 +149,6 @@ void show_hallOfFameL(void) {
 			}
 		}
 		printf("\n");
-		printf("%c%c%c%c%c%c%c%c%c", cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade);
 		const char *data;
 
 		while (sqlite3_step(stmt) == SQLITE_ROW) {
@@ -157,7 +156,6 @@ void show_hallOfFameL(void) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
 				printf("%s\t", data ? data : "NULL");
-				printf("%c", cHoch);
 			}
 			printf("\n");
 		}
@@ -212,7 +210,6 @@ void show_hallOfFameM(void) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
 				printf("%s\t", data ? data : "NULL");
-				printf("%c", cHoch);
 			}
 			printf("\n");
 		}
@@ -266,7 +263,6 @@ void show_hallOfFameS(void) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
 				printf("%s\t", data ? data : "NULL");
-				printf("%c", cHoch);
 			}
 			printf("\n");
 		}
