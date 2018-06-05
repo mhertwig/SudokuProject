@@ -1,68 +1,108 @@
-#include "include.h"
-
 #define _CRT_SECURE_NO_DEPRECATE 1
 #define _CRT_SECURE_NO_WARNINGS
+#include "include.h"
+
+
 
 
 void spielFeldAusgabe(void) {
 
 	// Definition
-	int iZeile = 100;
-	int iSpalte = 100;
-	int iZahl = 100;
+	char cZeile = 0;
+	char cSpalte = 0;
+	char cZahl = 0;
+	int iZahl = 0;
+	int iZeile = 0;
+	int iSpalte = 0;
 	int iError;
-	int itest = 0;
+
+	/*do
+	{*/
+
+	//Layout
+	system("cls");
+	sudoku_header();
+	layout();
+
+	//system("\t");
+	//system("Pause");
+
 
 	do
 	{
-
-		//Layout
-		system("cls");
-		sudoku_header();
-		layout();
-
-		//system("\t");
-		//system("Pause");
-
-
-		do
+		/*if (iZeile < 0 && iZeile > 8 && iZeile != NULL)
 		{
-			if (iZeile < 0 || iZeile > 8 || iZeile != NULL)
-			{
-				printf("Ihre Zahlen dürfen nur von 1 - 9 gehen!");
-			}
-			printf("\tZeile: ");
-			fflush(stdin);
-			iError = scanf_s("%i", iZeile - 1);
-		} while (iError == 0 || iZeile < 0 || iZeile > 8 || iZeile != NULL);
-
-		do
+		printf("Ihre Zahlen dürfen nur von 1 - 9 gehen!\n");
+		}*/
+		printf("\tZeile: ");
+		fflush(stdin);
+		while (getchar() != '\n');
+		iError = scanf("%c", &cZeile);
+		if (cZeile == 'x')
 		{
-			if (iSpalte < 0 || iSpalte > 8 || iSpalte != NULL)
-			{
-				printf("Ihre Zahlen dürfen nur von 1 - 9 gehen!");
-			}
-			printf("\tSpalte: ");
-			fflush(stdin);
-			iError = scanf_s("%i", iSpalte - 1);
-		} while (iError == 0 || iSpalte < 0 || iSpalte > 8 || iSpalte != NULL);
-
-		do
+			menu();
+		}
+		if (iError != 0)
 		{
-			if (iZahl < 0 || iZahl > 8 || iZahl != NULL)
-			{
-				printf("Ihre Zahlen dürfen nur von 1 - 9 gehen!");
-			}
-			printf("\tZeile: ");
-			fflush(stdin);
-			iError = scanf_s("%i", iZahl - 1);
-		} while (iError == 0 || iZahl < 0 || iZahl > 8 || iZahl != NULL);
-
-		iGrid[iSpalte][iZeile] = iZahl;
-
-		spielFeldAusgabe();
-	} while (itest == 0);
+			iZeile = cZeile - '0';
+		}
+	} while (iError == 0);// || iZeile < 1 && iZeile > 9);
 	
+
+	do
+	{
+		/*if (iSpalte < 0 && iSpalte > 8 && iSpalte != NULL)
+		{
+		printf("Ihre Zahlen dürfen nur von 1 - 9 gehen!\n");
+		}*/
+		printf("\tSpalte: ");
+		fflush(stdin);
+		while (getchar() != '\n');
+		iError = scanf("%c", &cSpalte);
+		if (cSpalte == 'x')
+		{
+			menu();
+		}
+		if (iError != 0)
+		{
+			iSpalte = cSpalte - '0';
+		}
+	} while (iError == 0);// || iSpalte < 1 && iSpalte > 9);
+	
+
+	do
+	{
+		/*if (iZahl < 0 && iZahl > 8 && iZahl != NULL)
+		{
+		printf("Ihre Zahlen dürfen nur von 1 - 9 gehen!\n");
+		}*/
+		printf("\tZahl: ");
+		fflush(stdin);
+		while (getchar() != '\n');
+		iError = scanf("%2c", &cZahl);
+		if (cZahl == 'x')
+		{
+			menu();
+		}
+		if (iError != 0)
+		{
+			iZahl = cZahl - '0';
+		}
+	} while (iError == 0);// || iZahl < 1 || iZahl > 9);
+
+
+	iGrid[iZeile - 1][iSpalte - 1] = iZahl;
+
+
+
+	spielFeldAusgabe();
+	
+
+
+}
+
+void lösungAnzeigen(void)
+{
 
 }
 

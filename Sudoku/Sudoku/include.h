@@ -14,6 +14,7 @@
 char sUser[26];
 int iLoginChange;
 extern int iGrid[9][9]; // main array
+extern int iGridCopy[9][9]; // lösungs array
 
 
 #define DATABASE_FILE "sudoku.sqlite3"
@@ -30,3 +31,4 @@ void spielFeldAusgabe(void);
 void menu(void);
 int main(void);
 int randomNumGen(void);
+void lösungAnzeigen(void);

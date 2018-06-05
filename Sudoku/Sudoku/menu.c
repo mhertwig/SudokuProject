@@ -74,6 +74,8 @@ void menu(void)
 			case '1':
 				// Neues Spiel starten
 				//schleife = 0;
+				sudokuGenShift();
+				spielFeldAusgabe();
 				break;
 
 			case '2':

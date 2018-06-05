@@ -18,7 +18,7 @@ int randomNumGen(void)
 void sudokuGenShift(void)
 {
 
-	int iGridCopy[9][9]; // copy of generated grid - needed to comparison and solving the puzzle
+	//int iGridCopy[9][9]; // copy of generated grid - needed to comparison and solving the puzzle
 
 	int iIndexH = 0; // Horizontal lines / rows of the grid
 	int iIndexV = 0; // Vertical lines / columns of the grid

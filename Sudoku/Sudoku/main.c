@@ -13,12 +13,13 @@ Compiler: 			VS12
 char sUser[26];
 int iLoginChange;
 int iGrid[9][9];
+int iGridCopy[9][9];
 
 int main(void)
 {
 
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
-	MoveWindow(hwnd, 350, 10, 800, 700, TRUE);
+	MoveWindow(hwnd, 350, 10, 650, 700, TRUE);
 
 	
 	iLoginChange = 0;
