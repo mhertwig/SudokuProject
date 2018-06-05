@@ -2,12 +2,8 @@
 
 void sudoku_header(void)
 {
-	
+	// Definition
 	char sNameLeer[26] = "                         ";
-
-
-
-
 	char cObenRechtEcke = 201;		// ╔
 	char cUntenRechtEcke = 200;		// ╚
 	char cObenLinksEcke = 187;		// ╗
@@ -15,6 +11,7 @@ void sudoku_header(void)
 	char cGerade = 205;				// ═
 	char cHoch = 186;				// ║
 
+	// Baue Rahmen
 	printf("\n\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
 		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n", cObenRechtEcke,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
@@ -26,6 +23,7 @@ void sudoku_header(void)
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cObenLinksEcke);
 
+	// Schreibe Sudoku in Ascii Zeichen
 	printf("\t  %c\t  _____           _       _\t\t   %c\n"
 		"\t  %c\t / ____|         | |     | |\t\t   %c\n"
 		"\t  %c\t| (___  _   _  __| | ___ | | ___   _\t   %c\n"
@@ -36,6 +34,7 @@ void sudoku_header(void)
 		cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch, cHoch,
 		cHoch, cHoch, cHoch, cHoch, cHoch);
 
+	// Schreibe Benutzernamen
 	if (iLoginChange == 0)
 	{
 		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sNameLeer, cHoch);
@@ -44,10 +43,8 @@ void sudoku_header(void)
 	{
 		printf("\t  %c\t\tBenutzer: %s%c\n", cHoch, sUser, cHoch);
 	}
-	//
 
-
-
+	// Baue Ramhmen
 	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
 		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n\n\n", cUntenRechtEcke,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
@@ -64,13 +61,15 @@ void sudoku_header(void)
 
 void menuAnzeige(void)
 {
+	// Erstelle den Header
 	system("cls");
 	printf("\n\n");
 	sudoku_header();
 
 
-	//Ohne Login
+	//Menu
 	if (iLoginChange == 0) {
+		// Ohne Login
 		printf("\t\t(1) Schnellstart\n\n");
 		printf("\t\t(2) Login\n\n");
 		printf("\t\t(3) Benutzer anlegen\n\n");
@@ -79,6 +78,7 @@ void menuAnzeige(void)
 		printf("\t\t(X) Beenden\n\n\n");
 	}
 	else {
+		// mit Login
 		printf("\t\t(1) Neues Spiel starten\n\n");
 		printf("\t\t(2) Log Out\n\n");
 		printf("\t\t(3) Hall of Fame\n\n");
@@ -87,21 +87,26 @@ void menuAnzeige(void)
 	}
 }
 
+
+// Menu der Hall of Fame
 void hallOfFameAnzeige(void)
 {
+	// Header
 	system("cls");
 	printf("\n\n");
 	sudoku_header();
 
+	// Anzeige
 	printf("\t\t(1) Leicht\n\n");
 	printf("\t\t(2) Mittel\n\n");
 	printf("\t\t(3) Schwer\n\n");
 	printf("\t\t(X) Beenden\n\n\n");
 }
 
+// Baue das Sudokufeld
 void layout(void)
 {
-
+	// Definition
 	char var[1000];
 	char cObenRechtEcke = 201;		// ╔
 	char cUntenRechtEcke = 200;		// ╚
@@ -118,11 +123,9 @@ void layout(void)
 	char cTrenner = 196;			// -
 	char cAlleTrenner = 197;		// -
 
-
+	// Frelderzeugung
 	printf("\n\n");
-
 	printf("\t    1   2   3   4   5   6   7   8   9\n");
-
 	// Zeile 1
 	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t\t\t \033[4mMenu:\033[0m\n", cObenRechtEcke, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenLinksEcke);
 	// Zeile 2

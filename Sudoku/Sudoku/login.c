@@ -108,6 +108,10 @@ char login_user() {
 				int data = sqlite3_column_int(stmt, 0);
 				int flag = data;
 			}
+			
+			sqlite3_free(sql);
+			sqlite3_finalize(stmt);
+			sqlite3_close(db_handle);
 		}
 		if (flag < 0) {
 			if (flag == -1) {
