@@ -30,8 +30,8 @@ void hallOfFame_menu(void) {
 			case '1':
 				//Leicht
 				//anzeige HallofFame Leicht
-				//show_hallOfFameL();
-				schreibe_hallOfFame(sUser);
+				show_hallOfFameL();
+				//schreibe_hallOfFame(sUser);
 				printf("\n\t");
 				system("Pause");
 				break;
