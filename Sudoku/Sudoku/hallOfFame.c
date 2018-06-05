@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_DEPRECATE 1
+﻿#define _CRT_SECURE_NO_DEPRECATE 1
 #define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
@@ -8,6 +8,10 @@ int schleife = 1;
 int iError = 0;
 int anzahlHilfe = 1;
 int zeit = 20;
+
+char cGerade = 205;				// ═
+char cHoch = 186;				// ║
+
 
 /*
 ================================================
@@ -140,8 +144,12 @@ void show_hallOfFameL(void) {
 		printf("\t");
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+			if (col == 3) {
+				printf("\t");
+			}
 		}
 		printf("\n");
+		printf("%c%c%c%c%c%c%c%c%c", cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade);
 		const char *data;
 
 		while (sqlite3_step(stmt) == SQLITE_ROW) {
@@ -149,6 +157,7 @@ void show_hallOfFameL(void) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
 				printf("%s\t", data ? data : "NULL");
+				printf("%c", cHoch);
 			}
 			printf("\n");
 		}
@@ -163,6 +172,7 @@ void show_hallOfFameL(void) {
 Funktion show_hallOfFameM()
 ================================================
 */
+
 
 void show_hallOfFameM(void) {
 	int flag = 0;
@@ -190,6 +200,9 @@ void show_hallOfFameM(void) {
 		printf("\t");
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+			if (col == 3) {
+				printf("\t");
+			}
 		}
 		printf("\n");
 		const char *data;
@@ -199,6 +212,7 @@ void show_hallOfFameM(void) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
 				printf("%s\t", data ? data : "NULL");
+				printf("%c", cHoch);
 			}
 			printf("\n");
 		}
@@ -240,6 +254,9 @@ void show_hallOfFameS(void) {
 		printf("\t");
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+			if (col == 3) {
+				printf("\t");
+			}
 		}
 		printf("\n");
 		const char *data;
@@ -249,6 +266,7 @@ void show_hallOfFameS(void) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
 				printf("%s\t", data ? data : "NULL");
+				printf("%c", cHoch);
 			}
 			printf("\n");
 		}
