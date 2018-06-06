@@ -1,4 +1,10 @@
-﻿#include <stdio.h>
+﻿// Define
+#define _CRT_SECURE_NO_DEPRECATE 1
+#define _CRT_SECURE_NO_WARNINGS
+#define DATABASE_FILE "sudoku.sqlite3"
+
+// Includes
+#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
@@ -11,14 +17,13 @@
 
 
 // Globale Variablen
-char sUser[26]; // Username
-int iLoginChange; // Flag ob Benutzer eingeloggt ist
+extern char sUser[26]; // Username
+extern int iLoginChange; // Flag ob Benutzer eingeloggt ist
 extern int iGrid[9][9]; // main array
 extern int iGridCopy[9][9]; // lösungs array
 extern int iGridmuster[9][9]; // Array ob feld leer oder gefüllt werden soll
 
-// Define
-#define DATABASE_FILE "sudoku.sqlite3"
+
 
 
 // Funktions Prototypen
