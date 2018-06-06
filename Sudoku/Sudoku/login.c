@@ -16,9 +16,14 @@ Funktion login_user
 */
 
 char login_user() {
+	
+	/*
+	================================================
+	Initialisierung der Variablen
+	================================================
+	*/
 
 	char sPasswort[20];
-
 	char *sql;
 	char *zErrMsg;
 	sqlite3 *db_handle;
@@ -26,14 +31,13 @@ char login_user() {
 	sqlite3_stmt *stmt;
 	int col;
 	int *data;
-
 	iLoginChange = 0;
-	
 	int flag = 0;
+
 	do {
 
 		printf("\t\033[4mLogin\033[0m\n\n");
-
+		//Eingabe des Spielernamens
 		flag = 0;
 		printf("\tSpielername: ");
 		fflush(stdin);
@@ -42,7 +46,7 @@ char login_user() {
 		{
 			return 0;
 		}
-
+		//Eingabe des Passworts
 		printf("\tPasswort: ");
 		fflush(stdin);
 		scanf("%s", sPasswort);
@@ -63,7 +67,8 @@ char login_user() {
 			sPasswort[temp] ^= keyToEncrypt;
 		}
 
-
+		//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
+		//Das statement wählt den User aus der Datenbank welcher der Eingabe entspricht
 		sql = sqlite3_mprintf("SELECT user FROM benutzer WHERE user = '%s'", sUser);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
@@ -79,6 +84,8 @@ char login_user() {
 			flag = -1;
 		}
 
+		//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
+		//Das statement wählt das Passwort aus der Datenbank welcher der Eingabe entspricht und zu dem User gehört
 		sql = sqlite3_mprintf("SELECT passwort FROM benutzer WHERE user = '%s' AND passwort = '%s'", sUser, sPasswort);
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
@@ -94,6 +101,8 @@ char login_user() {
 		}
 
 		if (flag == 0) {
+			//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
+			//Das statement wählt den User aus der Datenbank welcher der Eingabe entspricht
 			sql = sqlite3_mprintf("SELECT user_id, user FROM benutzer WHERE user = '%s'", sUser);
 
 			rc = sqlite3_open(DATABASE_FILE, &db_handle);
@@ -114,9 +123,11 @@ char login_user() {
 			sqlite3_close(db_handle);
 		}
 		if (flag < 0) {
+			//Fehlermeldung bei einem falschen Benutzernamen
 			if (flag == -1) {
 				printf("\tFalscher Benutzername!\n\n");
 			}
+			//Fehlermeldung bei einem falschen Passwort
 			if (flag == -2) {
 				printf("\tFalsches Passwort!\n\n");
 			}
@@ -135,6 +146,12 @@ char login_user() {
 		iLoginChange = 1;
 	return sUser;
 }
+
+/*
+================================================
+Funktion logout_user()
+================================================
+*/
 
 char logout_user() {
 

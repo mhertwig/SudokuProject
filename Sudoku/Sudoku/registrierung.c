@@ -53,17 +53,17 @@ void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname
 
 		if (rc == SQLITE_OK)
 		{
-			// Wenn rc = SQLITE_OK ist, wird das SQL statement ausgeführt
+			// Wenn rc gleich SQLITE_OK ist, wird das SQL statement ausgeführt
 			rc = sqlite3_exec(db_handle, sql, NULL, NULL, &zErrMsg);
 			if (rc == SQLITE_OK)
 			{
-				// Wenn rc = SQLITE_OK ist, wird die Datenbank geschlossen und eine entsprechende Ausgabe folgt
+				// Wenn rc gleich SQLITE_OK ist, wird die Datenbank geschlossen und eine entsprechende Ausgabe folgt
 				sqlite3_close(db_handle);
 				printf("\tUser %s erfolgreich erstellt!\n\n",sUser);
 				return 0;
 			}
 			else {
-				// Wenn rc nicht gleich SQLITE_OK ist,
+				// Wenn rc nicht gleich SQLITE_OK ist, wird eine entsprechende Fehlermeldung 
 				printf("\tSQL Fehler: %s\n\n", zErrMsg);
 				sqlite3_free(zErrMsg);
 				sqlite3_close(db_handle);
@@ -75,10 +75,17 @@ void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname
 	}
 }
 
+/*
+================================================
+Funktion scan()
+================================================
+*/
+
 void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 
 	printf("\t\033[4mRegistrierung\033[0m\n\n");
-
+	
+	//Eingabe des Usernames
 	printf("\tUsername: ");
 	scanf("%s", sUser);
 	if (*sUser == 'x')
@@ -87,8 +94,11 @@ void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 		return 0;
 	}
 
+	//Eingabe des Passworts
 	printf("\tPasswort: ");
 	scanf("%s", sPasswort);
+	
+	//Wenn man ein "x" eingibt, wird die Registrierung beendet
 	if (*sPasswort == 'x')
 	{
 		flag = 1;
@@ -108,20 +118,11 @@ void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 	}
 
 
-
+	//Eingabe des Nachnamens
 	printf("\tNachname: ");
 	scanf("%s", sNachname);
-	//if (*sNachname == 'x')
-	//{
-	//	flag = 1;
-	//	return 0;
-	//}
-
+	
+	//Eingabe des Vornamens
 	printf("\tVorname: ");
 	scanf("%s", sVorname);
-	//if (*sVorname == 'x')
-	//{
-	//	flag = 1;
-	//	return 0;
-	//}
 }
