@@ -1,7 +1,18 @@
-﻿#define _CRT_SECURE_NO_DEPRECATE 1
+﻿/*
+================================================
+Praeprozessoranweisungen
+================================================
+*/
+
+#define _CRT_SECURE_NO_DEPRECATE 1
 #define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
+/*
+================================================
+Initialisierung der Variablen
+================================================
+*/
 
 int cMenu = 0;
 int schleife = 1;
@@ -18,7 +29,7 @@ void hallOfFame_menu(void) {
 	do
 	{
 		hallOfFameAnzeige();
-
+		//Auswahl des Menüpunkts bzw. Case auswahl
 		printf("\tEingabe: ");
 		fflush(stdin);
 		iError = scanf_s("%c", &cMenu);
@@ -69,6 +80,12 @@ Funktion schreibe_hallOfFame
 
 void schreibe_hallOfFame() {
 
+	/*
+	================================================
+	Initialisierung der Variablen
+	================================================
+	*/
+
 	int flag = 0;
 	char *sql;
 	char *zErrMsg;
@@ -79,6 +96,7 @@ void schreibe_hallOfFame() {
 
 	if (flag == 0)
 	{
+		//SQL statement wird vorbereitet
 		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"Leicht\",%i, %i)"
 								, sUser, anzahlHilfe, zeit);
 
@@ -88,14 +106,17 @@ void schreibe_hallOfFame() {
 
 		if (rc == SQLITE_OK)
 		{
+			//SQL statement wird ausgeführt
 			rc = sqlite3_exec(db_handle, sql, NULL, NULL, &zErrMsg);
 			if (rc == SQLITE_OK)
 			{
+				//Datenbank wird geschlossen und eine entsprechende Ausgabe folgt
 				sqlite3_close(db_handle);
 				printf("\tUser %s erfolgreich in die Hall of Fame eingetragen!\n\n", sUser);
 				return 0;
 			}
 			else {
+				//Bei einem Fehler wird eine entsprechende Fehlermeldung ausgegeben
 				printf("\tSQL Fehler: %s\n\n", zErrMsg);
 				sqlite3_free(zErrMsg);
 				sqlite3_close(db_handle);
@@ -114,10 +135,16 @@ Funktion show_hallOfFameL()
 */
 
 void show_hallOfFameL(void) {
+
+	/*
+	================================================
+	Initialisierung der Variablen
+	================================================
+	*/
+
 	int flag = 0;
 	char *sql;
 	char sSchwierigkeit[] = "Leicht";
-
 	sqlite3_stmt *stmt;
 	char *zErrMsg;
 	sqlite3 *db_handle;
@@ -130,6 +157,7 @@ void show_hallOfFameL(void) {
 		system("cls");
 		sudoku_header();
 
+		//SQL statement wird vorbereitet und ausgeführt
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 		
 		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
@@ -138,6 +166,7 @@ void show_hallOfFameL(void) {
 
 		cols = sqlite3_column_count(stmt);
 		printf("\t");
+		//Die Spaltennamen der Tabelle werden ausgegeben
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
 			if (col == 3) {
@@ -148,6 +177,7 @@ void show_hallOfFameL(void) {
 		const char *data;
 
 		while (sqlite3_step(stmt) == SQLITE_ROW) {
+			//Die Datensätze der Tabelle werden ausgegeben
 			for (col = 0; col < cols; col++) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
@@ -169,6 +199,11 @@ Funktion show_hallOfFameM()
 
 
 void show_hallOfFameM(void) {
+	/*
+	================================================
+	Initialisierung der Variablen
+	================================================
+	*/
 	int flag = 0;
 	char *sql;
 	char sSchwierigkeit[] = "Mittel";
@@ -184,6 +219,7 @@ void show_hallOfFameM(void) {
 	{
 		system("cls");
 		sudoku_header();
+		//SQL statement wird vorbereitet und ausgeführt
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
@@ -192,6 +228,7 @@ void show_hallOfFameM(void) {
 
 		cols = sqlite3_column_count(stmt);
 		printf("\t");
+		//Die Spaltennamen der Tabelle werden ausgegeben
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
 			if (col == 3) {
@@ -202,6 +239,7 @@ void show_hallOfFameM(void) {
 		const char *data;
 
 		while (sqlite3_step(stmt) == SQLITE_ROW) {
+			//Die Datensätze der Tabelle werden ausgegeben
 			for (col = 0; col < cols; col++) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
@@ -222,6 +260,11 @@ Funktion show_hallOfFameS()
 */
 
 void show_hallOfFameS(void) {
+	/*
+	================================================
+	Initialisierung der Variablen
+	================================================
+	*/
 	int flag = 0;
 	char *sql;
 	char sSchwierigkeit[] = "Schwer";
@@ -237,6 +280,7 @@ void show_hallOfFameS(void) {
 	{
 		system("cls");
 		sudoku_header();
+		//SQL statement wird vorbereitet und ausgeführt
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
@@ -245,6 +289,7 @@ void show_hallOfFameS(void) {
 
 		cols = sqlite3_column_count(stmt);
 		printf("\t");
+		//Die Spaltennamen der Tabelle werden ausgegeben
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
 			if (col == 3) {
@@ -255,6 +300,7 @@ void show_hallOfFameS(void) {
 		const char *data;
 
 		while (sqlite3_step(stmt) == SQLITE_ROW) {
+			//Die Datensätze der Tabelle werden ausgegeben
 			for (col = 0; col < cols; col++) {
 				data = (const char*)sqlite3_column_text(stmt, col);
 				printf("\t");
