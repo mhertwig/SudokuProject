@@ -9,10 +9,6 @@ int iError = 0;
 int anzahlHilfe = 1;
 int zeit = 20;
 
-char cGerade = 205;				// ═
-char cHoch = 186;				// ║
-
-
 /*
 ================================================
 Funktion hallOfFame_menu
