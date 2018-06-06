@@ -15,7 +15,7 @@ char sUser[26]; // Username
 int iLoginChange; // Flag ob Benutzer eingeloggt ist
 extern int iGrid[9][9]; // main array
 extern int iGridCopy[9][9]; // lösungs array
-extern int iGridmuster1[9][9]; // Array ob feld leer oder gefüllt werden soll
+extern int iGridmuster[9][9]; // Array ob feld leer oder gefüllt werden soll
 
 // Define
 #define DATABASE_FILE "sudoku.sqlite3"

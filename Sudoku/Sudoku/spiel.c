@@ -24,9 +24,9 @@ int spielFeldAusgabe(void) {
 		sudoku_header();
 		layout();
 
+		// Abfrage welche Zeile gesetzt werden soll
 		do
 		{
-			// Eingabe der Zeile
 			printf("\tZeile: ");
 			fflush(stdin);
 			while (getchar() != '\n');
@@ -34,17 +34,20 @@ int spielFeldAusgabe(void) {
 			// Abfragemenu
 			if (cZeile == 'x')
 			{
+				// starte menu
 				menu();
 				return 0;
 			}
 			if (cZeile == 'n')
 			{
+				// Generiere neues Sudokuarray und drucke es aus
 				sudokuGenShift();
 				spielFeldAusgabe();
 				return 0;
 			}
 			if (cZeile == 'l')
 			{
+				// Zeige Lösung und beende das Spiel
 				lösungAnzeigen();
 				return 0;
 			}
@@ -59,7 +62,7 @@ int spielFeldAusgabe(void) {
 		// Aus der Endlosschleife rauspringen
 		if (iEndlos != 1)
 		{
-
+			// Abfrage welche Spalte gesetzt werden soll
 			do
 			{
 				printf("\tSpalte: ");
@@ -67,17 +70,20 @@ int spielFeldAusgabe(void) {
 				iError = scanf("%c", &cSpalte);
 				if (cSpalte == 'x')
 				{
+					// starte menu
 					menu();
 					return 0;
 				}
 				if (cSpalte == 'n')
 				{
+					// Generiere neues Sudokuarray und drucke es aus
 					sudokuGenShift();
 					spielFeldAusgabe();
 					return 0;
 				}
 				if (cSpalte == 'l')
 				{
+					// Zeige Lösung und beende das Spiel
 					lösungAnzeigen();
 					return 0;
 				}
@@ -93,26 +99,28 @@ int spielFeldAusgabe(void) {
 		// Aus der Endlosschleife rauspringen
 		if (iEndlos != 1)
 		{
-			 
+			 // Abfrage welche Zahl gesetzt werden soll
 			do
 			{
 				printf("\tZahl: ");
-				//fflush(stdin);
 				while (getchar() != '\n');
 				iError = scanf("%2c", &cZahl);
 				if (cZahl == 'x')
 				{
+					// starte menu
 					menu();
 					return 0;
 				}
 				if (cZahl == 'n')
 				{
+					// Generiere neues Sudokuarray und drucke es aus
 					sudokuGenShift();
 					spielFeldAusgabe();
 					return 0;
 				}
 				if (cZahl == 'l')
 				{
+					// Zeige Lösung und beende das Spiel
 					lösungAnzeigen();
 					return 0;
 				}
@@ -160,7 +168,7 @@ void lösungAnzeigen(void)
 
 int sudokuAbfrage(void)
 {
-	// Frage ab ob das Sudoku Fertig ist
+	// Frage ab ob das Sudoku Fertig ist und gebe 0 oder 1 aus
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
 	{
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)

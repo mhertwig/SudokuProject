@@ -140,7 +140,7 @@ void sudokuGenShift(void)
 	}
 
 
-
+	// Definition
 	int iRow;
 	int iCol;
 	int iCellCount = 0;
@@ -173,37 +173,15 @@ void sudokuGenShift(void)
 	}
 
 
-	//printf("iGridCopy start \n");
-
-	//for (iIndexV = 0; iIndexV < 9; iIndexV++)
-	//{
-	//	for (iIndexH = 0; iIndexH < 9; iIndexH++)
-	//	{
-	//		printf("%d . ", iGridCopy[iIndexV][iIndexH]);
-	//	}
-	//	printf("\n");
-	//}
-	//printf("iGridCopy  end \n");
-
-
-	//Array Ausgabe zum testen
-
-	//printf("\n");
-
-	//for (iIndexV = 0; iIndexV < 9; iIndexV++)
-	//{
-	//	for (iIndexH = 0; iIndexH < 9; iIndexH++)
-	//	{
-	//		printf("%d . ", iGrid[iIndexV][iIndexH]);
-	//	}
-	//	printf("\n");
-	//}
-	//printf("\n");
-
+	
+	// Generiere Array mit 0 und 1
 	generiereZuLoeschende();
+	// setzte Zahlen und NULL in Array
 	loescheZahlen();
 
 }
+
+// Generiere das Array iGridmuster mit den Werten 0 und 1
 void generiereZuLoeschende(void)
 {
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
@@ -211,23 +189,22 @@ void generiereZuLoeschende(void)
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
 		{
 			// Generiere Array mit entweder 1 oder 0
-			iGridmuster1[iIndexV][iIndexH] = rand() % 2;
+			iGridmuster[iIndexV][iIndexH] = rand() % 2;
 		}
 
 	}
 
 }
 
-//Zahlen werden nach dem Schema iGridmuster1 gelöscht
+// Setze in iGrid an den Positionen, in der in iGridmuster eine 0 ist auf NULL
+// Ansonsten setze die Zahl aus dem Lösungs Sudoku
 void loescheZahlen(void)
 {
-	//int iGridmuster1[9][9] = { 1,0,0,1,1,0,0,1,1,1,0,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,0,1,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,0,1,0,1,0,1,1,1,1,0,1,1,0,0,1,1,0 };
-
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
 	{
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
 		{
-			if (iGridmuster1[iIndexV][iIndexH] == 0)
+			if (iGridmuster[iIndexV][iIndexH] == 0)
 			{
 				iGrid[iIndexV][iIndexH] = NULL;
 			}

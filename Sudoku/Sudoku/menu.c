@@ -6,7 +6,7 @@ void menu(void)
 {
 	// Definiton
 	char cMenu;
-	int schleife = 1;
+	int iSchleife = 1;
 	char sUser[26];
 	char sPasswort[20];
 	char sNachname[20];
@@ -61,7 +61,7 @@ void menu(void)
 
 			case 'x':
 				// Beenden
-				schleife = 0;
+				iSchleife = 0;
 			}
 		}
 		else {
@@ -95,12 +95,12 @@ void menu(void)
 
 			case 'x':
 				// Beenden
-				schleife = 0;
+				iSchleife = 0;
 			}
 
 
 
 		}
-	} while (schleife == 1);
+	} while (iSchleife == 1);
 
 }
