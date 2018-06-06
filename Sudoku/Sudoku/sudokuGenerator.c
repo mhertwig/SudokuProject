@@ -200,15 +200,29 @@ void sudokuGenShift(void)
 	//}
 	//printf("\n");
 
+	generiereZuLoeschende();
+	loescheZahlen();
 
-	//loescheZahlen();
+}
+void generiereZuLoeschende(void)
+{
+	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
+	{
+		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
+		{
+			// Generiere Array mit entweder 1 oder 0
+			iGridmuster1[iIndexV][iIndexH] = rand() % 2;
+		}
+
+	}
 
 }
 
 //Zahlen werden nach dem Schema iGridmuster1 gelöscht
 void loescheZahlen(void)
 {
-	int iGridmuster1[9][9] = { 1,0,0,1,1,0,0,1,1,1,0,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,0,1,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,0,1,0,1,0,1,1,1,1,0,1,1,0,0,1,1,0 };
+	//int iGridmuster1[9][9] = { 1,0,0,1,1,0,0,1,1,1,0,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0,1,0,1,0,0,1,1,0,0,0,0,1,1,0,0,1,0,1,0,0,0,0,1,0,1,1,1,0,0,0,0,1,1,0,0,0,0,1,0,1,0,1,0,1,1,1,1,0,1,1,0,0,1,1,0 };
+
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
 	{
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)

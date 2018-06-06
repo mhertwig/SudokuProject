@@ -37,3 +37,4 @@ int main(void);
 int randomNumGen(void);
 void lösungAnzeigen(void);
 void loescheZahlen(void);
+void generiereZuLoeschende(void);

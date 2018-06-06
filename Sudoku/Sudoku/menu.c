@@ -11,7 +11,7 @@ void menu(void)
 	char sPasswort[20];
 	char sNachname[20];
 	char sVorname[20];
-	char file[100] = "sudoku-anleitung.pdf";
+	char cFile[100] = "sudoku-anleitung.pdf";
 
 	do
 	{
@@ -56,7 +56,7 @@ void menu(void)
 
 			case '5':
 				// Regeln anzeigen
-				ShellExecute(NULL, NULL, file, NULL, NULL, SW_SHOW);
+				ShellExecute(NULL, NULL, cFile, NULL, NULL, SW_SHOW);
 				break;
 
 			case 'x':
@@ -90,7 +90,7 @@ void menu(void)
 
 			case '4':
 				// Regeln anzeigen
-				ShellExecute(NULL, NULL, file, NULL, NULL, SW_SHOW);
+				ShellExecute(NULL, NULL, cFile, NULL, NULL, SW_SHOW);
 				break;
 
 			case 'x':
