@@ -7,6 +7,12 @@ Praeprozessoranweisungen
 #define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
+/*
+================================================
+Initialisierung der Variablen
+================================================
+*/
+
 char sUser[26];
 char sPasswort[20];
 char sNachname[20];
@@ -22,14 +28,23 @@ Funktion register_user
 
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname) {
 
+	/*
+	================================================
+	Initialisierung der Variablen
+	================================================
+	*/
+
 	char *sql;
 	char *zErrMsg;
 	sqlite3 *db_handle;
 	int rc;
 
+	// scan funktion zur Eingabe von Daten wird aufgerufen (username, passwort, nachname, vorname)
 	scan(sUser, sPasswort, sNachname, sVorname);
 	if (flag == 0)
 	{
+
+		//Datenbank wird geöffnet und das SQL statement wird vorbereitet 
 
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
@@ -38,14 +53,17 @@ void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname
 
 		if (rc == SQLITE_OK)
 		{
+			// Wenn rc = SQLITE_OK ist, wird das SQL statement ausgeführt
 			rc = sqlite3_exec(db_handle, sql, NULL, NULL, &zErrMsg);
 			if (rc == SQLITE_OK)
 			{
+				// Wenn rc = SQLITE_OK ist, wird die Datenbank geschlossen und eine entsprechende Ausgabe folgt
 				sqlite3_close(db_handle);
 				printf("\tUser %s erfolgreich erstellt!\n\n",sUser);
 				return 0;
 			}
 			else {
+				// Wenn rc nicht gleich SQLITE_OK ist,
 				printf("\tSQL Fehler: %s\n\n", zErrMsg);
 				sqlite3_free(zErrMsg);
 				sqlite3_close(db_handle);
