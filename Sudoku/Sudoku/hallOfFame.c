@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_DEPRECATE 1
+﻿#define _CRT_SECURE_NO_DEPRECATE 1
 #define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
@@ -140,6 +140,9 @@ void show_hallOfFameL(void) {
 		printf("\t");
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+			if (col == 3) {
+				printf("\t");
+			}
 		}
 		printf("\n");
 		const char *data;
@@ -163,6 +166,7 @@ void show_hallOfFameL(void) {
 Funktion show_hallOfFameM()
 ================================================
 */
+
 
 void show_hallOfFameM(void) {
 	int flag = 0;
@@ -190,6 +194,9 @@ void show_hallOfFameM(void) {
 		printf("\t");
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+			if (col == 3) {
+				printf("\t");
+			}
 		}
 		printf("\n");
 		const char *data;
@@ -240,6 +247,9 @@ void show_hallOfFameS(void) {
 		printf("\t");
 		for (col = 0; col < cols; col++) {
 			printf("%s\t", (const char*)sqlite3_column_name(stmt, col));
+			if (col == 3) {
+				printf("\t");
+			}
 		}
 		printf("\n");
 		const char *data;
