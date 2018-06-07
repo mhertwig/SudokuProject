@@ -22,6 +22,11 @@ extern int iLoginChange; // Flag ob Benutzer eingeloggt ist
 extern int iGrid[9][9]; // main array
 extern int iGridCopy[9][9]; // lösungs array
 extern int iGridmuster[9][9]; // Array ob feld leer oder gefüllt werden soll
+extern int iGridplay[9][9]; // damit Zahlen gefüllt werden
+extern int iLoesung; // wenn gelößt
+
+HANDLE  hColor;
+
 
 
 

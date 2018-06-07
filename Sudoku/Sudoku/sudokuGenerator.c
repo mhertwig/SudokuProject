@@ -212,6 +212,7 @@ void loescheZahlen(void)
 			{
 				iGrid[iIndexV][iIndexH] = iGridCopy[iIndexV][iIndexH];
 			}
+			iGridplay[iIndexV][iIndexH] = iGridmuster[iIndexV][iIndexH];
 		}
 	}
 }

@@ -13,10 +13,14 @@ void menu(void)
 	char sVorname[20];
 	char cFile[100] = "sudoku-anleitung.pdf";
 
+
 	do
 	{
+		iLoesung = 0;
+
 		// Anzeige des Menu's
 		menuAnzeige();
+
 
 		// Abfrage der Eingabe
 		printf("\tEingabe: ");

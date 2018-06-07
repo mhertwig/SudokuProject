@@ -1,5 +1,3 @@
-#define _CRT_SECURE_NO_DEPRECATE 1
-#define _CRT_SECURE_NO_WARNINGS
 #include "include.h"
 
 int spielFeldAusgabe(void) {
@@ -17,7 +15,7 @@ int spielFeldAusgabe(void) {
 	do
 	{
 		
-
+		
 
 		//Layout
 		system("cls");
@@ -48,12 +46,14 @@ int spielFeldAusgabe(void) {
 			if (cZeile == 'l')
 			{
 				// Zeige Lösung und beende das Spiel
+				iLoesung = 1;
 				lösungAnzeigen();
 				return 0;
 			}
 			if (iError != 0)
 			{
 				// Wandel char in int um
+				iLoesung = 2;
 				iZeile = cZeile - '0';
 			}
 		} while (iError == 0 || iZeile == -38);
@@ -90,6 +90,7 @@ int spielFeldAusgabe(void) {
 				if (iError != 0)
 				{
 					// Wandel char in int um
+					iLoesung = 2;
 					iSpalte = cSpalte - '0';
 				}
 			} while (iError == 0 || iSpalte == -38);
@@ -127,13 +128,19 @@ int spielFeldAusgabe(void) {
 				if (iError != 0)
 				{
 					// Wandel char in int um
+					iLoesung = 2;
 					iZahl = cZahl - '0';
 				}
 			} while (iError == 0 || iZahl == -38);
 			fflush(stdin);
 
 			// Setze Zahl in das Sudokufeld
-			iGrid[iZeile - 1][iSpalte - 1] = iZahl;
+			if (iGridmuster[iZeile - 1][iSpalte - 1] == 0)
+			{
+				iGrid[iZeile - 1][iSpalte - 1] = iZahl;
+				iGridplay[iZeile - 1][iSpalte - 1] = 1;
+			}
+			
 		}
 
 		if (sudokuAbfrage() == 1)
