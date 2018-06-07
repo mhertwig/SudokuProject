@@ -1,9 +1,12 @@
 #include "include.h"
 
-// Generates random number
+// Generates random number from 1 to 9
 int randomNumGen(void)
 {
-	unsigned int iNum = rand() % 10;
+	unsigned int iNum;
+
+	iNum = rand() % 10;
+
 	if (iNum == 0)
 	{
 		randomNumGen();
@@ -15,19 +18,9 @@ int randomNumGen(void)
 }
 
 
-
-// generates random coordinates (00 - 88) of displayed cells as an integer 
-// integer is split as 2 digits later
-int PuzzleRandomPicker(void)
-{
-	unsigned int iNum = rand() % (88 + 0 - 1) + 0;
-	return iNum;
-}
-
+// generates sudoku board
 void sudokuGenShift(void)
 {
-
-	//int iGridCopy[9][9]; // copy of generated grid - needed to comparison and solving the puzzle
 
 	int iIndexH = 0; // Horizontal lines / rows of the grid
 	int iIndexV = 0; // Vertical lines / columns of the grid
@@ -35,6 +28,9 @@ void sudokuGenShift(void)
 
 	int iTmpVal; // for storing generated number until it's validated and assign to a grid
 	int iMatches = 0;
+
+	int iStep = 3; // steps to shift
+	int iRowIndex;
 
 
 	// Gives rand() function starting point
@@ -79,12 +75,10 @@ void sudokuGenShift(void)
 
 	}
 
-	//printf("%i\n\n", iIndexH);
-
 
 	// filling rows
 	/*
-	Sudoku board is generated with the following logic:
+	Sudoku board is generated through the following logic:
 	first row is filled with random unique numbers from 1 to 9
 	2nd row - first row is shifted left by 3 steps
 	3rd row - second row is shifted by 3 steps
@@ -98,9 +92,6 @@ void sudokuGenShift(void)
 
 	for (iIndexV = 1; iIndexV < 9; iIndexV++)
 	{
-		int iStep = 3; // steps to shift
-		int iRowIndex;
-
 		//fourth and seventh row are shifted by one step
 		if (iIndexV == 3 || iIndexV == 6)
 		{
@@ -121,7 +112,7 @@ void sudokuGenShift(void)
 			{
 				iGrid[iIndexV][iRowIndex] = iGrid[iIndexV - 1][0];
 			}
-			// shifting the row
+			// shifting the rows
 			else
 			{
 				iGrid[iIndexV][iRowIndex] = iGrid[iIndexV - 1][iRowIndex + iStep];
@@ -138,40 +129,6 @@ void sudokuGenShift(void)
 			iGridCopy[iIndexV][iIndexH] = iGrid[iIndexV][iIndexH];
 		}
 	}
-
-
-	// Definition
-	int iRow;
-	int iCol;
-	int iCellCount = 0;
-	int iLevel36[37];
-	int iIndexPicked;
-	int iTmpHolder;
-	int iChecking;
-	int iDuplicated = 0;
-
-	// 36 Numbers
-	while (iCellCount < 36)
-	{
-		iTmpHolder = PuzzleRandomPicker();
-		iDuplicated = 0;
-		for (iIndexPicked = 1; iIndexPicked <= 36; iIndexPicked++)
-		{
-			if (iLevel36[iIndexPicked] == iTmpHolder)
-			{
-				iDuplicated = 1;
-			}
-		}
-
-		// if there are no duplicated values, assigns the generated number to an array 
-		//and increments index for next iteration
-		if (iDuplicated == 0)
-		{
-			iLevel36[iCellCount] = iTmpHolder;
-			iCellCount++;
-		}
-	}
-
 
 	
 	// Generiere Array mit 0 und 1
