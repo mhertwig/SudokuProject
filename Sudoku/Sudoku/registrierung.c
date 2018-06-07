@@ -3,8 +3,7 @@
 Praeprozessoranweisungen
 ================================================
 */
-#define _CRT_SECURE_NO_DEPRECATE 1
-#define _CRT_SECURE_NO_WARNINGS
+
 #include "include.h"
 
 /*
@@ -17,7 +16,6 @@ char sUser[26];
 char sPasswort[20];
 char sNachname[20];
 char sVorname[20];
-
 int flag = 0;
 
 /*
