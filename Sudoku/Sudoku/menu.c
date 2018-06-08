@@ -41,7 +41,7 @@ void menu(void)
 				// Schnellstart
 				do
 				{
-					hallOfFameAnzeige();
+					schwierigkeitsMenu();
 
 					//Auswahl des Menüpunkts bzw. Case auswahl
 					printf("\tEingabe: ");

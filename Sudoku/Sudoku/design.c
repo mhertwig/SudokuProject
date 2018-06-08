@@ -111,6 +111,21 @@ void menuAnzeige(void)
 	}
 }
 
+// Schwierigkeits menu
+void schwierigkeitsMenu(void)
+{
+	// Header
+	system("cls");
+	printf("\n\n");
+	sudoku_header();
+
+	// Anzeige
+	printf("\t\t(1) Leicht\n\n");
+	printf("\t\t(2) Mittel\n\n");
+	printf("\t\t(3) Schwer\n\n");
+	printf("\t\t(X) Beenden\n\n\n");
+}
+
 
 // Menu der Hall of Fame
 void hallOfFameAnzeige(void)
@@ -124,6 +139,7 @@ void hallOfFameAnzeige(void)
 	printf("\t\t(1) Leicht\n\n");
 	printf("\t\t(2) Mittel\n\n");
 	printf("\t\t(3) Schwer\n\n");
+	printf("\t\t(4) Test\n\n");
 	printf("\t\t(X) Beenden\n\n\n");
 }
 

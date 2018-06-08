@@ -39,6 +39,7 @@ void schreibe_hallOfFame();
 void show_hallOfFameL(void);
 void show_hallOfFameM(void);
 void show_hallOfFameS(void);
+void show_hallOfFameT(void);
 void hallOfFameEintragen_menu(void);
 void hallOfFameEintragen(void);
 void sudoku_header(void);
