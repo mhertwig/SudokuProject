@@ -31,12 +31,17 @@ int spielFeldAusgabe(void) {
 			// Schreibe in Die bestenliste falls Eingeloggt
 			// -----------------------
 			printf("\tSudoku wurde geloesst\n");
-			if(iLoginChange == 1){
-				void hallOfFameEintragen_menu(void);
-			}
-			void hallOfFameEintragen_menu(void);
 			system("Pause");
-			return 1;
+
+			if(iLoginChange == 1){
+				hallOfFameEintragen_menu();
+				system("Pause");
+				return 1;
+			}
+			else {
+				system("Pause");
+				return 1;
+			}
 		}
 
 		// Abfrage welche Zeile gesetzt werden soll
