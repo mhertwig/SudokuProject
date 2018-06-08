@@ -72,7 +72,7 @@ void sudoku_header(void)
 	}
 	else
 	{
-		printf("\t   \tSchwierigkeit:\n\n\n");
+		printf("\n\n");
 	}
 
 
