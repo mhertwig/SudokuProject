@@ -13,7 +13,10 @@ void menu(void)
 	char sVorname[20];
 	char cFile[100] = "sudoku-anleitung.pdf";
 	int iAnzahlhilfe = 0;
-
+	int iError2 = 0;
+	char cMenu2 = 0;
+	int iSchleife2 = 1;
+	//int iSchwierigkeitsgrad;
 
 	do
 	{
@@ -26,7 +29,7 @@ void menu(void)
 		// Abfrage der Eingabe
 		printf("\tEingabe: ");
 		fflush(stdin);
-		scanf_s("%c", &cMenu);
+		scanf("%c", &cMenu);
 		printf("\n");
 
 		// Ohne Login
@@ -36,8 +39,55 @@ void menu(void)
 			{
 			case '1':
 				// Schnellstart
-				sudokuGenShift();
-				spielFeldAusgabe();
+				do
+				{
+					hallOfFameAnzeige();
+
+					//Auswahl des Menüpunkts bzw. Case auswahl
+					printf("\tEingabe: ");
+					fflush(stdin);
+					iError2 = scanf("%c", &cMenu2);
+					printf("\n");
+
+					{
+						switch (cMenu2)
+						{
+						case '1':
+							//Leicht
+							//setze Schwierigkeitsgrad Leicht
+							iSchwierigkeitsgrad = 1;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '2':
+							//Mittel
+							//setze Schwierigkeitsgrad Mittel
+							iSchwierigkeitsgrad = 2;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '3':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 3;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case 'x':
+							// Beenden
+							iSchleife2 = 0;
+						}
+					}
+
+				} while (iSchleife2 == 1);
+
+				
 				break;
 
 			case '2':

@@ -48,7 +48,7 @@ void sudoku_header(void)
 
 	// Baue Ramhmen
 	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c"
-		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n\n\n", cUntenRechtEcke,
+		"%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%\n", cUntenRechtEcke,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
@@ -57,6 +57,24 @@ void sudoku_header(void)
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cGerade, cGerade, cGerade, cGerade, cGerade, cGerade,
 		cUntenLinksEcke);
+
+	if(iSchwierigkeitsgrad == 1)
+	{
+		printf("\t   \tSchwierigkeit: Leicht\n\n\n");
+	}
+	else if (iSchwierigkeitsgrad == 2)
+	{
+		printf("\t   \tSchwierigkeit: Mittel\n\n\n");
+	}
+	else if (iSchwierigkeitsgrad == 3)
+	{
+		printf("\t   \tSchwierigkeit: Schwer\n\n\n");
+	}
+	else
+	{
+		printf("\t   \tSchwierigkeit:\n\n\n");
+	}
+
 
 }
 

@@ -141,12 +141,53 @@ void sudokuGenShift(void)
 // Generiere das Array iGridmuster mit den Werten 0 und 1
 void generiereZuLoeschende(void)
 {
+	int iRandom;
+
 	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
 	{
 		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
 		{
-			// Generiere Array mit entweder 1 oder 0
-			iGridmuster[iIndexV][iIndexH] = rand() % 2;
+			if(iSchwierigkeitsgrad == 1)
+			{ 
+				// Generiere Array mit entweder 1 oder 0
+				iRandom = rand() % 2;
+				if (rand() % 100 < 30) // 25% Wahrscheinlichkeit werden gelöscht
+				{
+					iGridmuster[iIndexV][iIndexH] = 0;
+				}
+				else
+				{
+					iGridmuster[iIndexV][iIndexH] = 1;
+				}
+			}
+			else if (iSchwierigkeitsgrad == 2)
+			{ // Generiere Array mit entweder 1 oder 0
+				iRandom = rand() % 2;
+				if (rand() % 100 < 45) // 50% Wahrscheinlichkeit werden gelöscht
+				{
+					iGridmuster[iIndexV][iIndexH] = 0;
+				}
+				else
+				{
+					iGridmuster[iIndexV][iIndexH] = 1;
+				}
+			}
+			else if (iSchwierigkeitsgrad == 3)
+			{ // Generiere Array mit entweder 1 oder 0
+				iRandom = rand() % 2;
+				if (rand() % 100 < 70) // 50% Wahrscheinlichkeit werden gelöscht
+				{
+					iGridmuster[iIndexV][iIndexH] = 0;
+				}
+				else
+				{
+					iGridmuster[iIndexV][iIndexH] = 1;
+				}
+			}
+			
+			
+			
+
 		}
 
 	}
