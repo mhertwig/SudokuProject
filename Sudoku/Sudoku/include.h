@@ -38,6 +38,8 @@ void schreibe_hallOfFame();
 void show_hallOfFameL(void);
 void show_hallOfFameM(void);
 void show_hallOfFameS(void);
+void hallOfFameEintragen_menu(void);
+void hallOfFameEintragen(void);
 void sudoku_header(void);
 int login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);

@@ -70,6 +70,37 @@ void hallOfFame_menu(void) {
 	} while (schleife == 1);
 }
 
+
+void hallOfFameEintragen_menu(void) {
+	do
+	{
+		hallOfFameEintragen();
+		//Auswahl des Menüpunkts bzw. Case auswahl
+		printf("\tEingabe: ");
+		fflush(stdin);
+		iError = scanf_s("%c", &cMenu);
+		printf("\n");
+
+		{
+			switch (cMenu)
+			{
+			case '1':
+				//Ja
+				schreibe_hallOfFame(sUser);
+				printf("\n\t");
+				system("Pause");
+				break;
+
+			case 'x':
+				// Nein
+				schleife = 0;
+			}
+		}
+
+	} while (schleife == 1);
+}
+
+
 /*
 ================================================
 Funktion schreibe_hallOfFame
