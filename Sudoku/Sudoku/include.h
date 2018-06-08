@@ -38,7 +38,7 @@ void show_hallOfFameL(void);
 void show_hallOfFameM(void);
 void show_hallOfFameS(void);
 void sudoku_header(void);
-char login_user(void);
+int login_user(void);
 void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 void scan(char *sUser, char *sPasswort, char *sNachname, char *sVorname);
 int spielFeldAusgabe(void);
