@@ -39,8 +39,8 @@ void hallOfFame_menu(void) {
 			case '1':
 				//Leicht
 				//anzeige HallofFame Leicht
-				show_hallOfFameL();
-				//schreibe_hallOfFame(sUser);
+				//show_hallOfFameL();
+				schreibe_hallOfFame(sUser);
 				printf("\n\t");
 				system("Pause");
 				break;
@@ -95,10 +95,10 @@ void schreibe_hallOfFame() {
 	if (flag == 0)
 	{
 		//SQL statement wird vorbereitet
+		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+
 		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"Leicht\",%i, %i)"
 								, sUser, anzahlHilfe, zeit);
-
-		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
@@ -110,7 +110,7 @@ void schreibe_hallOfFame() {
 			{
 				//Datenbank wird geschlossen und eine entsprechende Ausgabe folgt
 				sqlite3_close(db_handle);
-				printf("\tUser %s erfolgreich in die Hall of Fame eingetragen!\n\n", sUser);
+				printf("\tUser\n\t%s\n\terfolgreich in die Hall of Fame eingetragen!\n\n", sUser);
 				return 0;
 			}
 			else {

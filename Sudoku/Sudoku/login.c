@@ -13,7 +13,7 @@ Funktion login_user
 ================================================
 */
 
-char login_user() {
+int login_user(void) {
 	
 	/*
 	================================================
@@ -67,56 +67,54 @@ char login_user() {
 
 		//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
 		//Das statement wählt den User aus der Datenbank welcher der Eingabe entspricht
-		sql = sqlite3_mprintf("SELECT user FROM benutzer WHERE user = '%s'", sUser);
-
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+		
+		sql = sqlite3_mprintf("SELECT user FROM benutzer WHERE user = '%s'", sUser);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
 		col = sqlite3_column_count(stmt);
-
-		sqlite3_close(db_handle);
 		
+
 
 		if (sqlite3_step(stmt) != SQLITE_ROW) {
 			flag = -1;
 		}
+		sqlite3_finalize(stmt);
+		sqlite3_close(db_handle);
 
 		//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
 		//Das statement wählt das Passwort aus der Datenbank welcher der Eingabe entspricht und zu dem User gehört
+		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+		
 		sql = sqlite3_mprintf("SELECT passwort FROM benutzer WHERE user = '%s' AND passwort = '%s'", sUser, sPasswort);
 
-		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
 		col = sqlite3_column_count(stmt);
 
-		sqlite3_close(db_handle);
-
 		if (flag != -1 && sqlite3_step(stmt) != SQLITE_ROW) {
 			flag = -2;
 		}
+		sqlite3_finalize(stmt);
+		sqlite3_close(db_handle);
 
 		if (flag == 0) {
 			//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
 			//Das statement wählt den User aus der Datenbank welcher der Eingabe entspricht
-			sql = sqlite3_mprintf("SELECT user_id, user FROM benutzer WHERE user = '%s'", sUser);
-
 			rc = sqlite3_open(DATABASE_FILE, &db_handle);
+
+			sql = sqlite3_mprintf("SELECT user_id, user FROM benutzer WHERE user = '%s'", sUser);
 
 			rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
 			col = sqlite3_column_count(stmt);
 
-			sqlite3_close(db_handle);
-
 			while (sqlite3_step(stmt) == SQLITE_ROW) {
 				int data = sqlite3_column_int(stmt, 0);
 				int flag = data;
 			}
-			
-			sqlite3_free(sql);
 			sqlite3_finalize(stmt);
 			sqlite3_close(db_handle);
 		}
@@ -145,14 +143,7 @@ char login_user() {
 	return sUser;
 }
 
-/*
-================================================
-Funktion logout_user()
-================================================
-*/
-
-char logout_user() {
-
-	sUser[26] = "                          ";
-	iLoginChange = 0;
-}
+	char logout_user(void) {
+		sUser[26] = "                          ";
+		iLoginChange = 0;
+	}
