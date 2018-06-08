@@ -17,13 +17,14 @@ int iGridCopy[9][9];
 int iGridmuster[9][9];
 int iGridplay[9][9];
 int iLoesung;
+//int iAnzahlhilfe;
 
 
 int main(void)
 {
 	// Setze Fenseter Koordinaten, Länge und Breite
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
-	MoveWindow(hwnd, 350, 10, 600, 700, TRUE);
+	MoveWindow(hwnd, 350, 10, 650, 700, TRUE);
 
 	// Setze Login auf 0 (Ausgeloggt)
 	iLoginChange = 0;

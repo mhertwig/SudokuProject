@@ -12,6 +12,7 @@ void menu(void)
 	char sNachname[20];
 	char sVorname[20];
 	char cFile[100] = "sudoku-anleitung.pdf";
+	int iAnzahlhilfe = 0;
 
 
 	do
@@ -74,7 +75,6 @@ void menu(void)
 			{
 			case '1':
 				// Neues Spiel starten
-
 				sudokuGenShift();
 				spielFeldAusgabe();
 				break;

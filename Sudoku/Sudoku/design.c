@@ -137,7 +137,7 @@ void layout(void)
 	printf("\n\n");
 	printf("\t    1   2   3   4   5   6   7   8   9\n");
 	// Ramen oben
-	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t\t \033[4mMenu:\033[0m\n", cObenRechtEcke, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenLinksEcke);
+	printf("\t  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t \033[4mMenu:\033[0m\n", cObenRechtEcke, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cObenLinksEcke);
 	for (int i = 1; i <= 17; i++)
 	{
 		printf("\t");
@@ -252,15 +252,23 @@ void layout(void)
 		{
 			if (iKoord == 2)
 			{
-				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t\t n = Neues Spiel\n", cHoch, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cHoch);
+				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t n = Neues Spiel\n", cHoch, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cHoch);
 			}
 			else if (iKoord == 3)
 			{
-				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t\t l = Loesung anzeigen\n", cHoch, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cHoch);
+				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t l = Loesung anzeigen\n", cHoch, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleMitte, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cAlleTrenner, cTrenner, cTrenner, cTrenner, cHoch);
 			}
 			else if (iKoord == 4)
 			{
-				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t\t x = Beenden\n", cRechtsMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cLinksMitte);
+				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t h = Hilfe anzeigen\n", cRechtsMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cLinksMitte);
+			}
+			else if (iKoord == 5)
+			{
+				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t (nur in der Zahl Eingabe anwendbar)\n", cRechtsMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cLinksMitte);
+			}
+			else if (iKoord == 6)
+			{
+				printf("  %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\t x = Beenden\n", cRechtsMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cAlleMitte, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cGerade, cLinksMitte);
 			}
 			else if (iKoord == 7)
 			{

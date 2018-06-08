@@ -11,6 +11,7 @@ int spielFeldAusgabe(void) {
 	int iSpalte = 0;
 	int iError;
 	int iEndlos = 0;
+	int iFlag = 0;
 
 	do
 	{
@@ -96,7 +97,7 @@ int spielFeldAusgabe(void) {
 			} while (iError == 0 || iSpalte == -38);
 
 		}
-
+		iFlag = 0;
 		// Aus der Endlosschleife rauspringen
 		if (iEndlos != 1)
 		{
@@ -125,20 +126,34 @@ int spielFeldAusgabe(void) {
 					lösungAnzeigen();
 					return 0;
 				}
-				if (iError != 0)
+				if (cZahl == 'h')
+				{
+					if (iGridmuster[iZeile - 1][iSpalte - 1] == 0)
+					{
+						iGrid[iZeile - 1][iSpalte - 1] = iGridCopy[iZeile - 1][iSpalte - 1];
+						iGridplay[iZeile - 1][iSpalte - 1] = 1;
+						iFlag = 1;
+						//iAnzahlHilfe++;
+					}
+				}
+				if (iError != 0 && iFlag == 0)
 				{
 					// Wandel char in int um
 					iLoesung = 2;
 					iZahl = cZahl - '0';
+					
 				}
 			} while (iError == 0 || iZahl == -38);
 			fflush(stdin);
 
 			// Setze Zahl in das Sudokufeld
-			if (iGridmuster[iZeile - 1][iSpalte - 1] == 0)
+			if (iFlag == 0)
 			{
-				iGrid[iZeile - 1][iSpalte - 1] = iZahl;
-				iGridplay[iZeile - 1][iSpalte - 1] = 1;
+				if (iGridmuster[iZeile - 1][iSpalte - 1] == 0)
+				{
+					iGrid[iZeile - 1][iSpalte - 1] = iZahl;
+					iGridplay[iZeile - 1][iSpalte - 1] = 1;
+				}
 			}
 			
 		}
