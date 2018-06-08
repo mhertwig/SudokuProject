@@ -133,6 +133,9 @@ void schreibe_hallOfFame() {
 	else if (iSchwierigkeitsgrad == 3) {
 		sSchwierigkeitsgrad[7] = "Schwer";
 	}
+	else if (iSchwierigkeitsgrad == 4) {
+		sSchwierigkeitsgrad[7] = "Test";
+	}
 
 
 	if (flag == 0)
