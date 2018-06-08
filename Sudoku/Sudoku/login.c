@@ -25,9 +25,9 @@ int login_user(void) {
 	char *sql;
 	char *zErrMsg;
 	sqlite3 *db_handle;
-	int rc;
+	int iRc;
 	sqlite3_stmt *stmt;
-	int col;
+	int iCol;
 	int *data;
 	iLoginChange = 0;
 	int flag = 0;
@@ -67,13 +67,13 @@ int login_user(void) {
 
 		//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
 		//Das statement wählt den User aus der Datenbank welcher der Eingabe entspricht
-		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+		iRc = sqlite3_open(DATABASE_FILE, &db_handle);
 		
 		sql = sqlite3_mprintf("SELECT user FROM benutzer WHERE user = '%s'", sUser);
 
-		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
+		iRc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
-		col = sqlite3_column_count(stmt);
+		iCol = sqlite3_column_count(stmt);
 		
 
 
@@ -85,14 +85,14 @@ int login_user(void) {
 
 		//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
 		//Das statement wählt das Passwort aus der Datenbank welcher der Eingabe entspricht und zu dem User gehört
-		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+		iRc = sqlite3_open(DATABASE_FILE, &db_handle);
 		
 		sql = sqlite3_mprintf("SELECT passwort FROM benutzer WHERE user = '%s' AND passwort = '%s'", sUser, sPasswort);
 
 
-		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
+		iRc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
-		col = sqlite3_column_count(stmt);
+		iCol = sqlite3_column_count(stmt);
 
 		if (flag != -1 && sqlite3_step(stmt) != SQLITE_ROW) {
 			flag = -2;
@@ -103,13 +103,13 @@ int login_user(void) {
 		if (flag == 0) {
 			//SQL statement wird vorbereitet und ausgeführt und die Datenbank geöffnet bzw geschlossen
 			//Das statement wählt den User aus der Datenbank welcher der Eingabe entspricht
-			rc = sqlite3_open(DATABASE_FILE, &db_handle);
+			iRc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 			sql = sqlite3_mprintf("SELECT user_id, user FROM benutzer WHERE user = '%s'", sUser);
 
-			rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
+			iRc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
-			col = sqlite3_column_count(stmt);
+			iCol = sqlite3_column_count(stmt);
 
 			while (sqlite3_step(stmt) == SQLITE_ROW) {
 				int data = sqlite3_column_int(stmt, 0);

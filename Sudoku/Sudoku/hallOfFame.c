@@ -12,17 +12,19 @@ Initialisierung der Variablen
 ================================================
 */
 
-int cMenu = 0;
-int schleife = 1;
+char cMenu = 0;
+int iSchleife = 1;
 int iError = 0;
-int anzahlHilfe = 1;
-int zeit = 20;
+int iZeit = 0;
+int iAnzahlHilfe;
+int iSchwierigkeitsgrad;
 
 /*
 ================================================
 Funktion hallOfFame_menu
 ================================================
 */
+
 void hallOfFame_menu(void) {
 	do
 	{
@@ -39,8 +41,7 @@ void hallOfFame_menu(void) {
 			case '1':
 				//Leicht
 				//anzeige HallofFame Leicht
-				//show_hallOfFameL();
-				schreibe_hallOfFame(sUser);
+				show_hallOfFameL();
 				printf("\n\t");
 				system("Pause");
 				break;
@@ -63,11 +64,11 @@ void hallOfFame_menu(void) {
 
 			case 'x':
 				// Beenden
-				schleife = 0;
+				iSchleife = 0;
 			}
 		}
 
-	} while (schleife == 1);
+	} while (iSchleife == 1);
 }
 
 
@@ -93,11 +94,11 @@ void hallOfFameEintragen_menu(void) {
 
 			case 'x':
 				// Nein
-				schleife = 0;
+				iSchleife = 0;
 			}
 		}
 
-	} while (schleife == 1);
+	} while (iSchleife == 1);
 }
 
 
@@ -121,6 +122,17 @@ void schreibe_hallOfFame() {
 	sqlite3 *db_handle;
 	int rc;
 	sqlite3_stmt *stmt;
+	char sSchwierigkeitsgrad[] = "       ";
+
+	if (iSchwierigkeitsgrad == 1) {
+		sSchwierigkeitsgrad[7] = "Leicht";
+	}
+	else if(iSchwierigkeitsgrad == 2) {
+		sSchwierigkeitsgrad[7] = "Mittel";
+	}
+	else if (iSchwierigkeitsgrad == 3) {
+		sSchwierigkeitsgrad[7] = "Schwer";
+	}
 
 
 	if (flag == 0)
@@ -128,8 +140,8 @@ void schreibe_hallOfFame() {
 		//SQL statement wird vorbereitet
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"Leicht\",%i, %i)"
-								, sUser, anzahlHilfe, zeit);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"%s\" ,%i, %i)"
+								, sUser, sSchwierigkeitsgrad, iAnzahlHilfe, iZeit);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
@@ -189,7 +201,7 @@ void show_hallOfFameL(void) {
 		//SQL statement wird vorbereitet und ausgeführt
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 		
-		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
+		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY anzahlHilfe ASC LIMIT 10", sSchwierigkeit);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
