@@ -35,7 +35,7 @@ void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname
 	char *sql;
 	char *zErrMsg;
 	sqlite3 *db_handle;
-	int rc;
+	int iRc;
 
 	// scan funktion zur Eingabe von Daten wird aufgerufen (username, passwort, nachname, vorname)
 	scan(sUser, sPasswort, sNachname, sVorname);
@@ -44,24 +44,24 @@ void register_user(char *sUser, char *sPasswort, char *sNachname, char *sVorname
 
 		//Datenbank wird geöffnet und das SQL statement wird vorbereitet 
 
-		rc = sqlite3_open(DATABASE_FILE, &db_handle);
+		iRc = sqlite3_open(DATABASE_FILE, &db_handle);
 
 		sql = sqlite3_mprintf("INSERT INTO benutzer VALUES (NULL, %Q, %Q, %Q, %Q, \
 				date('now'));", sUser, sPasswort, sNachname, sVorname);
 
-		if (rc == SQLITE_OK)
+		if (iRc == SQLITE_OK)
 		{
-			// Wenn rc gleich SQLITE_OK ist, wird das SQL statement ausgeführt
-			rc = sqlite3_exec(db_handle, sql, NULL, NULL, &zErrMsg);
-			if (rc == SQLITE_OK)
+			// Wenn iRc gleich SQLITE_OK ist, wird das SQL statement ausgeführt
+			iRc = sqlite3_exec(db_handle, sql, NULL, NULL, &zErrMsg);
+			if (iRc == SQLITE_OK)
 			{
-				// Wenn rc gleich SQLITE_OK ist, wird die Datenbank geschlossen und eine entsprechende Ausgabe folgt
+				// Wenn iRc gleich SQLITE_OK ist, wird die Datenbank geschlossen und eine entsprechende Ausgabe folgt
 				sqlite3_close(db_handle);
 				printf("\tUser %s erfolgreich erstellt!\n\n",sUser);
 				return 0;
 			}
 			else {
-				// Wenn rc nicht gleich SQLITE_OK ist, wird eine entsprechende Fehlermeldung 
+				// Wenn iRc nicht gleich SQLITE_OK ist, wird eine entsprechende Fehlermeldung 
 				printf("\tSQL Fehler: %s\n\n", zErrMsg);
 				sqlite3_free(zErrMsg);
 				sqlite3_close(db_handle);

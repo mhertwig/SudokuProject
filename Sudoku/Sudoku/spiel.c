@@ -31,6 +31,9 @@ int spielFeldAusgabe(void) {
 			// Schreibe in Die bestenliste falls Eingeloggt
 			// -----------------------
 			printf("\tSudoku wurde geloesst\n");
+			if(iLoginChange == 1){
+				void hallOfFameEintragen_menu(void);
+			}
 			void hallOfFameEintragen_menu(void);
 			system("Pause");
 			return 1;
