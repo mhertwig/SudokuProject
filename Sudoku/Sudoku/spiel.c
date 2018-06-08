@@ -191,6 +191,8 @@ void lösungAnzeigen(void)
 		}
 	}
 
+	iSchwierigkeitsgrad = 0;
+
 	//Layout und Spielende Ausgabe
 	system("cls");
 	sudoku_header();
@@ -212,6 +214,7 @@ int sudokuAbfrage(void)
 			}
 		}
 	}
+	iSchwierigkeitsgrad = 0;
 	return 1; // Richtig
 }
 

@@ -70,6 +70,10 @@ void sudoku_header(void)
 	{
 		printf("\t   \tSchwierigkeit: Schwer\n\n\n");
 	}
+	else if (iSchwierigkeitsgrad == 4)
+	{
+		printf("\t   \tSchwierigkeit: Test Modus\n\n\n");
+	}
 	else
 	{
 		printf("\n\n");

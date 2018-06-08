@@ -79,6 +79,15 @@ void menu(void)
 							spielFeldAusgabe();
 							break;
 
+						case '4':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 4;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
 						case 'x':
 							// Beenden
 							iSchleife2 = 0;
@@ -125,8 +134,64 @@ void menu(void)
 			{
 			case '1':
 				// Neues Spiel starten
-				sudokuGenShift();
-				spielFeldAusgabe();
+				do
+				{
+					hallOfFameAnzeige();
+
+					//Auswahl des Menüpunkts bzw. Case auswahl
+					printf("\tEingabe: ");
+					fflush(stdin);
+					iError2 = scanf("%c", &cMenu2);
+					printf("\n");
+
+					{
+						switch (cMenu2)
+						{
+						case '1':
+							//Leicht
+							//setze Schwierigkeitsgrad Leicht
+							iSchwierigkeitsgrad = 1;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '2':
+							//Mittel
+							//setze Schwierigkeitsgrad Mittel
+							iSchwierigkeitsgrad = 2;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '3':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 3;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '4':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 4;
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case 'x':
+							// Beenden
+							iSchleife2 = 0;
+						}
+					}
+
+				} while (iSchleife2 == 1);
+
+
 				break;
 
 			case '2':

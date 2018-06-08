@@ -151,7 +151,7 @@ void generiereZuLoeschende(void)
 			{ 
 				// Generiere Array mit entweder 1 oder 0
 				iRandom = rand() % 2;
-				if (rand() % 100 < 30) // 25% Wahrscheinlichkeit werden gelöscht
+				if (rand() % 100 < 30) // 30% Wahrscheinlichkeit werden gelöscht
 				{
 					iGridmuster[iIndexV][iIndexH] = 0;
 				}
@@ -163,7 +163,7 @@ void generiereZuLoeschende(void)
 			else if (iSchwierigkeitsgrad == 2)
 			{ // Generiere Array mit entweder 1 oder 0
 				iRandom = rand() % 2;
-				if (rand() % 100 < 45) // 50% Wahrscheinlichkeit werden gelöscht
+				if (rand() % 100 < 45) // 45% Wahrscheinlichkeit werden gelöscht
 				{
 					iGridmuster[iIndexV][iIndexH] = 0;
 				}
@@ -175,7 +175,19 @@ void generiereZuLoeschende(void)
 			else if (iSchwierigkeitsgrad == 3)
 			{ // Generiere Array mit entweder 1 oder 0
 				iRandom = rand() % 2;
-				if (rand() % 100 < 70) // 50% Wahrscheinlichkeit werden gelöscht
+				if (rand() % 100 < 70) // 70% Wahrscheinlichkeit werden gelöscht
+				{
+					iGridmuster[iIndexV][iIndexH] = 0;
+				}
+				else
+				{
+					iGridmuster[iIndexV][iIndexH] = 1;
+				}
+			}
+			else if (iSchwierigkeitsgrad == 4)
+			{ // Generiere Array mit entweder 1 oder 0
+				iRandom = rand() % 2;
+				if (rand() % 100 < 2) // 70% Wahrscheinlichkeit werden gelöscht
 				{
 					iGridmuster[iIndexV][iIndexH] = 0;
 				}
