@@ -1,5 +1,7 @@
 #include "include.h"
 
+int iAnzahlHilfe;
+
 int spielFeldAusgabe(void) {
 
 	// Definition
@@ -12,6 +14,7 @@ int spielFeldAusgabe(void) {
 	int iError;
 	int iEndlos = 0;
 	int iFlag = 0;
+	
 
 	do
 	{
@@ -22,6 +25,16 @@ int spielFeldAusgabe(void) {
 		system("cls");
 		sudoku_header();
 		layout();
+
+		if (sudokuAbfrage() == 1)
+		{
+			// Schreibe in Die bestenliste falls Eingeloggt
+			// -----------------------
+			printf("\tSudoku wurde geloesst\n");
+			void hallOfFameEintragen_menu(void);
+			system("Pause");
+			return 1;
+		}
 
 		// Abfrage welche Zeile gesetzt werden soll
 		do
@@ -34,6 +47,7 @@ int spielFeldAusgabe(void) {
 			if (cZeile == 'x')
 			{
 				// starte menu
+				iSchwierigkeitsgrad = 0;
 				menu();
 				return 0;
 			}
@@ -72,6 +86,7 @@ int spielFeldAusgabe(void) {
 				if (cSpalte == 'x')
 				{
 					// starte menu
+					iSchwierigkeitsgrad = 0;
 					menu();
 					return 0;
 				}
@@ -110,6 +125,7 @@ int spielFeldAusgabe(void) {
 				if (cZahl == 'x')
 				{
 					// starte menu
+					iSchwierigkeitsgrad = 0;
 					menu();
 					return 0;
 				}
@@ -133,7 +149,7 @@ int spielFeldAusgabe(void) {
 						iGrid[iZeile - 1][iSpalte - 1] = iGridCopy[iZeile - 1][iSpalte - 1];
 						iGridplay[iZeile - 1][iSpalte - 1] = 1;
 						iFlag = 1;
-						//iAnzahlHilfe++;
+						iAnzahlHilfe++;
 					}
 				}
 				if (iError != 0 && iFlag == 0)
@@ -156,15 +172,6 @@ int spielFeldAusgabe(void) {
 				}
 			}
 			
-		}
-
-		if (sudokuAbfrage() == 1)
-		{
-			// Schreibe in Die bestenliste falls Eingeloggt
-			// -----------------------
-			printf("\tSudoku wurde geloesst\n");
-			void hallOfFameEintragen_menu(void);
-			return 1;
 		}
 
 	}while(iEndlos == 0);

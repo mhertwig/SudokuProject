@@ -17,7 +17,8 @@ int iGridCopy[9][9];
 int iGridmuster[9][9];
 int iGridplay[9][9];
 int iLoesung;
-//int iAnzahlhilfe;
+int iAnzahlhilfe;
+int iSchwierigkeitsgrad;
 
 
 int main(void)
@@ -28,6 +29,9 @@ int main(void)
 
 	// Setze Login auf 0 (Ausgeloggt)
 	iLoginChange = 0;
+
+	int iAnzahlhilfe = 0;
+	int iSchwierigkeitsgrad = 1;
 
 	// Zeige Menü an
 	menu();
