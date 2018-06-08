@@ -105,6 +105,19 @@ void hallOfFameAnzeige(void)
 	printf("\t\t(X) Beenden\n\n\n");
 }
 
+// Menu für die Abfrage ob der User in die hallOfFame eingetragen werden möchte
+void hallOfFameEintragen(void)
+{
+	// Header
+	system("cls");
+	printf("\n\n");
+	sudoku_header();
+
+	// Anzeige
+	printf("\t\t(1) Ja\n\n");
+	printf("\t\t(X) Nein\n\n\n");
+}
+
 // Baue das Sudokufeld
 void layout(void)
 {
