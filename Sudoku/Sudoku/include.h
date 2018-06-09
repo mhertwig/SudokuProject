@@ -11,6 +11,7 @@
 #include <ctype.h>
 #include <windows.h>
 #include <string.h>
+#include <time.h>
 
 
 #include "sqlite3.h"
@@ -26,6 +27,7 @@ extern int iGridplay[9][9]; // damit Zahlen gefüllt werden
 extern int iLoesung; // wenn gelößt
 extern int iAnzahlHilfe; // anzahl der Hilfen
 extern int iSchwierigkeitsgrad;
+extern double dZeit, dStartZeit; // Zeit
 
 HANDLE  hColor;
 

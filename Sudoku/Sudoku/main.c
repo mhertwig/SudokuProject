@@ -19,19 +19,23 @@ int iGridplay[9][9];
 int iLoesung;
 int iAnzahlhilfe;
 int iSchwierigkeitsgrad;
+double dZeit;
+double dStartZeit;
 
 
 int main(void)
 {
 	// Setze Fenseter Koordinaten, Länge und Breite
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
-	MoveWindow(hwnd, 350, 10, 670, 700, TRUE);
+	MoveWindow(hwnd, 350, 10, 700, 700, TRUE);
 
 	// Setze Login auf 0 (Ausgeloggt)
 	iLoginChange = 0;
 
-	int iAnzahlhilfe = 0;
-	int iSchwierigkeitsgrad = 1;
+	iAnzahlhilfe = 0;
+	iSchwierigkeitsgrad = 0;
+	dZeit = 0;
+	dStartZeit = -2;
 
 	// Zeige Menü an
 	menu();

@@ -21,6 +21,8 @@ void menu(void)
 	do
 	{
 		iLoesung = 0;
+		dZeit = 0;
+		dStartZeit = 0;
 
 		// Anzeige des Menu's
 		menuAnzeige();
@@ -56,9 +58,12 @@ void menu(void)
 							//Leicht
 							//setze Schwierigkeitsgrad Leicht
 							iSchwierigkeitsgrad = 1;
+							dStartZeit = clock();
+							dZeit = clock();
 							iSchleife2 = 0;
 							sudokuGenShift();
 							spielFeldAusgabe();
+
 							break;
 
 						case '2':

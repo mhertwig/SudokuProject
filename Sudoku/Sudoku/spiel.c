@@ -19,26 +19,39 @@ int spielFeldAusgabe(void) {
 	do
 	{
 		
-		
+		// Setze Zeit
+		dZeit += clock() - dStartZeit;
+		dZeit = dZeit / CLOCKS_PER_SEC;
 
 		//Layout
 		system("cls");
 		sudoku_header();
+
+		// Zeige Zeit
+		printf("\t\tSpielzeit: %2.0lf:%2.0lf:%2.0lf", dZeit/3600,dZeit/60,dZeit);
+		printf("\n\n");
+
+		// Feld
 		layout();
+
+		
 
 		if (sudokuAbfrage() == 1)
 		{
 			// Schreibe in Die bestenliste falls Eingeloggt
 			// -----------------------
-			printf("\tSudoku wurde geloesst\n");
+			printf("\tSudoku wurde geloesst!\n");
+			printf("\t\n");
 			system("Pause");
 
 			if(iLoginChange == 1){
 				hallOfFameEintragen_menu();
+				printf("\t\n");
 				system("Pause");
 				return 1;
 			}
 			else {
+				printf("\t\n");
 				system("Pause");
 				return 1;
 			}
@@ -220,6 +233,11 @@ int sudokuAbfrage(void)
 		}
 	}
 	iSchwierigkeitsgrad = 0;
+
+	// setze Zeit
+	dZeit += clock() - dStartZeit;
+	dZeit = dZeit / CLOCKS_PER_SEC;
+
 	return 1; // Richtig
 }
 

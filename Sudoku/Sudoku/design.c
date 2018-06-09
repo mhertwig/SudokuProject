@@ -60,25 +60,26 @@ void sudoku_header(void)
 
 	if(iSchwierigkeitsgrad == 1)
 	{
-		printf("\t   \tSchwierigkeit: Leicht\n\n\n");
+		printf("\t   \tSchwierigkeit: Leicht\n");
 	}
 	else if (iSchwierigkeitsgrad == 2)
 	{
-		printf("\t   \tSchwierigkeit: Mittel\n\n\n");
+		printf("\t   \tSchwierigkeit: Mittel\n");
 	}
 	else if (iSchwierigkeitsgrad == 3)
 	{
-		printf("\t   \tSchwierigkeit: Schwer\n\n\n");
+		printf("\t   \tSchwierigkeit: Schwer\n");
 	}
 	else if (iSchwierigkeitsgrad == 4)
 	{
-		printf("\t   \tSchwierigkeit: Test Modus\n\n\n");
+		printf("\t   \tSchwierigkeit: Test Modus\n");
 	}
 	else
 	{
-		printf("\n\n");
+		printf("\n");
 	}
-
+	printf("\n");
+	
 
 }
 
@@ -139,7 +140,6 @@ void hallOfFameAnzeige(void)
 	printf("\t\t(1) Leicht\n\n");
 	printf("\t\t(2) Mittel\n\n");
 	printf("\t\t(3) Schwer\n\n");
-	printf("\t\t(4) Test\n\n");
 	printf("\t\t(X) Beenden\n\n\n");
 }
 
@@ -152,6 +152,7 @@ void hallOfFameEintragen(void)
 	sudoku_header();
 
 	// Anzeige
+	printf("\tWollen Sie in die Hall of Fame eingetragen werden ?\n");
 	printf("\t\t(1) Ja\n\n");
 	printf("\t\t(X) Nein\n\n\n");
 }
