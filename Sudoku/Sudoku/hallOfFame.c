@@ -157,13 +157,14 @@ void schreibe_hallOfFame() {
 		char sSchwierigkeitsgrad[] = "Schwer";
 	}
 	else{
-		sSchwierigkeitsgrad[0] = 'T';
+		char sSchwierigkeitsgrad[] = "Test";
+		/*sSchwierigkeitsgrad[0] = 'T';
 		sSchwierigkeitsgrad[1] = 'e';
 		sSchwierigkeitsgrad[2] = 's';
 		sSchwierigkeitsgrad[3] = 't';
 		sSchwierigkeitsgrad[4] = NULL;
 		sSchwierigkeitsgrad[5] = NULL;
-		sSchwierigkeitsgrad[6] = NULL;
+		sSchwierigkeitsgrad[6] = NULL;*/
 	}
 
 
@@ -172,7 +173,7 @@ void schreibe_hallOfFame() {
 		//SQL statement wird vorbereitet
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"%s\" ,\"3\", \"12\")"
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"%s\" ,\"3\", \"%2.0lf\")"
 			, sUser2, sSchwierigkeitsgrad);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
