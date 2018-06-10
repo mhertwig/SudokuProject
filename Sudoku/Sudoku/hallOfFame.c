@@ -15,8 +15,6 @@ Initialisierung der Variablen
 char cMenu = 0;
 int iSchleife = 1;
 int iError = 0;
-int iZeit = 0;
-int iAnzahlHilfe;
 
 /*
 ================================================
@@ -148,23 +146,40 @@ void schreibe_hallOfFame() {
 
 
 	if (iSchwierigkeitsgrad == 1) {
-		char sSchwierigkeitsgrad[] = "Leicht";
+		sSchwierigkeitsgrad[0] = 'L';
+		sSchwierigkeitsgrad[1] = 'e';
+		sSchwierigkeitsgrad[2] = 'i';
+		sSchwierigkeitsgrad[3] = 'c';
+		sSchwierigkeitsgrad[4] = "h";
+		sSchwierigkeitsgrad[5] = "t";
+		sSchwierigkeitsgrad[6] = NULL;
 	}
 	else if(iSchwierigkeitsgrad == 2) {
-		char sSchwierigkeitsgrad[] = "Mittel";
+		sSchwierigkeitsgrad[0] = 'M';
+		sSchwierigkeitsgrad[1] = 'i';
+		sSchwierigkeitsgrad[2] = 't';
+		sSchwierigkeitsgrad[3] = 't';
+		sSchwierigkeitsgrad[4] = "e";
+		sSchwierigkeitsgrad[5] = "l";
+		sSchwierigkeitsgrad[6] = NULL;
 	}
 	else if (iSchwierigkeitsgrad == 3) {
-		char sSchwierigkeitsgrad[] = "Schwer";
+		sSchwierigkeitsgrad[0] = 'S';
+		sSchwierigkeitsgrad[1] = 'c';
+		sSchwierigkeitsgrad[2] = 'h';
+		sSchwierigkeitsgrad[3] = 'w';
+		sSchwierigkeitsgrad[4] = "e";
+		sSchwierigkeitsgrad[5] = "r";
+		sSchwierigkeitsgrad[6] = NULL;
 	}
 	else{
-		char sSchwierigkeitsgrad[] = "Test";
-		/*sSchwierigkeitsgrad[0] = 'T';
+		sSchwierigkeitsgrad[0] = 'T';
 		sSchwierigkeitsgrad[1] = 'e';
 		sSchwierigkeitsgrad[2] = 's';
 		sSchwierigkeitsgrad[3] = 't';
 		sSchwierigkeitsgrad[4] = NULL;
 		sSchwierigkeitsgrad[5] = NULL;
-		sSchwierigkeitsgrad[6] = NULL;*/
+		sSchwierigkeitsgrad[6] = NULL;
 	}
 
 
@@ -173,8 +188,8 @@ void schreibe_hallOfFame() {
 		//SQL statement wird vorbereitet
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"%s\" ,\"3\", \"%2.0lf\")"
-			, sUser2, sSchwierigkeitsgrad);
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"%s\" ,%i, %i)"
+			, sUser2, sSchwierigkeitsgrad, iAnzahlHilfe, iZeit);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
@@ -233,7 +248,7 @@ void show_hallOfFameL(void) {
 		//SQL statement wird vorbereitet und ausgeführt
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 		
-		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY anzahlHilfe ASC LIMIT 10", sSchwierigkeit);
+		sql = sqlite3_mprintf("SELECT * FROM hallOfFame WHERE schwierigkeit = '%s' ORDER BY zeit ASC LIMIT 10", sSchwierigkeit);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
