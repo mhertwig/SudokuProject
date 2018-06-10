@@ -20,15 +20,16 @@ int spielFeldAusgabe(void) {
 	{
 		
 		// Setze Zeit
-		dZeit += clock() - dStartZeit;
-		dZeit = dZeit / CLOCKS_PER_SEC;
+		iZeit = clock() - iStartZeit;
+		iZeit = iZeit / CLOCKS_PER_SEC;
 
 		//Layout
 		system("cls");
 		sudoku_header();
 
 		// Zeige Zeit
-		printf("\t\tSpielzeit: %2.0lf:%2.0lf:%2.0lf", dZeit/3600,dZeit/60,dZeit);
+		//printf("\t\tSpielzeit: %2.0lf:%2.0lf:%2.0lf", dZeit/3600,dZeit/60,dZeit % 60);
+		printf("\t\tSpielzeit: %2i:%2i:%2i", iZeit / 3600, iZeit / 60, iZeit % 60);
 		printf("\n\n");
 
 		// Feld
@@ -46,8 +47,6 @@ int spielFeldAusgabe(void) {
 
 			if(iLoginChange == 1){
 				hallOfFameEintragen_menu();
-				printf("\t\n");
-				system("Pause");
 				return 1;
 			}
 			else {
@@ -235,8 +234,8 @@ int sudokuAbfrage(void)
 	//iSchwierigkeitsgrad = 0;
 
 	// setze Zeit
-	dZeit += clock() - dStartZeit;
-	dZeit = dZeit / CLOCKS_PER_SEC;
+	iZeit += clock() - iStartZeit;
+	iZeit = iZeit / CLOCKS_PER_SEC;
 
 	return 1; // Richtig
 }

@@ -27,7 +27,7 @@ extern int iGridplay[9][9]; // damit Zahlen gefüllt werden
 extern int iLoesung; // wenn gelößt
 extern int iAnzahlHilfe; // anzahl der Hilfen
 extern int iSchwierigkeitsgrad;
-extern double dZeit, dStartZeit; // Zeit
+extern int iZeit, iStartZeit; // Zeit
 
 HANDLE  hColor;
 

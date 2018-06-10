@@ -152,7 +152,7 @@ void hallOfFameEintragen(void)
 	sudoku_header();
 
 	// Anzeige
-	printf("\tWollen Sie in die Hall of Fame eingetragen werden ?\n");
+	printf("\t\tWollen Sie in die Hall of Fame eingetragen werden ?\n\n\n");
 	printf("\t\t(1) Ja\n\n");
 	printf("\t\t(X) Nein\n\n\n");
 }

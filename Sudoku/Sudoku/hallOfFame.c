@@ -185,7 +185,7 @@ void schreibe_hallOfFame() {
 			{
 				//Datenbank wird geschlossen und eine entsprechende Ausgabe folgt
 				sqlite3_close(db_handle);
-				printf("\tUser\n\t%s\n\terfolgreich in die Hall of Fame eingetragen!\n\n", sUser);
+				printf("\tUser: %s\n\terfolgreich in die Hall of Fame eingetragen!\n\n", sUser);
 				return 0;
 			}
 			else {

@@ -19,8 +19,8 @@ int iGridplay[9][9];
 int iLoesung;
 int iAnzahlhilfe;
 int iSchwierigkeitsgrad;
-double dZeit;
-double dStartZeit;
+int iZeit;
+int iStartZeit;
 
 
 int main(void)
@@ -34,8 +34,8 @@ int main(void)
 
 	iAnzahlhilfe = 0;
 	iSchwierigkeitsgrad = 0;
-	dZeit = 0;
-	dStartZeit = -2;
+	iZeit = 0;
+	iStartZeit = 0;
 
 	// Zeige Menü an
 	menu();
