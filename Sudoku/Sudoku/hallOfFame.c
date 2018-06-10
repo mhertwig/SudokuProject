@@ -133,10 +133,6 @@ void schreibe_hallOfFame() {
 	sqlite3_stmt *stmt;
 	char sUser2[26] = "                         ";
 	char sSchwierigkeitsgrad[7];
-	/*char sLeicht[] = "Leicht";
-	char sMittel[] = "Mittel";
-	char sSchwer[] = "Schwer";
-	char sTest[] = "Test  ";*/
 
 	//User Leerzeichen entfernen
 	for (int i = 0; i < 25; i++)
@@ -161,10 +157,13 @@ void schreibe_hallOfFame() {
 		char sSchwierigkeitsgrad[] = "Schwer";
 	}
 	else{
-		sSchwierigkeitsgrad[1] = "T";
-		sSchwierigkeitsgrad[2] = "e";
-		sSchwierigkeitsgrad[3] = "s";
-		sSchwierigkeitsgrad[4] = "t";
+		sSchwierigkeitsgrad[0] = 'T';
+		sSchwierigkeitsgrad[1] = 'e';
+		sSchwierigkeitsgrad[2] = 's';
+		sSchwierigkeitsgrad[3] = 't';
+		sSchwierigkeitsgrad[4] = NULL;
+		sSchwierigkeitsgrad[5] = NULL;
+		sSchwierigkeitsgrad[6] = NULL;
 	}
 
 
@@ -173,8 +172,8 @@ void schreibe_hallOfFame() {
 		//SQL statement wird vorbereitet
 		rc = sqlite3_open(DATABASE_FILE, &db_handle);
 
-		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"%s\" ,\"3\", \"12\")")
-								, sUser2, sSchwierigkeitsgrad;
+		sql = sqlite3_mprintf("INSERT INTO hallOfFame VALUES (NULL, \"%s\", \"%s\" ,\"3\", \"12\")"
+			, sUser2, sSchwierigkeitsgrad);
 
 		rc = sqlite3_prepare_v2(db_handle, sql, strlen(sql), &stmt, NULL);
 
