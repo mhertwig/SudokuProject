@@ -232,7 +232,7 @@ int sudokuAbfrage(void)
 			}
 		}
 	}
-	iSchwierigkeitsgrad = 0;
+	//iSchwierigkeitsgrad = 0;
 
 	// setze Zeit
 	dZeit += clock() - dStartZeit;
