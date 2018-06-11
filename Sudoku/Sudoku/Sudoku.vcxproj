@@ -111,18 +111,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="design.c" />
+    <ClCompile Include="hallOfFame.c" />
     <ClCompile Include="login.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
     <ClCompile Include="registrierung.c" />
+    <ClCompile Include="spiel.c" />
     <ClCompile Include="sqlite3.c" />
+    <ClCompile Include="sudokuGenerator.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include.h" />
     <ClInclude Include="sqlite3.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="spiele.sqlite3" />
+    <None Include="sudoku.sqlite3" />
     <None Include="sudoku-anleitung.pdf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,75 +1,234 @@
-//menu.h
+//menu.c
 
 #include "include.h"
 
 void menu(void)
 {
+	// Definiton
 	char cMenu;
-	int iError = 0;
-	int schleife = 1;
+	int iSchleife = 1;
 	char sUser[26];
 	char sPasswort[20];
 	char sNachname[20];
 	char sVorname[20];
-
-
+	char cFile[100] = "sudoku-anleitung.pdf";
+	int iAnzahlhilfe = 0;
+	int iError2 = 0;
+	char cMenu2 = 0;
+	int iSchleife2 = 1;
 
 	do
 	{
+		iLoesung = 0;
+		iZeit = 0;
+		iStartZeit = 0;
+		iSchwierigkeitsgrad = 0;
+
+		// Anzeige des Menu's
 		menuAnzeige();
 
+
+		// Abfrage der Eingabe
 		printf("\tEingabe: ");
 		fflush(stdin);
-		iError = scanf_s("%c", &cMenu);
-		//if(cMenu)
+		scanf("%c", &cMenu);
 		printf("\n");
-		switch (cMenu)
+
+		// Ohne Login
+		if (iLoginChange == 0)
 		{
-		case '1':
-			// Schnellstart
+			switch (cMenu)
+			{
+			case '1':
+				// Schnellstart
+				do
+				{
+					schwierigkeitsMenu();
 
-			//schleife = 0;
-			break;
+					//Auswahl des Menüpunkts bzw. Case auswahl
+					printf("\tEingabe: ");
+					fflush(stdin);
+					iError2 = scanf("%c", &cMenu2);
+					printf("\n");
 
-		case '2':
-			// Neues Spiel starten
-			//schleife = 0;
-			break;
+					{
+						switch (cMenu2)
+						{
+						case '1':
+							//Leicht
+							//setze Schwierigkeitsgrad Leicht
+								iSchwierigkeitsgrad = 1;
+								iStartZeit = iZeit = clock();
+								iSchleife2 = 0;
+								sudokuGenShift();
+								spielFeldAusgabe();
 
-		case '3':
-			// Login
-			printf("\t\033[4mLogin\033[0m\n\n");
-			login_user();
-			printf("\n\t");
-			system("Pause");
-			break;
+							break;
 
-		case '4':
-			// Benutzer anlegen
-			printf("\t\033[4mRegistrierung\033[0m\n\n");
+						case '2':
+							//Mittel
+							//setze Schwierigkeitsgrad Mittel
+							iSchwierigkeitsgrad = 2;
+							iStartZeit = iZeit = clock();
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
 
-			register_user(sUser, sPasswort, sNachname, sVorname);
-			printf("\n\t");
-			system("Pause");
-			break;
+						case '3':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 3;
+							iStartZeit = iZeit = clock();
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
 
-		case '5':
-			// Hall of Fame
-			break;
+						case '4':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 4;
+							iStartZeit = iZeit = clock();
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
 
-		case '6':
-			// Regeln anzeigen
-			ShellExecute(NULL, NULL, "sudoku - anleitung.pdf", NULL, NULL, SW_SHOW);
-			break;
+						case 'x':
+							// Beenden
+							iSchleife2 = 0;
+						}
+					}
 
-		case 'x':
-			// Beenden
+				} while (iSchleife2 == 1);
 
-				schleife = 0;
+				
+				break;
+
+			case '2':
+				// Login
+				login_user();
+				printf("\n\t");
+				system("Pause");
+				break;
+
+			case '3':
+				// Benutzer anlegen
+				register_user(sUser, sPasswort, sNachname, sVorname);
+				printf("\n\t");
+				system("Pause");
+				break;
+
+			case '4':
+				// Bestenliste
+				hallOfFame_menu();
+				break;
+
+			case '5':
+				// Regeln anzeigen
+				ShellExecute(NULL, NULL, cFile, NULL, NULL, SW_SHOW);
+				break;
+
+			case 'x':
+				// Beenden
+				iSchleife = 0;
+			}
 		}
-	} while (schleife == 1);
+		else {
+		// Eingeloggt
+			switch (cMenu)
+			{
+			case '1':
+				// Neues Spiel starten
+				do
+				{
+					hallOfFameAnzeige();
+
+					//Auswahl des Menüpunkts bzw. Case auswahl
+					printf("\tEingabe: ");
+					fflush(stdin);
+					iError2 = scanf("%c", &cMenu2);
+					printf("\n");
+
+					{
+						switch (cMenu2)
+						{
+						case '1':
+							//Leicht
+							//setze Schwierigkeitsgrad Leicht
+							iSchwierigkeitsgrad = 1;
+							iStartZeit = iZeit = clock();
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '2':
+							//Mittel
+							//setze Schwierigkeitsgrad Mittel
+							iSchwierigkeitsgrad = 2;
+							iStartZeit = iZeit = clock();
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '3':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 3;
+							iStartZeit = iZeit = clock();
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case '4':
+							//Schwer
+							//setze Schwierigkeitsgrad Schwer
+							iSchwierigkeitsgrad = 4;
+							iStartZeit = iZeit = clock();
+							iSchleife2 = 0;
+							sudokuGenShift();
+							spielFeldAusgabe();
+							break;
+
+						case 'x':
+							// Beenden
+							iSchleife2 = 0;
+						}
+					}
+
+				} while (iSchleife2 == 1);
+
+
+				break;
+
+			case '2':
+				// Logout
+				printf("\t\033[4mLogout\033[0m\n\n");
+				logout_user();
+				printf("\n\t");
+				system("Pause");
+				break;
+
+			case '3':
+				// Bestenliste
+				hallOfFame_menu();
+				break;
+
+			case '4':
+				// Regeln anzeigen
+				ShellExecute(NULL, NULL, cFile, NULL, NULL, SW_SHOW);
+				break;
+
+			case 'x':
+				// Beenden
+				iSchleife = 0;
+			}
+
+		}
+	} while (iSchleife == 1);
 
 }
-
-
-
