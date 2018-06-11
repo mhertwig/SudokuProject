@@ -131,12 +131,133 @@ void sudokuGenShift(void)
 	}
 
 	
+
 	// Generiere Array mit 0 und 1
-	generiereZuLoeschende();
+	//generiereZuLoeschende();
+	PuzzleRandomPicker();
 	// setzte Zahlen und NULL in Array
 	loescheZahlen();
 
 }
+
+
+
+
+/*
+================================================
+Genenerates coordinates
+================================================
+*/
+int schwierigkeitsNumGen(void)
+{
+	unsigned int iNum;
+	iNum = rand() % (88 + 0 - 1) + 0;
+
+	if (iNum == 9 || iNum == 19 || iNum == 29 || iNum == 39 || iNum == 49 || iNum == 59 || iNum == 69 || iNum == 79)
+	{
+		schwierigkeitsNumGen();
+	}
+}
+
+
+
+/*
+================================================
+Randomly chooses cells to show / hide numbers on the board
+================================================
+*/
+int PuzzleRandomPicker(void)
+{
+	int iCellCount = 0;
+	int iDuplicated = 0;
+	int iIndexPicked;
+	int iRow;
+	int iCol;
+	int iLevel;
+
+	int iHolder;
+
+	int iLevelArray[37];
+
+	//int iSchwierigkeitsgrad = 3;
+
+
+	switch (iSchwierigkeitsgrad)
+	{
+	case 1:
+		iLevel = 22;
+		break;
+	case 2:
+		iLevel = 28;
+		break;
+	case 3:
+		iLevel = 36;
+		break;
+	case 4:
+		iLevel = 2;
+		break;
+	}
+
+
+	while (iCellCount < iLevel)
+	{
+		int iNum;
+		iNum = schwierigkeitsNumGen();
+
+		iDuplicated = 0;
+		for (iIndexPicked = 0; iIndexPicked < iLevel; iIndexPicked++)
+		{
+			if (iLevelArray[iIndexPicked] == iNum)
+			{
+				iDuplicated = 1;
+			}
+		}
+
+		
+
+		
+		// if there are no duplicated values, assigns the generated number to an array 
+		// increments index for next iteration
+		if (iDuplicated == 0)
+		{
+			iLevelArray[iCellCount] = iNum;
+
+			iCol = iNum / 10;
+			iRow = iNum % 10;
+			for (int iIndexV = 0; iIndexV < 9; iIndexV++)
+			{
+				for (int iIndexH = 0; iIndexH < 9; iIndexH++)
+				{
+					if (iIndexV == iCol && iIndexH == iRow)
+					{
+						iGridmuster[iIndexV][iIndexH] = 1;
+						
+					}
+				}
+			}
+			iCellCount++;
+		}
+	}
+
+	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
+	{
+		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
+		{
+			if (iGridmuster[iIndexV][iIndexH] == 1)
+			{
+				iGridmuster[iIndexV][iIndexH] = 0;
+
+			}
+			else
+			{
+				iGridmuster[iIndexV][iIndexH] = 1;
+			}
+		}
+	}
+}
+
+
+
 
 // Generiere das Array iGridmuster mit den Werten 0 und 1
 void generiereZuLoeschende(void)
@@ -197,9 +318,6 @@ void generiereZuLoeschende(void)
 				}
 			}
 			
-			
-			
-
 		}
 
 	}
