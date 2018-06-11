@@ -259,70 +259,70 @@ int PuzzleRandomPicker(void)
 
 
 
-// Generiere das Array iGridmuster mit den Werten 0 und 1
-void generiereZuLoeschende(void)
-{
-	int iRandom;
-
-	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
-	{
-		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
-		{
-			if(iSchwierigkeitsgrad == 1)
-			{ 
-				// Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 30) // 30% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			else if (iSchwierigkeitsgrad == 2)
-			{ // Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 45) // 45% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			else if (iSchwierigkeitsgrad == 3)
-			{ // Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 70) // 70% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			else if (iSchwierigkeitsgrad == 4)
-			{ // Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 2) // 70% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			
-		}
-
-	}
-
-}
+//// Generiere das Array iGridmuster mit den Werten 0 und 1
+//void generiereZuLoeschende(void)
+//{
+//	int iRandom;
+//
+//	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
+//	{
+//		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
+//		{
+//			if(iSchwierigkeitsgrad == 1)
+//			{ 
+//				// Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 30) // 30% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			else if (iSchwierigkeitsgrad == 2)
+//			{ // Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 45) // 45% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			else if (iSchwierigkeitsgrad == 3)
+//			{ // Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 70) // 70% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			else if (iSchwierigkeitsgrad == 4)
+//			{ // Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 2) // 70% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			
+//		}
+//
+//	}
+//
+//}
 
 // Setze in iGrid an den Positionen, in der in iGridmuster eine 0 ist auf NULL
 // Ansonsten setze die Zahl aus dem Lösungs Sudoku

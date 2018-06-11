@@ -158,6 +158,7 @@ void menu(void)
 							//Leicht
 							//setze Schwierigkeitsgrad Leicht
 							iSchwierigkeitsgrad = 1;
+							iStartZeit = iZeit = clock();
 							iSchleife2 = 0;
 							sudokuGenShift();
 							spielFeldAusgabe();
@@ -167,6 +168,7 @@ void menu(void)
 							//Mittel
 							//setze Schwierigkeitsgrad Mittel
 							iSchwierigkeitsgrad = 2;
+							iStartZeit = iZeit = clock();
 							iSchleife2 = 0;
 							sudokuGenShift();
 							spielFeldAusgabe();
@@ -176,6 +178,7 @@ void menu(void)
 							//Schwer
 							//setze Schwierigkeitsgrad Schwer
 							iSchwierigkeitsgrad = 3;
+							iStartZeit = iZeit = clock();
 							iSchleife2 = 0;
 							sudokuGenShift();
 							spielFeldAusgabe();
@@ -185,6 +188,7 @@ void menu(void)
 							//Schwer
 							//setze Schwierigkeitsgrad Schwer
 							iSchwierigkeitsgrad = 4;
+							iStartZeit = iZeit = clock();
 							iSchleife2 = 0;
 							sudokuGenShift();
 							spielFeldAusgabe();

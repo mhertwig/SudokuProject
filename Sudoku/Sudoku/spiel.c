@@ -42,18 +42,13 @@ int spielFeldAusgabe(void) {
 			// Schreibe in Die bestenliste falls Eingeloggt
 			// -----------------------
 			printf("\tSudoku wurde geloesst!\n");
-			printf("\t\n");
+			printf("\t");
 			system("Pause");
 
 			if(iLoginChange == 1){
 				hallOfFameEintragen_menu();
-				return 1;
 			}
-			else {
-				printf("\t\n");
-				system("Pause");
-				return 1;
-			}
+			return 1;
 		}
 
 		// Abfrage welche Zeile gesetzt werden soll
@@ -74,6 +69,7 @@ int spielFeldAusgabe(void) {
 			if (cZeile == 'n')
 			{
 				// Generiere neues Sudokuarray und drucke es aus
+				iStartZeit = iZeit = clock();
 				sudokuGenShift();
 				spielFeldAusgabe();
 				return 0;
@@ -113,6 +109,7 @@ int spielFeldAusgabe(void) {
 				if (cSpalte == 'n')
 				{
 					// Generiere neues Sudokuarray und drucke es aus
+					iStartZeit = iZeit = clock();
 					sudokuGenShift();
 					spielFeldAusgabe();
 					return 0;
@@ -152,6 +149,7 @@ int spielFeldAusgabe(void) {
 				if (cZahl == 'n')
 				{
 					// Generiere neues Sudokuarray und drucke es aus
+					iStartZeit = iZeit = clock();
 					sudokuGenShift();
 					spielFeldAusgabe();
 					return 0;
