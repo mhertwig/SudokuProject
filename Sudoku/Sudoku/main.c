@@ -27,11 +27,10 @@ int main(void)
 {
 	// Setze Fenseter Koordinaten, Länge und Breite
 	HWND hwnd = FindWindow("ConsoleWindowClass", NULL);
-	MoveWindow(hwnd, 350, 10, 700, 700, TRUE);
+	MoveWindow(hwnd, 350, 10, 700, 750, TRUE);
 
-	// Setze Login auf 0 (Ausgeloggt)
+	// Initialisierungen
 	iLoginChange = 0;
-
 	iAnzahlhilfe = 0;
 	iSchwierigkeitsgrad = 0;
 	iZeit = 0;

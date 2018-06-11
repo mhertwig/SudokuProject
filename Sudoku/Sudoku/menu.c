@@ -16,7 +16,6 @@ void menu(void)
 	int iError2 = 0;
 	char cMenu2 = 0;
 	int iSchleife2 = 1;
-	//int iSchwierigkeitsgrad;
 
 	do
 	{
@@ -58,11 +57,11 @@ void menu(void)
 						case '1':
 							//Leicht
 							//setze Schwierigkeitsgrad Leicht
-							iSchwierigkeitsgrad = 1;
-							iStartZeit = iZeit = clock();
-							iSchleife2 = 0;
-							sudokuGenShift();
-							spielFeldAusgabe();
+								iSchwierigkeitsgrad = 1;
+								iStartZeit = iZeit = clock();
+								iSchleife2 = 0;
+								sudokuGenShift();
+								spielFeldAusgabe();
 
 							break;
 
@@ -224,8 +223,6 @@ void menu(void)
 				// Beenden
 				iSchleife = 0;
 			}
-
-
 
 		}
 	} while (iSchleife == 1);

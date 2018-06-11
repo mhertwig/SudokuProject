@@ -26,7 +26,7 @@ extern int iGridmuster[9][9]; // Array ob feld leer oder gefüllt werden soll
 extern int iGridplay[9][9]; // damit Zahlen gefüllt werden
 extern int iLoesung; // wenn gelößt
 extern int iAnzahlHilfe; // anzahl der Hilfen
-extern int iSchwierigkeitsgrad;
+extern int iSchwierigkeitsgrad; // Schwierigkeitsgrad ändern
 extern int iZeit, iStartZeit; // Zeit
 
 HANDLE  hColor;
