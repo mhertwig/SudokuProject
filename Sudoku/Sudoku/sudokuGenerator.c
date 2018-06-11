@@ -15,7 +15,7 @@ int randomNumGen(void)
 	{
 		return iNum;
 	}
-}
+} 
 
 
 // generates sudoku board
@@ -175,12 +175,18 @@ int PuzzleRandomPicker(void)
 	int iCol;
 	int iLevel;
 
-	int iHolder;
-
 	int iLevelArray[37];
 
-	//int iSchwierigkeitsgrad = 3;
+	//int iSchwierigkeitsgrad = 1;
 
+	// reseting an array
+	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
+	{
+		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
+		{
+			iGridmuster[iIndexV][iIndexH] = 0;
+		}
+	}
 
 	switch (iSchwierigkeitsgrad)
 	{
@@ -196,8 +202,10 @@ int PuzzleRandomPicker(void)
 	case 4:
 		iLevel = 2;
 		break;
+	default:
+		iLevel = 2;
+		break;
 	}
-
 
 	while (iCellCount < iLevel)
 	{
@@ -212,9 +220,6 @@ int PuzzleRandomPicker(void)
 				iDuplicated = 1;
 			}
 		}
-
-		
-
 		
 		// if there are no duplicated values, assigns the generated number to an array 
 		// increments index for next iteration
@@ -257,72 +262,72 @@ int PuzzleRandomPicker(void)
 }
 
 
-
-
-// Generiere das Array iGridmuster mit den Werten 0 und 1
-void generiereZuLoeschende(void)
-{
-	int iRandom;
-
-	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
-	{
-		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
-		{
-			if(iSchwierigkeitsgrad == 1)
-			{ 
-				// Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 30) // 30% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			else if (iSchwierigkeitsgrad == 2)
-			{ // Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 45) // 45% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			else if (iSchwierigkeitsgrad == 3)
-			{ // Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 70) // 70% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			else if (iSchwierigkeitsgrad == 4)
-			{ // Generiere Array mit entweder 1 oder 0
-				iRandom = rand() % 2;
-				if (rand() % 100 < 2) // 70% Wahrscheinlichkeit werden gelöscht
-				{
-					iGridmuster[iIndexV][iIndexH] = 0;
-				}
-				else
-				{
-					iGridmuster[iIndexV][iIndexH] = 1;
-				}
-			}
-			
-		}
-
-	}
-
-}
+//
+//
+//// Generiere das Array iGridmuster mit den Werten 0 und 1
+//void generiereZuLoeschende(void)
+//{
+//	int iRandom;
+//
+//	for (int iIndexV = 0; iIndexV < 9; iIndexV++)
+//	{
+//		for (int iIndexH = 0; iIndexH < 9; iIndexH++)
+//		{
+//			if(iSchwierigkeitsgrad == 1)
+//			{ 
+//				// Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 30) // 30% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			else if (iSchwierigkeitsgrad == 2)
+//			{ // Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 45) // 45% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			else if (iSchwierigkeitsgrad == 3)
+//			{ // Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 70) // 70% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			else if (iSchwierigkeitsgrad == 4)
+//			{ // Generiere Array mit entweder 1 oder 0
+//				iRandom = rand() % 2;
+//				if (rand() % 100 < 2) // 70% Wahrscheinlichkeit werden gelöscht
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 0;
+//				}
+//				else
+//				{
+//					iGridmuster[iIndexV][iIndexH] = 1;
+//				}
+//			}
+//			
+//		}
+//
+//	}
+//
+//}
 
 // Setze in iGrid an den Positionen, in der in iGridmuster eine 0 ist auf NULL
 // Ansonsten setze die Zahl aus dem Lösungs Sudoku
